@@ -1,0 +1,621 @@
+/**
+ * VERSE Enhanced Mystical Theme Variables
+ * Optimized for Contrast, Consistency & Accessibility
+ */
+
+/* =================================================================== */
+/* ENHANCED COLOR SYSTEM WITH PROPER CONTRAST */
+/* =================================================================== */
+
+:root {
+  /* Core Background Hierarchy - Enhanced Contrast */
+  --verse-bg-deep: #0a0f1c;           /* Deepest background - improved darkness */
+  --verse-bg-main: #1a202c;           /* Main container background */
+  --verse-bg-surface: #2d3748;        /* Surface elements - better contrast */
+  --verse-bg-elevated: #4a5568;       /* Elevated surfaces */
+  --verse-bg-overlay: #718096;        /* Modal overlays */
+  
+  /* Text Hierarchy - High Contrast Ratios */
+  --verse-text-primary: #ffffff;      /* Primary text - pure white for max contrast */
+  --verse-text-secondary: #f7fafc;    /* Secondary text - near white */
+  --verse-text-muted: #e2e8f0;        /* Muted text - still readable */
+  --verse-text-subtle: #cbd5e1;       /* Subtle text - minimum readable */
+  --verse-text-disabled: #a0aec0;     /* Disabled state */
+  --verse-text-placeholder: #718096;  /* Placeholder text */
+  
+  /* Enhanced Magic Color Spectrum - Better Visibility */
+  --verse-purple-ethereal: #f7faff;   /* Lightest purple tint */
+  --verse-purple-whisper: #edf2ff;    /* Soft purple whisper */
+  --verse-purple-mist: #ddd6fe;       /* Purple mist */
+  --verse-purple-dream: #c4b5fd;      /* Dream purple */
+  --verse-purple-spell: #a78bfa;      /* Active spell purple */
+  --verse-purple-magic: #8b5cf6;      /* Primary magic purple */
+  --verse-purple-deep: #7c3aed;       /* Deep magic */
+  --verse-purple-shadow: #6d28d9;     /* Shadow purple */
+  --verse-purple-void: #5b21b6;       /* Void purple */
+  --verse-purple-abyss: #4c1d95;      /* Deepest purple */
+  
+  /* Enhanced Teal Spectrum - Improved Contrast */
+  --verse-teal-crystal: #f0fdfa;      /* Crystal clear */
+  --verse-teal-shimmer: #ccfbf1;      /* Gentle shimmer */
+  --verse-teal-glow: #99f6e4;         /* Soft glow */
+  --verse-teal-spark: #5eead4;        /* Bright spark */
+  --verse-teal-flow: #2dd4bf;         /* Energy flow */
+  --verse-teal-magic: #14b8a6;        /* Primary teal magic */
+  --verse-teal-depths: #0d9488;       /* Ocean depths */
+  --verse-teal-ocean: #0f766e;        /* Deep ocean */
+  --verse-teal-trench: #115e59;       /* Ocean trench */
+  --verse-teal-cavern: #134e4a;       /* Deepest cavern */
+  
+  /* Enhanced Gold Spectrum - Better Warmth */
+  --verse-gold-dawn: #fffbeb;         /* Morning dawn */
+  --verse-gold-light: #fef3c7;        /* Gentle light */
+  --verse-gold-gleam: #fde68a;        /* Golden gleam */
+  --verse-gold-shine: #fcd34d;        /* Bright shine */
+  --verse-gold-bright: #fbbf24;       /* Vibrant gold */
+  --verse-gold-flame: #f59e0b;        /* Golden flame */
+  --verse-gold-ember: #d97706;        /* Glowing ember */
+  --verse-gold-fire: #b45309;         /* Intense fire */
+  --verse-gold-forge: #92400e;        /* Forge heat */
+  --verse-gold-molten: #78350f;       /* Molten gold */
+  
+  /* Enhanced State Colors - Accessible Contrast */
+  --verse-success-light: #d1fae5;     /* Success background */
+  --verse-success-main: #10b981;      /* Success primary */
+  --verse-success-dark: #059669;      /* Success dark */
+  
+  --verse-error-light: #fee2e2;       /* Error background */
+  --verse-error-main: #ef4444;        /* Error primary */
+  --verse-error-dark: #dc2626;        /* Error dark */
+  
+  --verse-warning-light: #fef3c7;     /* Warning background */
+  --verse-warning-main: #f59e0b;      /* Warning primary */
+  --verse-warning-dark: #d97706;      /* Warning dark */
+  
+  --verse-info-light: #dbeafe;        /* Info background */
+  --verse-info-main: #3b82f6;         /* Info primary */
+  --verse-info-dark: #2563eb;         /* Info dark */
+  
+  /* Enhanced Border System - Better Contrast & Consistency */
+/* Add to the border section in theme.css */
+
+/* Enhanced Border System - Better Contrast & Consistency */
+--verse-border-subtle: rgba(255, 255, 255, 0.15) !important;    /* Subtle borders */
+--verse-border-soft: rgba(255, 255, 255, 0.25) !important;     /* Soft borders */
+--verse-border-main: rgba(255, 255, 255, 0.35) !important;     /* Main borders */
+--verse-border-strong: rgba(255, 255, 255, 0.5) !important;    /* Strong borders */
+--verse-border-accent: var(--verse-purple-magic) !important;   /* Accent borders */
+--verse-border-focus: var(--verse-teal-magic) !important;      /* Focus borders */
+--verse-border-error: var(--verse-error-main) !important;      /* Error borders */
+--verse-border-success: var(--verse-success-main) !important;  /* Success borders */
+
+/* Enhanced Border Radius System */
+--verse-radius-none: 0;
+--verse-radius-sm: 0.375rem !important;         /* 6px - subtle rounding */
+--verse-radius-md: 0.5rem !important;           /* 8px - standard rounding */
+--verse-radius-lg: 0.75rem !important;          /* 12px - prominent rounding */
+--verse-radius-xl: 1rem !important;             /* 16px - large rounding */
+--verse-radius-2xl: 1.5rem !important;          /* 24px - extra large */
+--verse-radius-3xl: 2rem !important;            /* 32px - very large */
+--verse-radius-full: 9999px !important;         /* Fully rounded */
+  
+  /* =================================================================== */
+  /* CONSISTENT SPACING SYSTEM */
+  /* =================================================================== */
+  
+  /* Base Spacing Scale - 4px increments for consistency */
+  --verse-space-0: 0;                 /* 0px */
+  --verse-space-1: 0.25rem;           /* 4px */
+  --verse-space-2: 0.5rem;            /* 8px */
+  --verse-space-3: 0.75rem;           /* 12px */
+  --verse-space-4: 1rem;              /* 16px */
+  --verse-space-5: 1.25rem;           /* 20px */
+  --verse-space-6: 1.5rem;            /* 24px */
+  --verse-space-8: 2rem;              /* 32px */
+  --verse-space-10: 2.5rem;           /* 40px */
+  --verse-space-12: 3rem;             /* 48px */
+  --verse-space-16: 4rem;             /* 64px */
+  --verse-space-20: 5rem;             /* 80px */
+  --verse-space-24: 6rem;             /* 96px */
+  --verse-space-32: 8rem;             /* 128px */
+  
+  /* Semantic Spacing Aliases */
+  --verse-space-xs: var(--verse-space-1);     /* 4px */
+  --verse-space-4xl: var(--verse-space-16);   /* 64px */
+  --verse-space-5xl: var(--verse-space-20);   /* 80px */
+  --verse-space-6xl: var(--verse-space-24);   /* 96px */
+  
+  /* Component-Specific Padding Standards */
+  --verse-pad-input: var(--verse-space-3) var(--verse-space-4);      /* 12px 16px */
+  --verse-pad-button: var(--verse-space-3) var(--verse-space-6);     /* 12px 24px */
+  --verse-pad-card: var(--verse-space-6);                            /* 24px */
+  --verse-pad-section: var(--verse-space-8) var(--verse-space-4);    /* 32px 16px */
+  --verse-pad-container: var(--verse-space-4);                       /* 16px */
+  --verse-pad-modal: var(--verse-space-8);                           /* 32px */
+  
+  /* =================================================================== */
+  /* ENHANCED BORDER RADIUS SYSTEM */
+  /* =================================================================== */
+  
+  --verse-radius-none: 0;
+  --verse-radius-sm: 0.25rem;         /* 4px - subtle rounding */
+  --verse-radius-md: 0.375rem;        /* 6px - standard rounding */
+  --verse-radius-lg: 0.5rem;          /* 8px - prominent rounding */
+  --verse-radius-xl: 0.75rem;         /* 12px - large rounding */
+  --verse-radius-2xl: 1rem;           /* 16px - extra large */
+  --verse-radius-3xl: 1.5rem;         /* 24px - very large */
+  --verse-radius-full: 9999px;        /* Fully rounded */
+  
+  /* Component-Specific Radius */
+  --verse-radius-input: var(--verse-radius-md);      /* Input fields */
+  --verse-radius-button: var(--verse-radius-lg);     /* Buttons */
+  --verse-radius-card: var(--verse-radius-xl);       /* Cards */
+  --verse-radius-modal: var(--verse-radius-2xl);     /* Modals */
+  --verse-radius-avatar: var(--verse-radius-full);   /* Avatars */
+  --verse-radius-badge: var(--verse-radius-full);    /* Badges */
+  
+  /* =================================================================== */
+  /* TYPOGRAPHY SYSTEM WITH PROPER CONTRAST */
+  /* =================================================================== */
+  
+  /* Font Size Scale - Modular scale for consistency */
+  --verse-text-xs: 0.75rem;           /* 12px */
+  --verse-text-sm: 0.875rem;          /* 14px */
+  --verse-text-base: 1rem;            /* 16px */
+  --verse-text-lg: 1.125rem;          /* 18px */
+  --verse-text-xl: 1.25rem;           /* 20px */
+  --verse-text-2xl: 1.5rem;           /* 24px */
+  --verse-text-3xl: 1.875rem;         /* 30px */
+  --verse-text-4xl: 2.25rem;          /* 36px */
+  --verse-text-5xl: 3rem;             /* 48px */
+  --verse-text-6xl: 3.75rem;          /* 60px */
+  --verse-text-7xl: 4.5rem;           /* 72px */
+  
+  /* Font Weight Scale */
+  --verse-weight-thin: 100;
+  --verse-weight-light: 300;
+  --verse-weight-normal: 400;
+  --verse-weight-medium: 500;
+  --verse-weight-semibold: 600;
+  --verse-weight-bold: 700;
+  --verse-weight-extrabold: 800;
+  --verse-weight-black: 900;
+  
+  /* Line Height Scale */
+  --verse-leading-none: 1;
+  --verse-leading-tight: 1.25;
+  --verse-leading-snug: 1.375;
+  --verse-leading-normal: 1.5;
+  --verse-leading-relaxed: 1.625;
+  --verse-leading-loose: 2;
+  
+  /* Letter Spacing */
+  --verse-tracking-tighter: -0.05em;
+  --verse-tracking-tight: -0.025em;
+  --verse-tracking-normal: 0em;
+  --verse-tracking-wide: 0.025em;
+  --verse-tracking-wider: 0.05em;
+  --verse-tracking-widest: 0.1em;
+  
+  /* =================================================================== */
+  /* ENHANCED SHADOW SYSTEM */
+  /* =================================================================== */
+  
+  --verse-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --verse-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.2);
+  --verse-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2);
+  --verse-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.25), 0 4px 6px rgba(0, 0, 0, 0.1);
+  --verse-shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.1);
+  --verse-shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.15);
+  --verse-shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+  
+  /* Mystical Glows with Better Contrast */
+  --verse-glow-purple: 0 0 20px rgba(139, 92, 246, 0.6), 0 0 40px rgba(139, 92, 246, 0.3);
+  --verse-glow-teal: 0 0 20px rgba(20, 184, 166, 0.6), 0 0 40px rgba(20, 184, 166, 0.3);
+  --verse-glow-gold: 0 0 20px rgba(245, 158, 11, 0.6), 0 0 40px rgba(245, 158, 11, 0.3);
+  --verse-glow-success: 0 0 15px rgba(16, 185, 129, 0.5);
+  --verse-glow-error: 0 0 15px rgba(239, 68, 68, 0.5);
+  --verse-glow-focus: 0 0 0 3px rgba(139, 92, 246, 0.2);
+  
+  /* =================================================================== */
+  /* ENHANCED GRADIENTS */
+  /* =================================================================== */
+  
+  --verse-gradient-primary: linear-gradient(135deg, 
+    var(--verse-purple-magic) 0%, 
+    var(--verse-purple-deep) 100%);
+    
+  --verse-gradient-secondary: linear-gradient(135deg, 
+    var(--verse-teal-magic) 0%, 
+    var(--verse-teal-depths) 100%);
+    
+  --verse-gradient-accent: linear-gradient(135deg, 
+    var(--verse-gold-flame) 0%, 
+    var(--verse-gold-ember) 100%);
+    
+  --verse-gradient-mystical: linear-gradient(135deg, 
+    var(--verse-purple-magic) 0%, 
+    var(--verse-teal-magic) 50%, 
+    var(--verse-gold-flame) 100%);
+    
+  --verse-gradient-surface: linear-gradient(145deg, 
+    var(--verse-bg-surface) 0%, 
+    var(--verse-bg-elevated) 100%);
+    
+  --verse-gradient-overlay: linear-gradient(180deg, 
+    rgba(10, 15, 28, 0.8) 0%, 
+    rgba(10, 15, 28, 0.95) 100%);
+    
+  /* =================================================================== */
+  /* COMPONENT DIMENSIONS WITH CONSISTENT SPACING */
+  /* =================================================================== */
+  
+  /* Layout Dimensions */
+  --verse-header-height: 4rem;               /* 64px - improved touch target */
+  --verse-sidebar-width: 16rem;              /* 256px */
+  --verse-sidebar-collapsed: 4rem;           /* 64px */
+  --verse-footer-height: 3rem;               /* 48px */
+  --verse-nav-height: 3.5rem;                /* 56px */
+  
+  /* Container Widths */
+  --verse-container-xs: 20rem;               /* 320px */
+  --verse-container-sm: 24rem;               /* 384px */
+  --verse-container-md: 28rem;               /* 448px */
+  --verse-container-lg: 32rem;               /* 512px */
+  --verse-container-xl: 36rem;               /* 576px */
+  --verse-container-2xl: 42rem;              /* 672px */
+  --verse-container-3xl: 48rem;              /* 768px */
+  --verse-container-4xl: 56rem;              /* 896px */
+  --verse-container-5xl: 64rem;              /* 1024px */
+  --verse-container-6xl: 72rem;              /* 1152px */
+  --verse-container-7xl: 80rem;              /* 1280px */
+  --verse-container-full: 100%;
+  
+  /* Form Element Dimensions */
+  --verse-input-height-sm: 2rem;             /* 32px */
+  --verse-input-height-md: 2.5rem;           /* 40px */
+  --verse-input-height-lg: 3rem;             /* 48px */
+  --verse-button-height-sm: 2rem;            /* 32px */
+  --verse-button-height-md: 2.5rem;          /* 40px */
+  --verse-button-height-lg: 3rem;            /* 48px */
+  --verse-avatar-size-xs: 1.5rem;            /* 24px */
+  --verse-avatar-size-sm: 2rem;              /* 32px */
+  --verse-avatar-size-md: 2.5rem;            /* 40px */
+  --verse-avatar-size-lg: 3rem;              /* 48px */
+  --verse-avatar-size-xl: 4rem;              /* 64px */
+  
+  /* =================================================================== */
+  /* ANIMATION & TRANSITION SYSTEM */
+  /* =================================================================== */
+  
+  --verse-duration-instant: 0ms;
+  --verse-duration-fast: 100ms;
+  --verse-duration-normal: 200ms;
+  --verse-duration-medium: 300ms;
+  --verse-duration-slow: 500ms;
+  --verse-duration-slower: 700ms;
+  --verse-duration-slowest: 1000ms;
+  
+  /* Enhanced Easing Functions */
+  --verse-ease-linear: cubic-bezier(0, 0, 1, 1);
+  --verse-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --verse-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --verse-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --verse-ease-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --verse-ease-elastic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --verse-ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  
+  /* =================================================================== */
+  /* Z-INDEX MANAGEMENT */
+  /* =================================================================== */
+  
+  --verse-z-hide: -1;
+  --verse-z-base: 0;
+  --verse-z-docked: 10;
+  --verse-z-sticky: 20;
+  --verse-z-banner: 30;
+  --verse-z-overlay: 40;
+  --verse-z-modal: 50;
+  --verse-z-popover: 60;
+  --verse-z-skiplink: 70;
+  --verse-z-tooltip: 80;
+  --verse-z-toast: 90;
+  --verse-z-divine: 9999;
+  
+  /* =================================================================== */
+  /* RESPONSIVE BREAKPOINTS */
+  /* =================================================================== */
+  
+  --verse-breakpoint-xs: 320px;
+  --verse-breakpoint-sm: 640px;
+  --verse-breakpoint-md: 768px;
+  --verse-breakpoint-lg: 1024px;
+  --verse-breakpoint-xl: 1280px;
+  --verse-breakpoint-2xl: 1536px;
+  
+  /* =================================================================== */
+  /* OPACITY SCALE FOR STATES */
+  /* =================================================================== */
+  
+  --verse-opacity-0: 0;
+  --verse-opacity-5: 0.05;
+  --verse-opacity-10: 0.1;
+  --verse-opacity-20: 0.2;
+  --verse-opacity-25: 0.25;
+  --verse-opacity-30: 0.3;
+  --verse-opacity-40: 0.4;
+  --verse-opacity-50: 0.5;
+  --verse-opacity-60: 0.6;
+  --verse-opacity-70: 0.7;
+  --verse-opacity-75: 0.75;
+  --verse-opacity-80: 0.8;
+  --verse-opacity-90: 0.9;
+  --verse-opacity-95: 0.95;
+  --verse-opacity-100: 1;
+  
+  /* Semantic Opacity Aliases */
+  --verse-opacity-disabled: var(--verse-opacity-40);
+  --verse-opacity-loading: var(--verse-opacity-60);
+  --verse-opacity-muted: var(--verse-opacity-70);
+  --verse-opacity-hover: var(--verse-opacity-80);
+}
+
+/* =================================================================== */
+/* THEME APPLICATION & INHERITANCE */
+/* =================================================================== */
+
+/* Ensure proper inheritance */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--verse-bg-deep);
+  color: var(--verse-text-primary);
+  font-size: 16px;
+  line-height: var(--verse-leading-normal);
+}
+
+body {
+  background-color: var(--verse-bg-deep);
+  color: var(--verse-text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 
+               Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-weight: var(--verse-weight-normal);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Enhanced text element defaults */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--verse-text-primary);
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: var(--verse-weight-bold);
+  line-height: var(--verse-leading-tight);
+  margin: 0 0 var(--verse-space-md) 0;
+  letter-spacing: var(--verse-tracking-tight);
+}
+
+p {
+  color: var(--verse-text-secondary);
+  margin: 0 0 var(--verse-space-md) 0;
+  line-height: var(--verse-leading-relaxed);
+}
+
+/* Enhanced interactive element defaults */
+button, input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  border: 1px solid var(--verse-border-main);
+  border-radius: var(--verse-radius-md);
+  background-color: var(--verse-bg-surface);
+  transition: all var(--verse-duration-normal) var(--verse-ease-out);
+}
+
+button {
+  cursor: pointer;
+  font-weight: var(--verse-weight-medium);
+  padding: var(--verse-pad-button);
+  min-height: var(--verse-button-height-md);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--verse-space-2);
+}
+
+input, textarea, select {
+  padding: var(--verse-pad-input);
+  min-height: var(--verse-input-height-md);
+  width: 100%;
+}
+
+/* Enhanced focus states */
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none;
+  border-color: var(--verse-border-focus);
+  box-shadow: var(--verse-glow-focus);
+}
+
+/* Enhanced hover states */
+button:hover:not(:disabled) {
+  border-color: var(--verse-purple-magic);
+  background-color: var(--verse-purple-magic);
+  color: var(--verse-text-primary);
+  transform: translateY(-1px);
+  box-shadow: var(--verse-shadow-md);
+}
+
+/* Enhanced disabled states */
+button:disabled,
+input:disabled,
+textarea:disabled,
+select:disabled {
+  opacity: var(--verse-opacity-disabled);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* =================================================================== */
+/* ENHANCED SELECTION STYLING */
+/* =================================================================== */
+
+::selection {
+  background: var(--verse-purple-magic);
+  color: var(--verse-text-primary);
+  text-shadow: none;
+}
+
+::-moz-selection {
+  background: var(--verse-purple-magic);
+  color: var(--verse-text-primary);
+  text-shadow: none;
+}
+
+/* =================================================================== */
+/* ENHANCED SCROLLBAR STYLING */
+/* =================================================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--verse-bg-surface);
+  border-radius: var(--verse-radius-full);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--verse-purple-magic);
+  border-radius: var(--verse-radius-full);
+  border: 2px solid var(--verse-bg-surface);
+  transition: background var(--verse-duration-normal) var(--verse-ease-out);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--verse-purple-deep);
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--verse-bg-surface);
+}
+
+/* =================================================================== */
+/* RESPONSIVE ADJUSTMENTS */
+/* =================================================================== */
+
+@media (max-width: 768px) {
+  :root {
+    /* Adjusted spacing for mobile */
+    --verse-space-3xl: var(--verse-space-8);      /* 32px instead of 48px */
+    --verse-space-4xl: var(--verse-space-12);     /* 48px instead of 64px */
+    
+    /* Adjusted component sizes for mobile */
+    --verse-header-height: 3.5rem;                /* 56px */
+    --verse-sidebar-width: 14rem;                 /* 224px */
+    --verse-pad-section: var(--verse-space-6) var(--verse-space-3); /* 24px 12px */
+    --verse-pad-container: var(--verse-space-3);  /* 12px */
+    --verse-pad-modal: var(--verse-space-6);      /* 24px */
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    /* Further reduced spacing for small screens */
+    --verse-space-2xl: var(--verse-space-6);      /* 24px instead of 32px */
+    --verse-space-3xl: var(--verse-space-8);      /* 32px instead of 48px */
+    
+    /* Smaller typography for mobile */
+    --verse-text-4xl: 2rem;                       /* 32px instead of 36px */
+    --verse-text-5xl: 2.5rem;                     /* 40px instead of 48px */
+    --verse-text-6xl: 3rem;                       /* 48px instead of 60px */
+    
+    /* Adjusted padding for mobile */
+    --verse-pad-button: var(--verse-space-2) var(--verse-space-4); /* 8px 16px */
+    --verse-pad-input: var(--verse-space-2) var(--verse-space-3);  /* 8px 12px */
+  }
+}
+
+/* =================================================================== */
+/* ACCESSIBILITY ENHANCEMENTS */
+/* =================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --verse-duration-fast: 0ms;
+    --verse-duration-normal: 0ms;
+    --verse-duration-medium: 0ms;
+    --verse-duration-slow: 0ms;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (prefers-contrast: high) {
+  :root {
+    /* Enhanced contrast for high contrast mode */
+    --verse-text-primary: #ffffff;
+    --verse-text-secondary: #ffffff;
+    --verse-text-muted: #f0f0f0;
+    --verse-bg-deep: #000000;
+    --verse-bg-surface: #1a1a1a;
+    --verse-border-main: rgba(255, 255, 255, 0.5);
+    --verse-border-strong: rgba(255, 255, 255, 0.8);
+  }
+  
+  button,
+  input,
+  textarea,
+  select {
+    border-width: 2px;
+  }
+}
+
+/* =================================================================== */
+/* PRINT OPTIMIZATIONS */
+/* =================================================================== */
+
+@media print {
+  :root {
+    /* Print-friendly colors */
+    --verse-text-primary: #000000;
+    --verse-text-secondary: #333333;
+    --verse-text-muted: #666666;
+    --verse-bg-deep: #ffffff;
+    --verse-bg-surface: #ffffff;
+    --verse-border-main: #cccccc;
+    
+    /* Remove shadows and glows for print */
+    --verse-shadow-xs: none;
+    --verse-shadow-sm: none;
+    --verse-shadow-md: none;
+    --verse-shadow-lg: none;
+    --verse-shadow-xl: none;
+    --verse-shadow-2xl: none;
+    --verse-glow-purple: none;
+    --verse-glow-teal: none;
+    --verse-glow-gold: none;
+  }
+  
+  * {
+    background: transparent !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+}

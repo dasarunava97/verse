@@ -1,0 +1,692 @@
+/**
+ * VERSE Mystical Modal Component Styles
+ * Enchanted dialog system with dimensional portals and ethereal animations
+ */
+
+/* =================================================================== */
+/* MYSTICAL MODAL FOUNDATION */
+/* =================================================================== */
+
+.verse-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--verse-space-lg);
+  z-index: var(--verse-z-modal);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--verse-duration-normal) var(--verse-ease-enchanted);
+  pointer-events: none;
+  --modal-max-width: none;
+  --modal-max-height: none;
+}
+
+.verse-modal-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.verse-modal-animating {
+  transition-duration: var(--verse-duration-normal);
+}
+
+/* =================================================================== */
+/* MYSTICAL BACKDROP ENCHANTMENTS */
+/* =================================================================== */
+
+.verse-modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  opacity: 0;
+  transition: all var(--verse-duration-normal) var(--verse-ease-out);
+  cursor: pointer;
+}
+
+.verse-modal-backdrop-open {
+  opacity: 1;
+}
+
+.verse-modal-backdrop-animating {
+  transition-duration: var(--verse-duration-normal);
+}
+
+/* Enhanced backdrop variants */
+.verse-modal-mystical .verse-modal-backdrop {
+  background: 
+    radial-gradient(circle at 30% 20%, rgba(124, 58, 237, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(20, 184, 166, 0.2) 0%, transparent 50%),
+    rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(12px) saturate(150%) brightness(110%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%) brightness(110%);
+}
+
+.verse-modal-ethereal .verse-modal-backdrop {
+  background: 
+    radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.2) 0%, transparent 60%),
+    rgba(15, 23, 42, 0.9);
+  backdrop-filter: blur(15px) saturate(180%) brightness(120%);
+  -webkit-backdrop-filter: blur(15px) saturate(180%) brightness(120%);
+}
+
+.verse-modal-no-overlay .verse-modal-backdrop {
+  display: none;
+}
+
+/* =================================================================== */
+/* MODAL CONTAINER ENCHANTMENTS */
+/* =================================================================== */
+
+.verse-modal-container {
+  position: relative;
+  width: 100%;
+  max-width: var(--modal-max-width, 100%);
+  max-height: var(--modal-max-height, 100%);
+  transform: scale(0.95) translateY(20px);
+  transition: all var(--verse-duration-normal) var(--verse-ease-mystical);
+  z-index: 1;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.verse-modal-open .verse-modal-container {
+  transform: scale(1) translateY(0);
+}
+
+.verse-modal-centered {
+  align-items: center;
+  justify-content: center;
+}
+
+.verse-modal-fullscreen .verse-modal-container {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+}
+
+/* =================================================================== */
+/* MODAL SIZE VARIANTS */
+/* =================================================================== */
+
+.verse-modal-small .verse-modal-container {
+  max-width: 28rem; /* 448px */
+}
+
+.verse-modal-medium .verse-modal-container {
+  max-width: 40rem; /* 640px */
+}
+
+.verse-modal-large .verse-modal-container {
+  max-width: 56rem; /* 896px */
+}
+
+.verse-modal-xlarge .verse-modal-container {
+  max-width: 72rem; /* 1152px */
+}
+
+.verse-modal-auto .verse-modal-container {
+  max-width: none;
+  width: auto;
+}
+
+/* =================================================================== */
+/* RESPONSIVE SIZE ADJUSTMENTS */
+/* =================================================================== */
+
+@media (max-width: 768px) {
+  .verse-modal {
+    padding: var(--verse-space-md);
+  }
+  
+  .verse-modal-large .verse-modal-container,
+  .verse-modal-xlarge .verse-modal-container {
+    max-width: 95vw;
+  }
+  
+  .verse-modal-medium .verse-modal-container {
+    max-width: 90vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .verse-modal {
+    padding: var(--verse-space-sm);
+    align-items: flex-end;
+  }
+  
+  .verse-modal-container {
+    transform: scale(0.98) translateY(100%);
+    width: 100%;
+    max-width: none;
+    border-radius: var(--verse-radius-lg) var(--verse-radius-lg) 0 0;
+  }
+  
+  .verse-modal-open .verse-modal-container {
+    transform: scale(1) translateY(0);
+  }
+  
+  .verse-modal-fullscreen {
+    padding: 0;
+    align-items: stretch;
+  }
+  
+  .verse-modal-fullscreen .verse-modal-container {
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 360px) {
+  .verse-modal {
+    padding: var(--verse-space-xs);
+  }
+}
+
+/* =================================================================== */
+/* MODAL CONTENT STYLING */
+/* =================================================================== */
+
+.verse-modal-content {
+  background: var(--verse-realm-shadow);
+  border: 1px solid var(--verse-border-spell);
+  border-radius: var(--verse-radius-2xl);
+  box-shadow: 
+    0 25px 50px rgba(15, 23, 42, 0.5),
+    0 0 0 1px rgba(124, 58, 237, 0.1),
+    inset 0 1px 0 rgba(248, 250, 252, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+  position: relative;
+  width: 86vw !important;
+}
+
+/* Content variant styles */
+.verse-modal-default .verse-modal-content {
+  background: linear-gradient(145deg, var(--verse-realm-shadow) 0%, var(--verse-realm-mist) 100%);
+}
+
+.verse-modal-mystical .verse-modal-content {
+  background: 
+    linear-gradient(145deg, var(--verse-realm-shadow) 0%, var(--verse-realm-mist) 100%),
+    radial-gradient(circle at center, rgba(124, 58, 237, 0.1) 0%, transparent 70%);
+  border-color: var(--verse-purple-magic);
+  box-shadow: 
+    0 25px 50px rgba(15, 23, 42, 0.5),
+    0 0 0 1px var(--verse-purple-magic),
+    0 0 20px rgba(124, 58, 237, 0.3),
+    inset 0 1px 0 rgba(248, 250, 252, 0.15);
+}
+
+.verse-modal-ethereal .verse-modal-content {
+  background: 
+    linear-gradient(145deg, var(--verse-realm-shadow) 0%, var(--verse-realm-mist) 100%),
+    radial-gradient(circle at center, rgba(245, 158, 11, 0.08) 0%, transparent 70%);
+  border-color: var(--verse-gold-flame);
+  box-shadow: 
+    0 25px 50px rgba(15, 23, 42, 0.5),
+    0 0 0 1px var(--verse-gold-flame),
+    0 0 20px rgba(245, 158, 11, 0.25),
+    inset 0 1px 0 rgba(248, 250, 252, 0.15);
+}
+
+.verse-modal-warning .verse-modal-content {
+  border-color: var(--verse-warning-sunset);
+  box-shadow: 
+    0 25px 50px rgba(15, 23, 42, 0.5),
+    0 0 0 1px var(--verse-warning-sunset),
+    0 0 15px rgba(245, 158, 11, 0.2);
+}
+
+.verse-modal-error .verse-modal-content {
+  border-color: var(--verse-error-crimson);
+  box-shadow: 
+    0 25px 50px rgba(15, 23, 42, 0.5),
+    0 0 0 1px var(--verse-error-crimson),
+    0 0 15px rgba(239, 68, 68, 0.2);
+}
+
+/* =================================================================== */
+/* MODAL HEADER ENCHANTMENTS */
+/* =================================================================== */
+
+.verse-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: var(--verse-space-xl) var(--verse-space-xl) 0;
+  gap: var(--verse-space-lg);
+  flex-shrink: 0;
+  position: relative;
+}
+
+.verse-modal-header-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.verse-modal-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: var(--verse-text-2xl);
+  font-weight: var(--verse-weight-bold);
+  color: var(--verse-text-moonlight);
+  margin: 0;
+  line-height: var(--verse-leading-tight);
+  word-wrap: break-word;
+}
+
+.verse-modal-subtitle {
+  font-size: var(--verse-text-base);
+  color: var(--verse-text-starlight);
+  margin: var(--verse-space-xs) 0 0;
+  line-height: var(--verse-leading-relaxed);
+}
+
+.verse-modal-header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--verse-space-sm);
+  flex-shrink: 0;
+}
+
+/* =================================================================== */
+/* MYSTICAL CLOSE BUTTON */
+/* =================================================================== */
+
+.verse-modal-close-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: rgba(51, 65, 85, 0.6);
+  border: 1px solid var(--verse-border-spell);
+  border-radius: var(--verse-radius-lg);
+  color: var(--verse-text-silver);
+  cursor: pointer;
+  transition: all var(--verse-duration-normal) var(--verse-ease-out);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  position: relative;
+  overflow: hidden;
+}
+
+.verse-modal-close-button:hover {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: var(--verse-error-crimson);
+  color: var(--verse-error-crimson);
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
+}
+
+.verse-modal-close-button:active {
+  transform: scale(0.95);
+}
+
+.verse-modal-close-button:focus-visible {
+  outline: 2px solid var(--verse-error-crimson);
+  outline-offset: 2px;
+}
+
+.verse-modal-close-icon {
+  font-size: 1.25rem;
+  line-height: 1;
+  transition: transform var(--verse-duration-fast) var(--verse-ease-out);
+}
+
+.verse-modal-close-button:hover .verse-modal-close-icon {
+  transform: rotate(90deg);
+}
+
+/* =================================================================== */
+/* MODAL BODY ENCHANTMENTS */
+/* =================================================================== */
+
+.verse-modal-body {
+  flex: 1;
+  padding: var(--verse-space-lg) var(--verse-space-xl);
+  overflow-y: auto;
+  overflow-x: hidden;
+  color: var(--verse-text-starlight);
+  line-height: var(--verse-leading-relaxed);
+  position: relative;
+}
+
+.verse-modal-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.verse-modal-body::-webkit-scrollbar-track {
+  background: var(--verse-realm-mist);
+  border-radius: var(--verse-radius-full);
+}
+
+.verse-modal-body::-webkit-scrollbar-thumb {
+  background: var(--verse-purple-magic);
+  border-radius: var(--verse-radius-full);
+}
+
+.verse-modal-body::-webkit-scrollbar-thumb:hover {
+  background: var(--verse-purple-deep);
+}
+
+/* =================================================================== */
+/* MODAL FOOTER ENCHANTMENTS */
+/* =================================================================== */
+
+.verse-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--verse-space-md);
+  padding: 0 var(--verse-space-xl) var(--verse-space-xl);
+  border-top: 1px solid var(--verse-border-spell);
+  background: linear-gradient(to bottom, transparent 0%, rgba(51, 65, 85, 0.3) 100%);
+  flex-shrink: 0;
+}
+
+.verse-modal-footer .verse-button {
+  min-width: 5rem;
+}
+
+/* =================================================================== */
+/* PRESET MODAL STYLES */
+/* =================================================================== */
+
+/* Confirmation Modal */
+.verse-confirmation-modal {
+  text-align: center;
+  padding: var(--verse-space-lg) 0;
+}
+
+.verse-confirmation-icon {
+  font-size: 3rem;
+  margin-bottom: var(--verse-space-lg);
+  color: var(--verse-warning-sunset);
+}
+
+.verse-confirmation-message {
+  font-size: var(--verse-text-lg);
+  color: var(--verse-text-starlight);
+  margin-bottom: var(--verse-space-2xl);
+  line-height: var(--verse-leading-relaxed);
+}
+
+.verse-confirmation-actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--verse-space-md);
+  flex-wrap: wrap;
+}
+
+/* Alert Modal */
+.verse-alert-modal {
+  text-align: center;
+  padding: var(--verse-space-lg) 0;
+}
+
+.verse-alert-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--verse-space-lg);
+  color: var(--verse-info-azure);
+}
+
+.verse-alert-message {
+  font-size: var(--verse-text-base);
+  color: var(--verse-text-starlight);
+  margin-bottom: var(--verse-space-xl);
+  line-height: var(--verse-leading-relaxed);
+}
+
+.verse-alert-actions {
+  display: flex;
+  justify-content: center;
+}
+
+/* Loading Modal */
+.verse-loading-modal {
+  text-align: center;
+  padding: var(--verse-space-2xl) var(--verse-space-lg);
+}
+
+.verse-loading-spinner {
+  position: relative;
+  width: 4rem;
+  height: 4rem;
+  margin: 0 auto var(--verse-space-xl);
+}
+
+.verse-loading-orb {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1rem;
+  height: 1rem;
+  background: var(--verse-gradient-mystical);
+  border-radius: var(--verse-radius-full);
+  transform: translate(-50%, -50%);
+  animation: verseOrbPulse 2s ease-in-out infinite;
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.6);
+}
+
+.verse-loading-rings {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.verse-loading-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid transparent;
+  border-top-color: var(--verse-purple-magic);
+  border-radius: var(--verse-radius-full);
+  animation: verseRingSpin 1.5s linear infinite;
+}
+
+.verse-loading-ring:nth-child(2) {
+  animation-delay: -0.5s;
+  border-top-color: var(--verse-teal-mystic);
+  transform: scale(0.8);
+}
+
+.verse-loading-ring:nth-child(3) {
+  animation-delay: -1s;
+  border-top-color: var(--verse-gold-flame);
+  transform: scale(0.6);
+}
+
+.verse-loading-message {
+  font-size: var(--verse-text-lg);
+  color: var(--verse-text-starlight);
+  margin-bottom: var(--verse-space-lg);
+  font-weight: var(--verse-weight-medium);
+}
+
+.verse-loading-progress {
+  margin-top: var(--verse-space-lg);
+}
+
+.verse-progress-bar {
+  width: 100%;
+  height: 0.5rem;
+  background: var(--verse-realm-mist);
+  border-radius: var(--verse-radius-full);
+  overflow: hidden;
+  margin-bottom: var(--verse-space-sm);
+}
+
+.verse-progress-fill {
+  height: 100%;
+  background: var(--verse-gradient-primary);
+  border-radius: var(--verse-radius-full);
+  transition: width var(--verse-duration-normal) var(--verse-ease-out);
+  position: relative;
+}
+
+.verse-progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+  animation: verseProgressShine 2s ease-in-out infinite;
+}
+
+.verse-progress-text {
+  font-size: var(--verse-text-sm);
+  color: var(--verse-text-silver);
+  font-weight: var(--verse-weight-medium);
+  font-variant-numeric: tabular-nums;
+}
+
+/* =================================================================== */
+/* MYSTICAL ANIMATIONS */
+/* =================================================================== */
+
+@keyframes verseOrbPulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+@keyframes verseRingSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes verseProgressShine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* =================================================================== */
+/* ACCESSIBILITY ENHANCEMENTS */
+/* =================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .verse-modal,
+  .verse-modal-backdrop,
+  .verse-modal-container,
+  .verse-modal-close-button,
+  .verse-loading-orb,
+  .verse-loading-ring,
+  .verse-progress-fill {
+    transition: none;
+    animation: none;
+  }
+  
+  .verse-modal-open .verse-modal-container {
+    transform: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .verse-modal-content {
+    border-width: 2px;
+    background: var(--verse-realm-void);
+  }
+  
+  .verse-modal-backdrop {
+    background: rgba(0, 0, 0, 0.9);
+  }
+  
+  .verse-modal-close-button {
+    border-width: 2px;
+    background: var(--verse-realm-void);
+  }
+}
+
+/* =================================================================== */
+/* RESPONSIVE MODAL ADJUSTMENTS */
+/* =================================================================== */
+
+@media (max-height: 600px) {
+  .verse-modal-content {
+    max-height: 95vh;
+  }
+  
+  .verse-modal-header {
+    padding: var(--verse-space-lg) var(--verse-space-xl) 0;
+  }
+  
+  .verse-modal-body {
+    padding: var(--verse-space-md) var(--verse-space-xl);
+  }
+  
+  .verse-modal-footer {
+    padding: 0 var(--verse-space-xl) var(--verse-space-lg);
+  }
+}
+
+@media (max-width: 480px) and (max-height: 600px) {
+  .verse-modal-header,
+  .verse-modal-body,
+  .verse-modal-footer {
+    padding-left: var(--verse-space-lg);
+    padding-right: var(--verse-space-lg);
+  }
+}
+
+/* =================================================================== */
+/* PRINT OPTIMIZATIONS */
+/* =================================================================== */
+
+@media print {
+  .verse-modal {
+    position: static;
+    background: white;
+    color: black;
+    padding: 0;
+  }
+  
+  .verse-modal-backdrop,
+  .verse-modal-close-button {
+    display: none;
+  }
+  
+  .verse-modal-content {
+    background: white;
+    border: 1px solid black;
+    box-shadow: none;
+    max-height: none;
+  }
+}

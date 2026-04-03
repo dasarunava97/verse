@@ -1,0 +1,646 @@
+/**
+ * VERSE Mystical Input Component Styles
+ * Enchanted form controls with dimensional scaling and ethereal animations
+ */
+
+/* =================================================================== */
+/* MYSTICAL INPUT FOUNDATION */
+/* =================================================================== */
+
+.verse-input-container {
+  position: relative;
+  width: 100%;
+  font-family: inherit;
+  --local-glow-intensity: 0;
+  --local-border-thickness: 0.125rem;
+  --local-field-elevation: 0;
+}
+
+.verse-input-field-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(145deg, var(--verse-realm-shadow) 0%, rgba(51, 65, 85, 0.8) 100%);
+  border: var(--local-border-thickness) solid var(--verse-border-spell);
+  border-radius: var(--verse-radius-xl);
+  transition: all var(--verse-duration-normal) var(--verse-ease-enchanted);
+  overflow: hidden;
+  transform: translateY(calc(var(--local-field-elevation) * -1px));
+  box-shadow: 
+    0 calc(var(--local-field-elevation) * 0.5px) calc(var(--local-field-elevation) * 1px) rgba(15, 23, 42, 0.3),
+    inset 0 1px 0 rgba(248, 250, 252, 0.1);
+}
+
+.verse-input-field-wrapper {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+  min-height: inherit;
+}
+
+.verse-input-full-width {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* =================================================================== */
+/* DIMENSIONAL SCALING SYSTEM */
+/* =================================================================== */
+
+/* Compact Size */
+.verse-input-sm {
+  --local-field-height: 2rem;
+  --local-font-scale: 0.875;
+  --local-padding-x: 0.625rem;
+  --local-icon-spacing: 0.5rem;
+}
+
+.verse-input-sm .verse-input-field-container {
+  min-height: var(--local-field-height);
+  padding: 0 var(--local-padding-x);
+}
+
+.verse-input-sm .verse-input-field {
+  font-size: calc(var(--verse-text-base) * var(--local-font-scale));
+  padding: 0.375rem 0;
+}
+
+/* Standard Size */
+.verse-input-md {
+  --local-field-height: 2.75rem;
+  --local-font-scale: 1;
+  --local-padding-x: 1rem;
+  --local-icon-spacing: 0.75rem;
+}
+
+.verse-input-md .verse-input-field-container {
+  min-height: var(--local-field-height);
+  padding: 0 var(--local-padding-x);
+}
+
+.verse-input-md .verse-input-field {
+  font-size: calc(var(--verse-text-base) * var(--local-font-scale));
+  padding: 0.625rem 0;
+}
+
+/* Enhanced Size */
+.verse-input-lg {
+  --local-field-height: 3.25rem;
+  --local-font-scale: 1.125;
+  --local-padding-x: 1.25rem;
+  --local-icon-spacing: 1rem;
+}
+
+.verse-input-lg .verse-input-field-container {
+  min-height: var(--local-field-height);
+  padding: 0 var(--local-padding-x);
+}
+
+.verse-input-lg .verse-input-field {
+  font-size: calc(var(--verse-text-base) * var(--local-font-scale));
+  padding: 0.875rem 0;
+}
+
+/* =================================================================== */
+/* RESPONSIVE DIMENSIONAL ADJUSTMENTS */
+/* =================================================================== */
+
+@media (max-width: 768px) {
+  .verse-input-lg {
+    --local-field-height: 3rem;
+    --local-font-scale: 1.0625;
+    --local-padding-x: 1.125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .verse-input-md {
+    --local-field-height: 2.5rem;
+    --local-font-scale: 0.9375;
+    --local-padding-x: 0.875rem;
+  }
+  
+  .verse-input-lg {
+    --local-field-height: 2.75rem;
+    --local-font-scale: 1;
+    --local-padding-x: 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .verse-input-sm {
+    --local-field-height: 1.875rem;
+    --local-font-scale: 0.8125;
+    --local-padding-x: 0.5rem;
+  }
+  
+  .verse-input-md {
+    --local-field-height: 2.25rem;
+    --local-font-scale: 0.875;
+    --local-padding-x: 0.75rem;
+  }
+}
+
+/* High DPI scaling */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .verse-input-field-container {
+    --local-border-thickness: 0.0625rem;
+  }
+}
+
+/* =================================================================== */
+/* MYSTICAL INPUT FIELD CORE */
+/* =================================================================== */
+
+.verse-input-field {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--verse-text-moonlight);
+  font-family: inherit;
+  font-weight: var(--verse-weight-normal);
+  line-height: var(--verse-leading-snug);
+  transition: all var(--verse-duration-normal) var(--verse-ease-in-out);
+  z-index: 10;
+  position: relative;
+  caret-color: var(--verse-purple-magic);
+}
+
+.verse-input-field::placeholder {
+  color: var(--verse-text-silver);
+  opacity: 0.65;
+  transition: opacity var(--verse-duration-normal) var(--verse-ease-out);
+  font-weight: var(--verse-weight-normal);
+}
+
+.verse-input-field:focus::placeholder {
+  opacity: 0.4;
+  transform: translateX(2px);
+}
+
+/* Enhanced autofill styling */
+.verse-input-field:-webkit-autofill,
+.verse-input-field:-webkit-autofill:hover,
+.verse-input-field:-webkit-autofill:focus,
+.verse-input-field:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 2000px var(--verse-realm-shadow) inset;
+  -webkit-text-fill-color: var(--verse-text-moonlight);
+  caret-color: var(--verse-purple-magic);
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* =================================================================== */
+/* ETHEREAL FLOATING LABEL SYSTEM */
+/* =================================================================== */
+
+.verse-input-label {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--verse-text-silver);
+  font-size: inherit;
+  font-weight: var(--verse-weight-medium);
+  pointer-events: none;
+  transition: all var(--verse-duration-normal) var(--verse-ease-mystical);
+  z-index: 5;
+  background: transparent;
+  padding: 0 0.375rem;
+  white-space: nowrap;
+  user-select: none;
+  line-height: 1;
+}
+
+.verse-input-focused .verse-input-label,
+.verse-input-has-value .verse-input-label {
+  top: -0.625rem;
+  left: -0.375rem;
+  font-size: 0.75em;
+  color: var(--verse-purple-magic);
+  background: var(--verse-realm-void);
+  transform: translateY(0) scale(1);
+  text-shadow: 0 0 8px rgba(124, 58, 237, 0.4);
+}
+
+.verse-input-required {
+  color: var(--verse-error-crimson);
+  margin-left: 0.25rem;
+  animation: verseRequiredPulse 2s ease-in-out infinite;
+}
+
+@keyframes verseRequiredPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* =================================================================== */
+/* MYSTICAL ICON ENCHANTMENTS */
+/* =================================================================== */
+
+.verse-input-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--verse-text-silver);
+  transition: all var(--verse-duration-normal) var(--verse-ease-out);
+  z-index: 15;
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  position: relative;
+}
+
+.verse-input-icon-left {
+  margin-right: var(--local-icon-spacing);
+  order: -1;
+}
+
+.verse-input-icon-right {
+  margin-left: var(--local-icon-spacing);
+  order: 1;
+}
+
+.verse-input-has-left-icon .verse-input-field {
+  padding-left: 0;
+}
+
+.verse-input-has-right-icon .verse-input-field {
+  padding-right: 0;
+}
+
+.verse-input-focused .verse-input-icon {
+  color: var(--verse-purple-magic);
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 4px rgba(124, 58, 237, 0.5));
+}
+
+/* =================================================================== */
+/* MYSTICAL VARIANT ENCHANTMENTS */
+/* =================================================================== */
+
+/* Default Variant - Shadow Realm */
+.verse-input-default {
+  --local-variant-bg: var(--verse-realm-shadow);
+  --local-variant-border: var(--verse-border-spell);
+  --local-variant-accent: var(--verse-purple-magic);
+}
+
+.verse-input-default .verse-input-field-container {
+  background: var(--local-variant-bg);
+  border-color: var(--local-variant-border);
+}
+
+/* Enchanted Variant - Glass Morphism */
+.verse-input-enchanted {
+  --local-variant-bg: rgba(30, 41, 59, 0.7);
+  --local-variant-border: var(--verse-purple-magic);
+  --local-variant-accent: var(--verse-purple-spell);
+}
+
+.verse-input-enchanted .verse-input-field-container {
+  background: var(--local-variant-bg);
+  border-color: var(--local-variant-border);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  box-shadow: 
+    0 0 0 1px rgba(124, 58, 237, 0.3),
+    inset 0 1px 0 rgba(248, 250, 252, 0.15);
+}
+
+/* Mystical Variant - Gradient Magic */
+.verse-input-mystical {
+  --local-variant-bg: linear-gradient(135deg, var(--verse-realm-shadow) 0%, var(--verse-realm-mist) 100%);
+  --local-variant-border: var(--verse-teal-mystic);
+  --local-variant-accent: var(--verse-teal-flow);
+}
+
+.verse-input-mystical .verse-input-field-container {
+  background: var(--local-variant-bg);
+  border-color: var(--local-variant-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.verse-input-mystical .verse-input-field-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--verse-gradient-mystical);
+  opacity: 0.08;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Ethereal Variant - Cosmic Glow */
+.verse-input-ethereal {
+  --local-variant-bg: rgba(30, 41, 59, 0.5);
+  --local-variant-border: var(--verse-gold-flame);
+  --local-variant-accent: var(--verse-gold-bright);
+}
+
+.verse-input-ethereal .verse-input-field-container {
+  background: var(--local-variant-bg);
+  border-color: var(--local-variant-border);
+  backdrop-filter: blur(10px) brightness(110%);
+  -webkit-backdrop-filter: blur(10px) brightness(110%);
+  box-shadow: 
+    0 0 0 1px rgba(245, 158, 11, 0.25),
+    inset 0 1px 0 rgba(245, 158, 11, 0.1);
+}
+
+/* =================================================================== */
+/* INTERACTIVE STATE ENCHANTMENTS */
+/* =================================================================== */
+
+/* Focus State Magic */
+.verse-input-focused {
+  --local-glow-intensity: 1;
+  --local-field-elevation: 3;
+}
+
+.verse-input-focused .verse-input-field-container {
+  border-color: var(--local-variant-accent, var(--verse-purple-magic));
+  box-shadow: 
+    0 0 0 0.1875rem rgba(124, 58, 237, 0.25),
+    0 0.25rem 0.75rem rgba(15, 23, 42, 0.4),
+    inset 0 1px 0 rgba(248, 250, 252, 0.2);
+  transform: translateY(-3px) scale(1.01);
+}
+
+.verse-input-focused .verse-input-border-glow {
+  opacity: var(--local-glow-intensity);
+  animation: verseBorderGlow 2s ease-in-out infinite;
+}
+
+.verse-input-focused .verse-input-focus-indicator {
+  transform: scaleX(1);
+  background: var(--verse-gradient-primary);
+}
+
+/* Error State Enchantment */
+.verse-input-error {
+  --local-variant-border: var(--verse-error-crimson);
+  --local-variant-accent: var(--verse-error-crimson);
+}
+
+.verse-input-error .verse-input-field-container {
+  border-color: var(--verse-error-crimson);
+  background: linear-gradient(145deg, var(--verse-realm-shadow) 0%, rgba(239, 68, 68, 0.1) 100%);
+  animation: verseErrorShake 0.4s ease-in-out;
+}
+
+.verse-input-error .verse-input-label {
+  color: var(--verse-error-crimson);
+}
+
+/* Disabled State */
+.verse-input-disabled {
+  --local-glow-intensity: 0;
+  --local-field-elevation: 0;
+  opacity: var(--verse-opacity-disabled);
+  pointer-events: none;
+  user-select: none;
+}
+
+.verse-input-disabled .verse-input-field-container {
+  background: var(--verse-realm-dusk);
+  border-color: var(--verse-border-ward);
+  transform: none;
+  box-shadow: none;
+}
+
+.verse-input-disabled .verse-input-field {
+  cursor: not-allowed;
+  color: var(--verse-text-wisdom);
+}
+
+/* Read-only State */
+.verse-input-readonly .verse-input-field-container {
+  background: linear-gradient(145deg, var(--verse-realm-mist) 0%, var(--verse-realm-dusk) 100%);
+  border-style: dashed;
+  border-color: var(--verse-border-ward);
+}
+
+.verse-input-readonly .verse-input-field {
+  cursor: default;
+  user-select: text;
+}
+
+/* =================================================================== */
+/* MYSTICAL BORDER EFFECTS */
+/* =================================================================== */
+
+.verse-input-border-glow {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: var(--verse-gradient-mystical);
+  border-radius: inherit;
+  opacity: 0;
+  z-index: 0;
+  transition: opacity var(--verse-duration-normal) var(--verse-ease-out);
+  pointer-events: none;
+}
+
+.verse-input-focus-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--verse-gradient-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--verse-duration-normal) var(--verse-ease-mystical);
+  z-index: 20;
+}
+
+/* =================================================================== */
+/* INPUT FOOTER ENCHANTMENTS */
+/* =================================================================== */
+
+.verse-input-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: var(--verse-space-xs);
+  min-height: 1.25rem;
+}
+
+.verse-input-messages {
+  flex: 1;
+}
+
+.verse-input-error-message {
+  display: flex;
+  align-items: center;
+  color: var(--verse-error-crimson);
+  font-size: 0.875em;
+  font-weight: var(--verse-weight-medium);
+  line-height: var(--verse-leading-snug);
+  animation: verseErrorFadeIn var(--verse-duration-normal) var(--verse-ease-out);
+}
+
+.verse-input-error-icon {
+  margin-right: 0.375rem;
+  font-size: 1em;
+  animation: verseErrorBounce 0.6s ease-out;
+}
+
+.verse-input-helper-text {
+  color: var(--verse-text-silver);
+  font-size: 0.875em;
+  line-height: var(--verse-leading-snug);
+  opacity: 0.8;
+  transition: opacity var(--verse-duration-normal) var(--verse-ease-out);
+}
+
+.verse-input-focused .verse-input-helper-text {
+  opacity: 1;
+  color: var(--verse-text-starlight);
+}
+
+/* Character Count Display */
+.verse-input-char-count {
+  font-size: 0.75em;
+  color: var(--verse-text-silver);
+  font-weight: var(--verse-weight-medium);
+  white-space: nowrap;
+  transition: color var(--verse-duration-normal) var(--verse-ease-out);
+  font-variant-numeric: tabular-nums;
+}
+
+.verse-input-char-count-warning {
+  color: var(--verse-warning-sunset);
+}
+
+.verse-input-char-count-error {
+  color: var(--verse-error-crimson);
+  animation: verseCountPulse 1s ease-in-out infinite;
+}
+
+/* =================================================================== */
+/* MYSTICAL ANIMATIONS */
+/* =================================================================== */
+
+@keyframes verseBorderGlow {
+  0%, 100% {
+    filter: blur(2px) brightness(100%);
+  }
+  50% {
+    filter: blur(4px) brightness(120%);
+  }
+}
+
+@keyframes verseErrorShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+@keyframes verseErrorFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes verseErrorBounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+@keyframes verseCountPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* =================================================================== */
+/* ACCESSIBILITY ENHANCEMENTS */
+/* =================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .verse-input-field-container,
+  .verse-input-label,
+  .verse-input-icon,
+  .verse-input-border-glow,
+  .verse-input-focus-indicator {
+    transition: none;
+    animation: none;
+  }
+  
+  .verse-input-focused .verse-input-field-container {
+    transform: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .verse-input-field-container {
+    border-width: 0.1875rem;
+    background: var(--verse-realm-void);
+  }
+  
+  .verse-input-label {
+    font-weight: var(--verse-weight-bold);
+  }
+  
+  .verse-input-focused .verse-input-field-container {
+    border-color: var(--verse-text-moonlight);
+    box-shadow: 0 0 0 0.25rem var(--verse-purple-magic);
+  }
+}
+
+/* =================================================================== */
+/* PRINT OPTIMIZATIONS */
+/* =================================================================== */
+
+@media print {
+  .verse-input-container {
+    break-inside: avoid;
+  }
+  
+  .verse-input-field-container {
+    background: transparent;
+    border: 1px solid #000;
+    box-shadow: none;
+    transform: none;
+  }
+  
+  .verse-input-border-glow,
+  .verse-input-focus-indicator {
+    display: none;
+  }
+}
+
+/* =================================================================== */
+/* CONTAINER QUERIES SUPPORT */
+/* =================================================================== */
+
+@container (max-width: 300px) {
+  .verse-input-lg {
+    --local-field-height: 2.5rem;
+    --local-font-scale: 1;
+    --local-padding-x: 0.875rem;
+  }
+}
+
+@container (max-width: 200px) {
+  .verse-input-md {
+    --local-field-height: 2.25rem;
+    --local-font-scale: 0.875;
+    --local-padding-x: 0.625rem;
+  }
+}

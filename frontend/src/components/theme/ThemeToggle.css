@@ -1,0 +1,876 @@
+/**
+ * VERSE Mystical Theme Toggle Styles
+ * Enchanted theme switcher with cosmic animations and mystical effects
+ */
+
+/* =================================================================== */
+/* THEME TOGGLE FOUNDATION */
+/* =================================================================== */
+
+.verse-theme-toggle-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--verse-space-sm);
+}
+
+.verse-theme-toggle {
+  position: relative;
+  border: 2px solid var(--verse-border-ward);
+  width: 3em !important;
+  height: 1.25em !important;
+  padding: 0.2em !important;
+  margin-right: 1em !important;
+  border-radius: 1em;
+  cursor: pointer;
+  transition: all var(--verse-duration-normal) var(--verse-ease-out);
+  overflow: hidden;
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  box-shadow: 
+    0 4px 12px rgba(15, 23, 42, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  outline: none;
+}
+
+.verse-theme-toggle:hover {
+  border-color: var(--verse-purple-magic);
+  box-shadow: 
+    0 6px 20px rgba(15, 23, 42, 0.15),
+    0 0 15px rgba(124, 58, 237, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.verse-theme-toggle:focus-visible {
+  border-color: var(--verse-purple-magic);
+  box-shadow: 
+    0 6px 20px rgba(15, 23, 42, 0.15),
+    0 0 0 3px rgba(124, 58, 237, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.verse-theme-toggle:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.verse-theme-toggle.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  transform: none;
+}
+
+.verse-theme-toggle.disabled:hover {
+  border-color: var(--verse-border-ward);
+  box-shadow: 
+    0 4px 12px rgba(15, 23, 42, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transform: none;
+}
+
+/* =================================================================== */
+/* THEME TOGGLE VARIANTS */
+/* =================================================================== */
+
+.verse-theme-toggle.variant-mystical {
+  border-color: rgba(124, 58, 237, 0.3);
+  box-shadow: 
+    0 4px 12px rgba(124, 58, 237, 0.2),
+    inset 0 1px 0 rgba(124, 58, 237, 0.1);
+}
+
+.verse-theme-toggle.variant-mystical:hover {
+  box-shadow: 
+    0 6px 20px rgba(124, 58, 237, 0.3),
+    0 0 20px rgba(124, 58, 237, 0.4),
+    inset 0 1px 0 rgba(124, 58, 237, 0.2);
+}
+
+.verse-theme-toggle.variant-ethereal {
+  border-color: rgba(168, 85, 247, 0.3);
+  box-shadow: 
+    0 4px 12px rgba(168, 85, 247, 0.2),
+    inset 0 1px 0 rgba(168, 85, 247, 0.1);
+}
+
+.verse-theme-toggle.variant-header {
+  border-color: rgba(148, 163, 184, 0.3);
+  background: rgba(248, 250, 252, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.verse-theme-toggle.variant-header:hover {
+  border-color: var(--verse-purple-magic);
+  background: rgba(124, 58, 237, 0.1);
+}
+
+/* =================================================================== */
+/* DARK MODE ADJUSTMENTS */
+/* =================================================================== */
+
+.verse-theme-toggle.dark-mode {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border-color: var(--verse-border-spell);
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(124, 58, 237, 0.1);
+}
+
+.verse-theme-toggle.dark-mode:hover {
+  border-color: var(--verse-purple-magic);
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.4),
+    0 0 15px rgba(124, 58, 237, 0.3),
+    inset 0 1px 0 rgba(124, 58, 237, 0.2);
+}
+
+/* =================================================================== */
+/* THEME TOGGLE SIZES */
+/* =================================================================== */
+
+.verse-theme-toggle.size-xs {
+  width: 2rem;
+  height: 1rem;
+}
+
+.verse-theme-toggle.size-sm {
+  width: 2.5rem;
+  height: 1.25rem;
+}
+
+.verse-theme-toggle.size-md {
+  width: 3rem;
+  height: 1.5rem;
+}
+
+.verse-theme-toggle.size-lg {
+  width: 3.5rem;
+  height: 1.75rem;
+}
+
+/* =================================================================== */
+/* THEME TRACK */
+/* =================================================================== */
+
+.verse-theme-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+.verse-theme-cosmic-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.verse-theme-stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(1px 1px at 20px 30px, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(1px 1px at 40px 70px, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(1px 1px at 60px 20px, rgba(255, 255, 255, 0.4), transparent);
+  background-repeat: repeat;
+  background-size: 80px 80px;
+  animation: verseStarsTwinkle 4s ease-in-out infinite;
+}
+
+@keyframes verseStarsTwinkle {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.verse-theme-planets {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3px;
+  height: 3px;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.8) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: versePlanetsOrbit 8s linear infinite;
+}
+
+@keyframes versePlanetsOrbit {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg) translateX(8px) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg) translateX(8px) rotate(-360deg);
+  }
+}
+
+/* =================================================================== */
+/* THEME THUMB */
+/* =================================================================== */
+
+.verse-theme-thumb {
+  position: absolute;
+  top: 0.125rem;
+  left: 0.125rem;
+  border-radius: 50%;
+  background: #ffffff;
+  transition: all var(--verse-duration-normal) var(--verse-ease-mystical);
+  box-shadow: 
+    0 2px 8px rgba(15, 23, 42, 0.2),
+    0 0 0 1px rgba(148, 163, 184, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.verse-theme-toggle.dark-mode .verse-theme-thumb {
+  background: #334155;
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(124, 58, 237, 0.2),
+    inset 0 1px 0 rgba(124, 58, 237, 0.1);
+}
+
+.verse-theme-thumb-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.verse-theme-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.3) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity var(--verse-duration-normal) var(--verse-ease-out);
+}
+
+.verse-theme-toggle:hover .verse-theme-glow,
+.verse-theme-toggle.toggling .verse-theme-glow {
+  opacity: 1;
+}
+
+/* =================================================================== */
+/* THEME ICONS */
+/* =================================================================== */
+
+.verse-theme-icon {
+  color: var(--verse-amber-magic);
+  transition: all var(--verse-duration-normal) var(--verse-ease-out);
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 0 8px rgba(245, 158, 11, 0.5);
+}
+
+.verse-theme-icon.dark {
+  color: var(--verse-purple-magic);
+  text-shadow: 0 0 8px rgba(124, 58, 237, 0.5);
+}
+
+.verse-theme-icon.toggling {
+  animation: verseThemeIconSpin 0.6s var(--verse-ease-mystical);
+}
+
+@keyframes verseThemeIconSpin {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.2);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+.verse-theme-indicators {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0.25rem;
+  pointer-events: none;
+}
+
+.verse-theme-indicator {
+  font-size: 0.5rem;
+  opacity: 0.3;
+  transition: opacity var(--verse-duration-normal) var(--verse-ease-out);
+}
+
+.verse-theme-indicator.light {
+  color: var(--verse-amber-magic);
+}
+
+.verse-theme-indicator.dark {
+  color: var(--verse-purple-magic);
+}
+
+.verse-theme-toggle:hover .verse-theme-indicator {
+  opacity: 0.6;
+}
+
+/* =================================================================== */
+/* THEME LABEL */
+/* =================================================================== */
+
+.verse-theme-label {
+  color: var(--verse-text-starlight);
+  font-size: var(--verse-text-sm);
+  font-weight: var(--verse-weight-medium);
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* =================================================================== */
+/* THEME TOOLTIP */
+/* =================================================================== */
+
+.verse-theme-tooltip {
+  position: absolute;
+  bottom: calc(100% + 0.5rem);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--verse-realm-shadow);
+  border: 1px solid var(--verse-border-spell);
+  border-radius: var(--verse-radius-lg);
+  padding: var(--verse-space-sm) var(--verse-space-md);
+  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--verse-duration-normal) var(--verse-ease-out);
+  pointer-events: none;
+  z-index: 1000;
+  white-space: nowrap;
+}
+
+.verse-theme-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 0.25rem solid transparent;
+  border-top-color: var(--verse-border-spell);
+}
+
+.verse-theme-toggle:hover .verse-theme-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-2px);
+}
+
+.verse-theme-tooltip-text {
+  display: block;
+  color: var(--verse-text-moonlight);
+  font-size: var(--verse-text-xs);
+  font-weight: var(--verse-weight-medium);
+  margin-bottom: 0.125rem;
+}
+
+.verse-theme-tooltip-shortcut {
+  display: flex;
+  align-items: center;
+  gap: 0.125rem;
+  font-size: var(--verse-text-xs);
+  color: var(--verse-text-wisdom);
+}
+
+.verse-theme-tooltip-shortcut kbd {
+  padding: 0.0625rem 0.25rem;
+  background: rgba(51, 65, 85, 0.5);
+  border: 1px solid var(--verse-border-ward);
+  border-radius: var(--verse-radius-xs);
+  font-size: 0.625rem;
+  line-height: 1;
+}
+
+/* =================================================================== */
+/* THEME MENU */
+/* =================================================================== */
+
+.verse-theme-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  background: var(--verse-realm-mist);
+  border: 1px solid var(--verse-border-spell);
+  border-radius: var(--verse-radius-lg);
+  box-shadow: 
+    0 20px 40px rgba(15, 23, 42, 0.4),
+    0 0 0 1px rgba(124, 58, 237, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px) scale(0.95);
+  transition: all var(--verse-duration-normal) var(--verse-ease-mystical);
+  z-index: 1000;
+  min-width: 10rem;
+}
+
+.verse-theme-toggle.menu-open .verse-theme-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.verse-theme-menu-content {
+  padding: var(--verse-space-xs);
+}
+
+.verse-theme-menu-item {
+  display: flex;
+  align-items: center;
+  gap: var(--verse-space-sm);
+  width: 100%;
+  padding: var(--verse-space-sm) var(--verse-space-md);
+  border: none;
+  background: none;
+  border-radius: var(--verse-radius-lg);
+  cursor: pointer;
+  text-align: left;
+  color: var(--verse-text-starlight);
+  font-size: var(--verse-text-sm);
+  font-weight: var(--verse-weight-medium);
+  transition: all var(--verse-duration-fast) var(--verse-ease-out);
+  position: relative;
+  overflow: hidden;
+}
+
+.verse-theme-menu-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--verse-gradient-mystical);
+  opacity: 0.1;
+  transition: left var(--verse-duration-normal) var(--verse-ease-out);
+}
+
+.verse-theme-menu-item:hover {
+  color: var(--verse-text-moonlight);
+  background: rgba(124, 58, 237, 0.1);
+  transform: translateX(2px);
+}
+
+.verse-theme-menu-item:hover::before {
+  left: 0;
+}
+
+.verse-theme-menu-item.active {
+  color: var(--verse-text-moonlight);
+  background: var(--verse-purple-magic);
+  font-weight: var(--verse-weight-bold);
+}
+
+.verse-theme-menu-item.active::before {
+  left: 0;
+  opacity: 0.2;
+}
+
+.verse-theme-menu-icon {
+  flex-shrink: 0;
+  font-size: 0.875rem;
+  width: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.verse-theme-menu-label {
+  flex: 1;
+}
+
+.verse-theme-menu-check {
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  color: var(--verse-teal-magic);
+}
+
+/* =================================================================== */
+/* RIPPLE EFFECT */
+/* =================================================================== */
+
+.verse-theme-ripple {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.verse-theme-toggle.animated:active .verse-theme-ripple {
+  animation: verseThemeRipple 0.6s ease-out;
+}
+
+@keyframes verseThemeRipple {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.5;
+  }
+  100% {
+    width: 200%;
+    height: 200%;
+    opacity: 0;
+  }
+}
+
+/* =================================================================== */
+/* RESPONSIVE DESIGN */
+/* =================================================================== */
+
+@media (max-width: 768px) {
+  .verse-theme-tooltip {
+    display: none; /* Hide tooltips on mobile */
+  }
+
+  .verse-theme-menu {
+    left: auto;
+    right: 0;
+    min-width: 8rem;
+  }
+
+  .verse-theme-menu-item {
+    padding: var(--verse-space-md);
+    font-size: var(--verse-text-base);
+  }
+}
+
+@media (max-width: 480px) {
+  .verse-theme-toggle.size-md {
+    width: 2.5rem;
+    height: 1.25rem;
+  }
+
+  .verse-theme-toggle.size-lg {
+    width: 3rem;
+    height: 1.5rem;
+  }
+
+  .verse-theme-label {
+    display: none; /* Hide labels on very small screens */
+  }
+}
+
+/* =================================================================== */
+/* ACCESSIBILITY ENHANCEMENTS */
+/* =================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .verse-theme-toggle,
+  .verse-theme-thumb,
+  .verse-theme-icon,
+  .verse-theme-menu,
+  .verse-theme-menu-item,
+  .verse-theme-tooltip,
+  .verse-theme-ripple {
+    animation: none;
+    transition: none;
+  }
+
+  .verse-theme-stars {
+    animation: none;
+  }
+
+  .verse-theme-planets {
+    animation: none;
+  }
+
+  .verse-theme-toggle:hover {
+    transform: none;
+  }
+
+  .verse-theme-menu-item:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .verse-theme-toggle {
+    border-width: 3px;
+    border-color: var(--verse-text-moonlight);
+  }
+
+  .verse-theme-thumb {
+    border: 2px solid var(--verse-text-moonlight);
+  }
+
+  .verse-theme-menu {
+    border-width: 2px;
+    border-color: var(--verse-text-moonlight);
+  }
+
+  .verse-theme-menu-item {
+    border: 1px solid transparent;
+  }
+
+  .verse-theme-menu-item:hover,
+  .verse-theme-menu-item.active {
+    border-color: var(--verse-purple-magic);
+  }
+}
+
+/* =================================================================== */
+/* PRINT STYLES */
+/* =================================================================== */
+
+@media print {
+  .verse-theme-toggle-container,
+  .verse-theme-menu,
+  .verse-theme-tooltip {
+    display: none;
+  }
+}
+
+/* Replace the existing .verse-theme-indicators section with this enhanced version */
+
+/* =================================================================== */
+/* ENHANCED THEME INDICATORS WITH PROPER VISIBILITY */
+/* =================================================================== */
+
+.verse-theme-indicators {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.375rem !important; /* Increased padding for better positioning */
+  pointer-events: none;
+  z-index: 2 !important; /* Ensure they're above the thumb */
+  height: 100%;
+}
+
+.verse-theme-indicator {
+  font-size: 0.625rem !important; /* Slightly larger for better visibility */
+  opacity: 0.6 !important; /* Increased from 0.3 for better contrast */
+  transition: all var(--verse-duration-normal) var(--verse-ease-out);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1) !important; /* Add subtle background */
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.5) !important; /* Add text shadow for contrast */
+}
+
+.verse-theme-indicator.light {
+  color: var(--verse-gold-flame, #f59e0b) !important;
+  text-shadow: 
+    0 0 6px rgba(245, 158, 11, 0.8),
+    0 0 12px rgba(245, 158, 11, 0.4) !important;
+}
+
+.verse-theme-indicator.dark {
+  color: var(--verse-purple-magic, #8b5cf6) !important;
+  text-shadow: 
+    0 0 6px rgba(139, 92, 246, 0.8),
+    0 0 12px rgba(139, 92, 246, 0.4) !important;
+}
+
+/* Enhanced hover states */
+.verse-theme-toggle:hover .verse-theme-indicator {
+  opacity: 0.9 !important; /* Much more visible on hover */
+  transform: scale(1.1) !important;
+  background: rgba(255, 255, 255, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.verse-theme-toggle:hover .verse-theme-indicator.light {
+  background: rgba(245, 158, 11, 0.2) !important;
+  border-color: rgba(245, 158, 11, 0.4) !important;
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.3) !important;
+}
+
+.verse-theme-toggle:hover .verse-theme-indicator.dark {
+  background: rgba(139, 92, 246, 0.2) !important;
+  border-color: rgba(139, 92, 246, 0.4) !important;
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.3) !important;
+}
+
+/* Active state when thumb is over an indicator */
+.verse-theme-toggle.dark-mode .verse-theme-indicator.dark {
+  opacity: 1 !important;
+  background: rgba(139, 92, 246, 0.3) !important;
+  border-color: var(--verse-purple-magic) !important;
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.5) !important;
+  transform: scale(1.2) !important;
+}
+
+.verse-theme-toggle:not(.dark-mode) .verse-theme-indicator.light {
+  opacity: 1 !important;
+  background: rgba(245, 158, 11, 0.3) !important;
+  border-color: var(--verse-gold-flame) !important;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.5) !important;
+  transform: scale(1.2) !important;
+}
+
+/* =================================================================== */
+/* ENHANCED THEME THUMB WITH PROPER Z-INDEX */
+/* =================================================================== */
+
+.verse-theme-thumb {
+  position: absolute;
+  top: 0.125rem;
+  left: 0.125rem;
+  border-radius: 50%;
+  background: #ffffff;
+  transition: all var(--verse-duration-normal) var(--verse-ease-mystical);
+  box-shadow: 
+    0 2px 8px rgba(15, 23, 42, 0.2),
+    0 0 0 1px rgba(148, 163, 184, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 3 !important; /* Ensure thumb is above indicators but allows them to be visible */
+}
+
+/* =================================================================== */
+/* SIZE-SPECIFIC INDICATOR ADJUSTMENTS */
+/* =================================================================== */
+
+.verse-theme-toggle.size-xs .verse-theme-indicator {
+  font-size: 0.375rem !important;
+  width: 0.625rem;
+  height: 0.625rem;
+}
+
+.verse-theme-toggle.size-xs .verse-theme-indicators {
+  padding: 0 0.25rem !important;
+}
+
+.verse-theme-toggle.size-sm .verse-theme-indicator {
+  font-size: 0.5rem !important;
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.verse-theme-toggle.size-sm .verse-theme-indicators {
+  padding: 0 0.3125rem !important;
+}
+
+.verse-theme-toggle.size-lg .verse-theme-indicator {
+  font-size: 0.75rem !important;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.verse-theme-toggle.size-lg .verse-theme-indicators {
+  padding: 0 0.5rem !important;
+}
+
+/* =================================================================== */
+/* DARK MODE SPECIFIC ADJUSTMENTS */
+/* =================================================================== */
+
+.verse-theme-toggle.dark-mode .verse-theme-indicator {
+  background: rgba(51, 65, 85, 0.3) !important;
+  border-color: rgba(139, 92, 246, 0.3) !important;
+}
+
+.verse-theme-toggle.dark-mode:hover .verse-theme-indicator {
+  background: rgba(51, 65, 85, 0.5) !important;
+  border-color: rgba(139, 92, 246, 0.5) !important;
+}
+
+/* =================================================================== */
+/* ACCESSIBILITY IMPROVEMENTS */
+/* =================================================================== */
+
+@media (prefers-contrast: high) {
+  .verse-theme-indicator {
+    opacity: 1 !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+    border-width: 2px !important;
+    border-color: var(--verse-text-primary) !important;
+  }
+
+  .verse-theme-indicator.light {
+    color: #fbbf24 !important;
+    border-color: #fbbf24 !important;
+  }
+
+  .verse-theme-indicator.dark {
+    color: #8b5cf6 !important;
+    border-color: #8b5cf6 !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .verse-theme-indicator {
+    transition: none !important;
+  }
+
+  .verse-theme-toggle:hover .verse-theme-indicator {
+    transform: none !important;
+  }
+}
+
+/* =================================================================== */
+/* MOBILE RESPONSIVE ADJUSTMENTS */
+/* =================================================================== */
+
+@media (max-width: 768px) {
+  .verse-theme-indicator {
+    font-size: 0.5rem !important;
+    width: 0.875rem;
+    height: 0.875rem;
+    opacity: 0.7 !important; /* Slightly more visible on mobile */
+  }
+
+  .verse-theme-toggle:hover .verse-theme-indicator {
+    opacity: 1 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .verse-theme-indicators {
+    padding: 0 0.25rem !important;
+  }
+
+  .verse-theme-indicator {
+    font-size: 0.4375rem !important;
+    width: 0.75rem;
+    height: 0.75rem;
+  }
+}

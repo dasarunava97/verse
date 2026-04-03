@@ -1,0 +1,622 @@
+/**
+ * VERSE Mystical Layout Styles
+ * Main layout architecture with responsive design and mystical effects
+ */
+
+/* =================================================================== */
+/* LAYOUT FOUNDATION */
+/* =================================================================== */
+
+.verse-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--verse-realm-void);
+  color: var(--verse-text-starlight);
+  position: relative;
+  overflow: hidden;
+}
+
+.verse-layout::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--verse-gradient-cosmic);
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* =================================================================== */
+/* LAYOUT VARIANTS */
+/* =================================================================== */
+
+.verse-layout.variant-compact {
+  --verse-layout-content-padding: var(--verse-space-md);
+}
+
+.verse-layout.variant-wide {
+  --verse-layout-content-padding: var(--verse-space-xl);
+}
+
+.verse-layout.variant-compact .verse-layout-content-inner {
+  max-width: 1200px;
+}
+
+.verse-layout.variant-wide .verse-layout-content-inner {
+  max-width: 1600px;
+}
+
+/* =================================================================== */
+/* LAYOUT HEADER */
+/* =================================================================== */
+
+.verse-layout.has-header {
+  padding-top: var(--verse-layout-header-height);
+}
+
+.verse-layout-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: all var(--verse-duration-normal) var(--verse-ease-out);
+}
+
+.verse-layout.has-sidebar .verse-layout-header {
+  left: var(--verse-layout-sidebar-width);
+}
+
+.verse-layout.sidebar-collapsed .verse-layout-header {
+  left: var(--verse-layout-sidebar-width);
+}
+
+.verse-layout.mobile .verse-layout-header,
+.verse-layout.tablet .verse-layout-header {
+  left: 0;
+}
+
+/* =================================================================== */
+/* LAYOUT SIDEBAR */
+/* =================================================================== */
+
+.verse-layout-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: var(--verse-layout-sidebar-width);
+  z-index: 1001;
+  transition: all var(--verse-duration-normal) var(--verse-ease-mystical);
+}
+
+.verse-layout.mobile .verse-layout-sidebar {
+  transform: translateX(-100%);
+  width: 16rem;
+}
+
+.verse-layout.mobile.mobile-menu-open .verse-layout-sidebar {
+  transform: translateX(0);
+}
+
+/* =================================================================== */
+/* LAYOUT MAIN CONTENT */
+/* =================================================================== */
+
+.verse-layout-main {
+  margin-top: 2em !important;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  transition: all var(--verse-duration-normal) var(--verse-ease-out);
+}
+
+.verse-layout.has-sidebar .verse-layout-main {
+  margin-left: var(--verse-layout-sidebar-width);
+}
+
+.verse-layout.mobile .verse-layout-main,
+.verse-layout.tablet .verse-layout-main {
+  margin-left: 0;
+}
+
+.verse-layout-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 23, 42, 0.8) 0%,
+    rgba(30, 41, 59, 0.9) 50%,
+    rgba(15, 23, 42, 0.95) 100%
+  );
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+}
+
+.verse-layout-content::before {
+  content: '';
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(124, 58, 237, 0.3) 20%,
+    rgba(124, 58, 237, 0.6) 50%,
+    rgba(124, 58, 237, 0.3) 80%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity var(--verse-duration-normal) var(--verse-ease-out);
+  z-index: 10;
+}
+
+.verse-layout-content.scrolled::before {
+  opacity: 1;
+}
+
+.verse-layout-content-inner {
+  min-height: calc(100vh - var(--verse-layout-header-height));
+  padding: var(--verse-layout-content-padding);
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* =================================================================== */
+/* SCROLL INDICATOR */
+/* =================================================================== */
+
+.verse-layout-scroll-indicator {
+  position: fixed;
+  top: var(--verse-layout-header-height);
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--verse-gradient-mystical);
+  opacity: 0.8;
+  z-index: 999;
+  animation: verseScrollGlow 2s ease-in-out infinite;
+}
+
+.verse-layout.has-sidebar .verse-layout-scroll-indicator {
+  left: var(--verse-layout-sidebar-width);
+}
+
+.verse-layout.mobile .verse-layout-scroll-indicator,
+.verse-layout.tablet .verse-layout-scroll-indicator {
+  left: 0;
+}
+
+@keyframes verseScrollGlow {
+  0%, 100% {
+    opacity: 0.8;
+    box-shadow: 0 0 10px rgba(124, 58, 237, 0.6);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.9);
+  }
+}
+
+/* =================================================================== */
+/* LOADING OVERLAY */
+/* =================================================================== */
+
+.verse-layout-loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: verseLoadingFadeIn 0.3s var(--verse-ease-out);
+}
+
+@keyframes verseLoadingFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.verse-layout-loading-content {
+  text-align: center;
+  color: var(--verse-text-moonlight);
+}
+
+.verse-layout-loading-spinner {
+  margin-bottom: var(--verse-space-lg);
+}
+
+.verse-loading-mystical {
+  position: relative;
+  width: 4rem;
+  height: 4rem;
+  margin: 0 auto;
+}
+
+.verse-loading-orb {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1rem;
+  height: 1rem;
+  background: radial-gradient(circle, var(--verse-purple-magic) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: verseOrbPulse 2s ease-in-out infinite;
+}
+
+@keyframes verseOrbPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
+.verse-loading-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid transparent;
+  border-top: 2px solid var(--verse-purple-magic);
+  border-radius: 50%;
+  animation: verseRingSpin 1.5s linear infinite;
+}
+
+@keyframes verseRingSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.verse-loading-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.verse-loading-particles span {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--verse-teal-magic);
+  border-radius: 50%;
+  opacity: 0;
+}
+
+.verse-loading-particles span:nth-child(1) {
+  top: 10%;
+  left: 10%;
+  animation: verseParticleFloat 3s ease-in-out infinite;
+}
+
+.verse-loading-particles span:nth-child(2) {
+  top: 10%;
+  right: 10%;
+  animation: verseParticleFloat 3s ease-in-out infinite 0.5s;
+}
+
+.verse-loading-particles span:nth-child(3) {
+  bottom: 10%;
+  left: 10%;
+  animation: verseParticleFloat 3s ease-in-out infinite 1s;
+}
+
+.verse-loading-particles span:nth-child(4) {
+  bottom: 10%;
+  right: 10%;
+  animation: verseParticleFloat 3s ease-in-out infinite 1.5s;
+}
+
+@keyframes verseParticleFloat {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.2);
+  }
+}
+
+.verse-layout-loading-text {
+  font-size: var(--verse-text-lg);
+  font-weight: var(--verse-weight-medium);
+  color: var(--verse-text-starlight);
+  margin: 0;
+  opacity: 0.9;
+  animation: verseTextPulse 2s ease-in-out infinite;
+}
+
+@keyframes verseTextPulse {
+  0%, 100% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* =================================================================== */
+/* MYSTICAL BACKGROUND EFFECTS */
+/* =================================================================== */
+
+.verse-layout-mystical-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+.verse-layout-cosmic-dust {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(1px 1px at 100px 150px, rgba(124, 58, 237, 0.2), transparent),
+    radial-gradient(1px 1px at 300px 80px, rgba(20, 184, 166, 0.15), transparent),
+    radial-gradient(1px 1px at 500px 200px, rgba(245, 158, 11, 0.1), transparent),
+    radial-gradient(1px 1px at 700px 50px, rgba(124, 58, 237, 0.25), transparent);
+  background-size: 800px 400px, 600px 300px, 900px 450px, 700px 350px;
+  animation: verseCosmicDrift 30s linear infinite;
+}
+
+@keyframes verseCosmicDrift {
+  from {
+    transform: translateY(0) translateX(0);
+  }
+  to {
+    transform: translateY(-100px) translateX(50px);
+  }
+}
+
+.verse-layout-constellation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.verse-layout-star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: verseStarTwinkle 4s ease-in-out infinite;
+}
+
+.verse-layout-star.star-1 {
+  top: 20%;
+  left: 15%;
+  animation-delay: 0s;
+}
+
+.verse-layout-star.star-2 {
+  top: 60%;
+  right: 25%;
+  animation-delay: 1.3s;
+}
+
+.verse-layout-star.star-3 {
+  bottom: 30%;
+  left: 70%;
+  animation-delay: 2.6s;
+}
+
+@keyframes verseStarTwinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+
+/* =================================================================== */
+/* RESPONSIVE DESIGN */
+/* =================================================================== */
+
+@media (max-width: 1024px) {
+  .verse-layout-content-inner {
+    max-width: 100%;
+    padding: var(--verse-space-md);
+  }
+
+  .verse-layout.variant-wide .verse-layout-content-inner {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .verse-layout-content-inner {
+    padding: var(--verse-space-sm);
+    min-height: calc(100vh - var(--verse-layout-header-height) - env(safe-area-inset-bottom));
+  }
+
+  .verse-layout-loading-text {
+    font-size: var(--verse-text-base);
+  }
+
+  .verse-loading-mystical {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .verse-layout-content-inner {
+    padding: var(--verse-space-xs);
+  }
+
+  .verse-layout-loading-spinner {
+    margin-bottom: var(--verse-space-md);
+  }
+
+  .verse-loading-mystical {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .verse-layout-loading-text {
+    font-size: var(--verse-text-sm);
+  }
+}
+
+/* =================================================================== */
+/* DARK MODE ADJUSTMENTS */
+/* =================================================================== */
+
+.verse-layout.dark-mode .verse-layout-content {
+  background: linear-gradient(
+    180deg,
+    rgba(2, 6, 23, 0.9) 0%,
+    rgba(15, 23, 42, 0.95) 50%,
+    rgba(2, 6, 23, 0.98) 100%
+  );
+}
+
+.verse-layout.dark-mode .verse-layout-loading-overlay {
+  background: rgba(2, 6, 23, 0.98);
+}
+
+/* =================================================================== */
+/* ACCESSIBILITY ENHANCEMENTS */
+/* =================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .verse-layout,
+  .verse-layout-header,
+  .verse-layout-sidebar,
+  .verse-layout-main,
+  .verse-layout-content {
+    animation: none;
+    transition: none;
+  }
+
+  .verse-layout-cosmic-dust,
+  .verse-layout-star,
+  .verse-loading-orb,
+  .verse-loading-ring,
+  .verse-loading-particles span,
+  .verse-layout-loading-text,
+  .verse-layout-scroll-indicator {
+    animation: none;
+  }
+
+  .verse-layout-content::before {
+    transition: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .verse-layout {
+    background: var(--verse-realm-void);
+  }
+
+  .verse-layout-content {
+    background: var(--verse-realm-void);
+    border: 1px solid var(--verse-text-moonlight);
+  }
+
+  .verse-layout-loading-overlay {
+    background: rgba(0, 0, 0, 0.95);
+    border: 2px solid var(--verse-text-moonlight);
+  }
+
+  .verse-layout-scroll-indicator {
+    background: var(--verse-text-moonlight);
+    height: 3px;
+  }
+}
+
+/* =================================================================== */
+/* PRINT STYLES */
+/* =================================================================== */
+
+@media print {
+  .verse-layout-mystical-bg,
+  .verse-layout-loading-overlay,
+  .verse-layout-scroll-indicator {
+    display: none;
+  }
+
+  .verse-layout {
+    background: white;
+    color: black;
+  }
+
+  .verse-layout-content {
+    background: white;
+    overflow: visible;
+  }
+
+  .verse-layout-content-inner {
+    padding: 1rem;
+    max-width: none;
+  }
+}
+
+/* =================================================================== */
+/* PERFORMANCE OPTIMIZATIONS */
+/* =================================================================== */
+
+.verse-layout-content {
+  contain: layout style paint;
+  will-change: transform;
+}
+
+.verse-layout-mystical-bg,
+.verse-layout-loading-overlay {
+  contain: strict;
+}
+
+/* Force GPU acceleration for smooth animations */
+.verse-layout-header,
+.verse-layout-sidebar,
+.verse-layout-main,
+.verse-layout-loading-overlay {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}

@@ -1,0 +1,2050 @@
+/**
+ * VERSE Mystical Dashboard Styles
+ * Enchanted portal styling for the main storyteller dashboard
+ */
+
+/* =================================================================== */
+/* DASHBOARD FOUNDATION */
+/* =================================================================== */
+
+.verse-dashboard {
+  min-height: 100vh !important;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.95) 0%,
+    rgba(30, 41, 59, 0.9) 25%,
+    rgba(51, 65, 85, 0.85) 50%,
+    rgba(30, 41, 59, 0.9) 75%,
+    rgba(15, 23, 42, 0.95) 100%
+  ) !important;
+  color: #e2e8f0 !important;
+  position: relative !important;
+  overflow-x: hidden !important;
+}
+
+.verse-dashboard::before {
+  content: '' !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(20, 184, 166, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(245, 158, 11, 0.06) 0%, transparent 50%) !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+.verse-dashboard > * {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* =================================================================== */
+/* DASHBOARD HEADER */
+/* =================================================================== */
+
+.verse-dashboard-header {
+  padding: 2rem 1.5rem 1.5rem !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  background: rgba(15, 23, 42, 0.6) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+.verse-dashboard-header-content {
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 2rem !important;
+}
+
+.verse-dashboard-welcome {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1.5rem !important;
+}
+
+.verse-dashboard-welcome-text {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.5rem !important;
+}
+
+.verse-dashboard-title {
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  background: linear-gradient(135deg, #8b5cf6, #14b8a6, #f59e0b) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  margin: 0 !important;
+  line-height: 1.2 !important;
+}
+
+.verse-dashboard-subtitle {
+  font-size: 1rem !important;
+  color: #94a3b8 !important;
+  margin: 0 !important;
+  line-height: 1.4 !important;
+}
+
+.verse-dashboard-header-actions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1rem !important;
+}
+
+/* =================================================================== */
+/* NAVIGATION TABS */
+/* =================================================================== */
+
+.verse-dashboard-navigation {
+  padding: 0 1.5rem !important;
+  background: rgba(30, 41, 59, 0.4) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.verse-dashboard-tabs {
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  gap: 0.5rem !important;
+}
+
+.verse-dashboard-tab {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  padding: 1rem 1.5rem !important;
+  background: none !important;
+  border: none !important;
+  color: #94a3b8 !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  border-bottom: 2px solid transparent !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+}
+
+.verse-dashboard-tab:hover {
+  color: #e2e8f0 !important;
+  background: rgba(139, 92, 246, 0.1) !important;
+}
+
+.verse-dashboard-tab.active {
+  color: #8b5cf6 !important;
+  border-bottom-color: #8b5cf6 !important;
+  background: rgba(139, 92, 246, 0.15) !important;
+}
+
+.verse-dashboard-tab-icon {
+  font-size: 1rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.verse-dashboard-tab-label {
+  font-weight: inherit !important;
+}
+
+/* =================================================================== */
+/* DASHBOARD CONTENT */
+/* =================================================================== */
+
+.verse-dashboard-content {
+  padding: 2rem 1.5rem !important;
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  min-height: calc(100vh - 16rem) !important;
+}
+
+/* =================================================================== */
+/* OVERVIEW VIEW */
+/* =================================================================== */
+
+.verse-dashboard-overview {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 3rem !important;
+}
+
+.verse-dashboard-stats {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+  gap: 1.5rem !important;
+}
+
+.verse-dashboard-stat-card {
+  background: rgba(30, 41, 59, 0.6) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 1rem !important;
+  padding: 1.5rem !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 1rem !important;
+  transition: all 0.3s ease !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+.verse-dashboard-stat-card:hover {
+  border-color: rgba(139, 92, 246, 0.3) !important;
+  box-shadow: 0 8px 32px rgba(139, 92, 246, 0.15) !important;
+  transform: translateY(-2px) !important;
+}
+
+.verse-dashboard-stat-icon {
+  width: 3rem !important;
+  height: 3rem !important;
+  border-radius: 0.75rem !important;
+  background: linear-gradient(135deg, #8b5cf6, #14b8a6) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 1.5rem !important;
+  color: #ffffff !important;
+  flex-shrink: 0 !important;
+}
+
+.verse-dashboard-stat-content {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.25rem !important;
+}
+
+.verse-dashboard-stat-number {
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  color: #e2e8f0 !important;
+  line-height: 1 !important;
+}
+
+.verse-dashboard-stat-label {
+  font-size: 0.875rem !important;
+  color: #94a3b8 !important;
+  font-weight: 500 !important;
+}
+
+.verse-dashboard-section {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.5rem !important;
+}
+
+.verse-dashboard-section-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 1rem !important;
+}
+
+.verse-dashboard-section-title {
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  color: #e2e8f0 !important;
+  margin: 0 !important;
+}
+
+.verse-dashboard-recent-stories,
+.verse-dashboard-favorite-stories {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+  gap: 1.5rem !important;
+}
+
+/* =================================================================== */
+/* STORIES VIEW */
+/* =================================================================== */
+
+.verse-dashboard-stories {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2rem !important;
+}
+
+.verse-dashboard-filters {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.5rem !important;
+  padding: 1.5rem !important;
+  background: rgba(30, 41, 59, 0.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 1rem !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+.verse-dashboard-filter-group {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1rem !important;
+  flex-wrap: wrap !important;
+}
+
+.verse-dashboard-filter-label {
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  color: #e2e8f0 !important;
+  min-width: 4rem !important;
+}
+
+.verse-dashboard-filter-buttons {
+  display: flex !important;
+  gap: 0.5rem !important;
+  flex-wrap: wrap !important;
+}
+
+.verse-dashboard-filter-button {
+  padding: 0.5rem 1rem !important;
+  background: rgba(51, 65, 85, 0.6) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 0.5rem !important;
+  color: #94a3b8 !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  white-space: nowrap !important;
+}
+
+.verse-dashboard-filter-button:hover {
+  background: rgba(139, 92, 246, 0.2) !important;
+  border-color: rgba(139, 92, 246, 0.3) !important;
+  color: #e2e8f0 !important;
+}
+
+.verse-dashboard-filter-button.active {
+  background: #8b5cf6 !important;
+  border-color: #8b5cf6 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3) !important;
+}
+
+.verse-dashboard-search-sort {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1rem !important;
+  flex: 1 !important;
+}
+
+.verse-dashboard-sort-select {
+  padding: 0.75rem 1rem !important;
+  background: rgba(51, 65, 85, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 0.5rem !important;
+  color: #e2e8f0 !important;
+  font-size: 0.875rem !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  min-width: 12rem !important;
+}
+
+.verse-dashboard-sort-select:focus {
+  outline: none !important;
+  border-color: #8b5cf6 !important;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2) !important;
+}
+
+.verse-dashboard-story-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)) !important;
+  gap: 1.5rem !important;
+}
+
+/* =================================================================== */
+/* LOADING, ERROR, AND EMPTY STATES */
+/* =================================================================== */
+
+.verse-dashboard-loading,
+.verse-dashboard-error,
+.verse-dashboard-empty,
+.verse-dashboard-no-results {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 20rem !important;
+  padding: 2rem !important;
+}
+
+.verse-dashboard-error-content,
+.verse-dashboard-empty-content,
+.verse-dashboard-no-results-content {
+  text-align: center !important;
+  max-width: 28rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 1rem !important;
+}
+
+.verse-dashboard-error-icon,
+.verse-dashboard-empty-icon,
+.verse-dashboard-no-results-icon {
+  font-size: 3rem !important;
+  color: #6b7280 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.verse-dashboard-error-title,
+.verse-dashboard-empty-title,
+.verse-dashboard-no-results-title {
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+  color: #e2e8f0 !important;
+  margin: 0 !important;
+}
+
+.verse-dashboard-error-message,
+.verse-dashboard-empty-message,
+.verse-dashboard-no-results-message {
+  font-size: 0.875rem !important;
+  color: #94a3b8 !important;
+  line-height: 1.5 !important;
+  margin: 0 !important;
+}
+
+/* =================================================================== */
+/* PROGRESS AND SETTINGS VIEWS */
+/* =================================================================== */
+
+.verse-dashboard-progress,
+.verse-dashboard-settings {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2rem !important;
+}
+
+.verse-dashboard-progress-header,
+.verse-dashboard-settings-header {
+  text-align: center !important;
+  padding: 2rem 0 !important;
+}
+
+.verse-dashboard-progress-title,
+.verse-dashboard-settings-title {
+  font-size: 2rem !important;
+  font-weight: 600 !important;
+  color: #e2e8f0 !important;
+  margin: 0 0 0.5rem 0 !important;
+}
+
+.verse-dashboard-progress-subtitle,
+.verse-dashboard-settings-subtitle {
+  font-size: 1rem !important;
+  color: #94a3b8 !important;
+  margin: 0 !important;
+}
+
+.verse-dashboard-progress-placeholder,
+.verse-dashboard-settings-placeholder {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 1rem !important;
+  padding: 4rem 2rem !important;
+  background: rgba(30, 41, 59, 0.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 1rem !important;
+  text-align: center !important;
+}
+
+.verse-dashboard-progress-placeholder-icon,
+.verse-dashboard-settings-placeholder-icon {
+  font-size: 4rem !important;
+  color: #6b7280 !important;
+}
+
+/* =================================================================== */
+/* CREATE STORY MODAL */
+/* =================================================================== */
+
+.verse-create-story-form {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.5rem !important;
+}
+
+.verse-create-story-error {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  padding: 1rem !important;
+  background: rgba(239, 68, 68, 0.1) !important;
+  border: 1px solid rgba(239, 68, 68, 0.3) !important;
+  border-radius: 0.5rem !important;
+  color: #fca5a5 !important;
+  font-size: 0.875rem !important;
+}
+
+.verse-create-story-fields {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.25rem !important;
+}
+
+.verse-create-story-row {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 1rem !important;
+}
+
+.verse-create-story-field {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.5rem !important;
+}
+
+.verse-create-story-label {
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  color: #e2e8f0 !important;
+  margin: 0 !important;
+}
+
+.verse-create-story-select {
+  padding: 0.75rem 1rem !important;
+  background: rgba(51, 65, 85, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 0.5rem !important;
+  color: #e2e8f0 !important;
+  font-size: 0.875rem !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+}
+
+.verse-create-story-select:focus {
+  outline: none !important;
+  border-color: #8b5cf6 !important;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2) !important;
+}
+
+.verse-create-story-options {
+  padding: 1rem 0 !important;
+}
+
+.verse-create-story-checkbox {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  cursor: pointer !important;
+  user-select: none !important;
+}
+
+.verse-create-story-checkbox input[type="checkbox"] {
+  position: absolute !important;
+  opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.verse-checkbox-custom {
+  width: 1.25rem !important;
+  height: 1.25rem !important;
+  border: 2px solid rgba(255, 255, 255, 0.4) !important;
+  border-radius: 0.25rem !important;
+  background: #1e293b !important;
+  position: relative !important;
+  transition: all 0.3s ease !important;
+  flex-shrink: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.verse-checkbox-custom::after {
+  content: '✓' !important;
+  color: #ffffff !important;
+  font-size: 0.875rem !important;
+  font-weight: bold !important;
+  opacity: 0 !important;
+  transform: scale(0) !important;
+  transition: all 0.2s ease !important;
+}
+
+.verse-create-story-checkbox input:checked + .verse-checkbox-custom {
+  background: #8b5cf6 !important;
+  border-color: #8b5cf6 !important;
+}
+
+.verse-create-story-checkbox input:checked + .verse-checkbox-custom::after {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+}
+
+.verse-checkbox-label {
+  color: #e2e8f0 !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+}
+
+.verse-create-story-actions {
+  display: flex !important;
+  justify-content: flex-end !important;
+  gap: 1rem !important;
+  padding-top: 1rem !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* =================================================================== */
+/* MOBILE RESPONSIVE */
+/* =================================================================== */
+
+@media (max-width: 1024px) {
+  .verse-dashboard-content {
+    padding: 1.5rem 1rem !important;
+  }
+
+  .verse-dashboard-header-content {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1.5rem !important;
+  }
+
+  .verse-dashboard-stats {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+    gap: 1rem !important;
+  }
+
+  .verse-dashboard-story-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+    gap: 1rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .verse-dashboard-header {
+    padding: 1.5rem 1rem 1rem !important;
+  }
+
+  .verse-dashboard-content {
+    padding: 1rem 0.75rem !important;
+  }
+
+  .verse-dashboard-tabs {
+    overflow-x: auto !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+
+  .verse-dashboard-tabs::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .verse-dashboard-tab {
+    padding: 0.75rem 1rem !important;
+    font-size: 0.8125rem !important;
+  }
+
+  .verse-dashboard-title {
+    font-size: 1.5rem !important;
+  }
+
+  .verse-dashboard-filters {
+    padding: 1rem !important;
+  }
+
+  .verse-dashboard-filter-group {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.75rem !important;
+  }
+
+  .verse-dashboard-search-sort {
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+  }
+
+  .verse-dashboard-stats {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1rem !important;
+  }
+
+  .verse-dashboard-stat-card {
+    padding: 1rem !important;
+  }
+
+  .verse-dashboard-stat-icon {
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+    font-size: 1.25rem !important;
+  }
+
+  .verse-dashboard-stat-number {
+    font-size: 1.5rem !important;
+  }
+
+  .verse-dashboard-recent-stories,
+  .verse-dashboard-favorite-stories {
+    grid-template-columns: 1fr !important;
+  }
+
+  .verse-dashboard-story-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  .verse-create-story-row {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .verse-dashboard-header {
+    padding: 1rem 0.75rem 0.75rem !important;
+  }
+
+  .verse-dashboard-content {
+    padding: 0.75rem 0.5rem !important;
+  }
+
+  .verse-dashboard-welcome {
+    gap: 1rem !important;
+  }
+
+  .verse-dashboard-title {
+    font-size: 1.25rem !important;
+  }
+
+  .verse-dashboard-subtitle {
+    font-size: 0.875rem !important;
+  }
+}
+
+.verse-dashboard {
+  min-height: 100vh !important;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.95) 0%,
+    rgba(30, 41, 59, 0.9) 25%,
+    rgba(51, 65, 85, 0.85) 50%,
+    rgba(30, 41, 59, 0.9) 75%,
+    rgba(15, 23, 42, 0.95) 100%
+  ) !important;
+  color: #e2e8f0 !important;
+  position: relative !important;
+  overflow-x: hidden !important;
+}
+
+.verse-dashboard::before {
+  content: '' !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(20, 184, 166, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(245, 158, 11, 0.06) 0%, transparent 50%) !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+.verse-dashboard > * {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* =================================================================== */
+/* DASHBOARD HEADER */
+/* =================================================================== */
+
+.verse-dashboard-header {
+  padding: 2rem 1.5rem 1.5rem !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  background: rgba(15, 23, 42, 0.6) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+.verse-dashboard-header-content {
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 2rem !important;
+}
+
+.verse-dashboard-welcome {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1.5rem !important;
+}
+
+.verse-dashboard-welcome-text {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.5rem !important;
+}
+
+.verse-dashboard-title {
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  background: linear-gradient(135deg, #8b5cf6, #14b8a6, #f59e0b) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  margin: 0 !important;
+  line-height: 1.2 !important;
+}
+
+.verse-dashboard-subtitle {
+  font-size: 1rem !important;
+  color: #94a3b8 !important;
+  margin: 0 !important;
+  line-height: 1.4 !important;
+}
+
+.verse-dashboard-header-actions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1rem !important;
+}
+
+/* =================================================================== */
+/* NAVIGATION TABS */
+/* =================================================================== */
+
+.verse-dashboard-navigation {
+  padding: 0 1.5rem !important;
+  background: rgba(30, 41, 59, 0.4) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+.verse-dashboard-tabs {
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  gap: 0.5rem !important;
+}
+
+.verse-dashboard-tab {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  padding: 1rem 1.5rem !important;
+  background: none !important;
+  border: none !important;
+  color: #94a3b8 !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  border-bottom: 2px solid transparent !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+}
+
+.verse-dashboard-tab:hover {
+  color: #e2e8f0 !important;
+  background: rgba(139, 92, 246, 0.1) !important;
+}
+
+.verse-dashboard-tab.active {
+  color: #8b5cf6 !important;
+  border-bottom-color: #8b5cf6 !important;
+  background: rgba(139, 92, 246, 0.15) !important;
+}
+
+.verse-dashboard-tab-icon {
+  font-size: 1rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.verse-dashboard-tab-label {
+  font-weight: inherit !important;
+}
+
+/* =================================================================== */
+/* DASHBOARD CONTENT */
+/* =================================================================== */
+
+.verse-dashboard-content {
+  padding: 2rem 1.5rem !important;
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  min-height: calc(100vh - 16rem) !important;
+}
+
+/* =================================================================== */
+/* OVERVIEW VIEW */
+/* =================================================================== */
+
+.verse-dashboard-overview {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 3rem !important;
+}
+
+.verse-dashboard-stats {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+  gap: 1.5rem !important;
+}
+
+.verse-dashboard-stat-card {
+  background: rgba(30, 41, 59, 0.6) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 1rem !important;
+  padding: 1.5rem !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 1rem !important;
+  transition: all 0.3s ease !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+.verse-dashboard-stat-card:hover {
+  border-color: rgba(139, 92, 246, 0.3) !important;
+  box-shadow: 0 8px 32px rgba(139, 92, 246, 0.15) !important;
+  transform: translateY(-2px) !important;
+}
+
+.verse-dashboard-stat-icon {
+  width: 3rem !important;
+  height: 3rem !important;
+  border-radius: 0.75rem !important;
+  background: linear-gradient(135deg, #8b5cf6, #14b8a6) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 1.5rem !important;
+  color: #ffffff !important;
+  flex-shrink: 0 !important;
+}
+
+.verse-dashboard-stat-content {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.25rem !important;
+}
+
+.verse-dashboard-stat-number {
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  color: #e2e8f0 !important;
+  line-height: 1 !important;
+}
+
+.verse-dashboard-stat-label {
+  font-size: 0.875rem !important;
+  color: #94a3b8 !important;
+  font-weight: 500 !important;
+}
+
+.verse-dashboard-section {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.5rem !important;
+}
+
+.verse-dashboard-section-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 1rem !important;
+}
+
+.verse-dashboard-section-title {
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  color: #e2e8f0 !important;
+  margin: 0 !important;
+}
+
+.verse-dashboard-recent-stories,
+.verse-dashboard-favorite-stories {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+  gap: 1.5rem !important;
+}
+
+/* =================================================================== */
+/* STORIES VIEW */
+/* =================================================================== */
+
+.verse-dashboard-stories {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2rem !important;
+}
+
+.verse-dashboard-filters {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.5rem !important;
+  padding: 1.5rem !important;
+  background: rgba(30, 41, 59, 0.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 1rem !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+.verse-dashboard-filter-group {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1rem !important;
+  flex-wrap: wrap !important;
+}
+
+.verse-dashboard-filter-label {
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  color: #e2e8f0 !important;
+  min-width: 4rem !important;
+}
+
+.verse-dashboard-filter-buttons {
+  display: flex !important;
+  gap: 0.5rem !important;
+  flex-wrap: wrap !important;
+}
+
+.verse-dashboard-filter-button {
+  padding: 0.5rem 1rem !important;
+  background: rgba(51, 65, 85, 0.6) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 0.5rem !important;
+  color: #94a3b8 !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  white-space: nowrap !important;
+}
+
+.verse-dashboard-filter-button:hover {
+  background: rgba(139, 92, 246, 0.2) !important;
+  border-color: rgba(139, 92, 246, 0.3) !important;
+  color: #e2e8f0 !important;
+}
+
+.verse-dashboard-filter-button.active {
+  background: #8b5cf6 !important;
+  border-color: #8b5cf6 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3) !important;
+}
+
+.verse-dashboard-search-sort {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1rem !important;
+  flex: 1 !important;
+}
+
+.verse-dashboard-sort-select {
+  padding: 0.75rem 1rem !important;
+  background: rgba(51, 65, 85, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 0.5rem !important;
+  color: #e2e8f0 !important;
+  font-size: 0.875rem !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  min-width: 12rem !important;
+}
+
+.verse-dashboard-sort-select:focus {
+  outline: none !important;
+  border-color: #8b5cf6 !important;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2) !important;
+}
+
+.verse-dashboard-story-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)) !important;
+  gap: 1.5rem !important;
+}
+
+/* =================================================================== */
+/* LOADING, ERROR, AND EMPTY STATES */
+/* =================================================================== */
+
+.verse-dashboard-loading,
+.verse-dashboard-error,
+.verse-dashboard-empty,
+.verse-dashboard-no-results {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 20rem !important;
+  padding: 2rem !important;
+}
+
+.verse-dashboard-error-content,
+.verse-dashboard-empty-content,
+.verse-dashboard-no-results-content {
+  text-align: center !important;
+  max-width: 28rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 1rem !important;
+}
+
+.verse-dashboard-error-icon,
+.verse-dashboard-empty-icon,
+.verse-dashboard-no-results-icon {
+  font-size: 3rem !important;
+  color: #6b7280 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.verse-dashboard-error-title,
+.verse-dashboard-empty-title,
+.verse-dashboard-no-results-title {
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+  color: #e2e8f0 !important;
+  margin: 0 !important;
+}
+
+.verse-dashboard-error-message,
+.verse-dashboard-empty-message,
+.verse-dashboard-no-results-message {
+  font-size: 0.875rem !important;
+  color: #94a3b8 !important;
+  line-height: 1.5 !important;
+  margin: 0 !important;
+}
+
+/* =================================================================== */
+/* PROGRESS AND SETTINGS VIEWS */
+/* =================================================================== */
+
+.verse-dashboard-progress,
+.verse-dashboard-settings {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2rem !important;
+}
+
+.verse-dashboard-progress-header,
+.verse-dashboard-settings-header {
+  text-align: center !important;
+  padding: 2rem 0 !important;
+}
+
+.verse-dashboard-progress-title,
+.verse-dashboard-settings-title {
+  font-size: 2rem !important;
+  font-weight: 600 !important;
+  color: #e2e8f0 !important;
+  margin: 0 0 0.5rem 0 !important;
+}
+
+.verse-dashboard-progress-subtitle,
+.verse-dashboard-settings-subtitle {
+  font-size: 1rem !important;
+  color: #94a3b8 !important;
+  margin: 0 !important;
+}
+
+.verse-dashboard-progress-placeholder,
+.verse-dashboard-settings-placeholder {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 1rem !important;
+  padding: 4rem 2rem !important;
+  background: rgba(30, 41, 59, 0.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 1rem !important;
+  text-align: center !important;
+}
+
+.verse-dashboard-progress-placeholder-icon,
+.verse-dashboard-settings-placeholder-icon {
+  font-size: 4rem !important;
+  color: #6b7280 !important;
+}
+
+/* =================================================================== */
+/* CREATE STORY MODAL */
+/* =================================================================== */
+
+.verse-create-story-form {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.5rem !important;
+}
+
+.verse-create-story-error {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  padding: 1rem !important;
+  background: rgba(239, 68, 68, 0.1) !important;
+  border: 1px solid rgba(239, 68, 68, 0.3) !important;
+  border-radius: 0.5rem !important;
+  color: #fca5a5 !important;
+  font-size: 0.875rem !important;
+}
+
+.verse-create-story-fields {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.25rem !important;
+}
+
+.verse-create-story-row {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 1rem !important;
+}
+
+.verse-create-story-field {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.5rem !important;
+}
+
+.verse-create-story-label {
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  color: #e2e8f0 !important;
+  margin: 0 !important;
+}
+
+.verse-create-story-select {
+  padding: 0.75rem 1rem !important;
+  background: rgba(51, 65, 85, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 0.5rem !important;
+  color: #e2e8f0 !important;
+  font-size: 0.875rem !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+}
+
+.verse-create-story-select:focus {
+  outline: none !important;
+  border-color: #8b5cf6 !important;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2) !important;
+}
+
+.verse-create-story-options {
+  padding: 1rem 0 !important;
+}
+
+.verse-create-story-checkbox {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  cursor: pointer !important;
+  user-select: none !important;
+}
+
+.verse-create-story-checkbox input[type="checkbox"] {
+  position: absolute !important;
+  opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.verse-checkbox-custom {
+  width: 1.25rem !important;
+  height: 1.25rem !important;
+  border: 2px solid rgba(255, 255, 255, 0.4) !important;
+  border-radius: 0.25rem !important;
+  background: #1e293b !important;
+  position: relative !important;
+  transition: all 0.3s ease !important;
+  flex-shrink: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.verse-checkbox-custom::after {
+  content: '✓' !important;
+  color: #ffffff !important;
+  font-size: 0.875rem !important;
+  font-weight: bold !important;
+  opacity: 0 !important;
+  transform: scale(0) !important;
+  transition: all 0.2s ease !important;
+}
+
+.verse-create-story-checkbox input:checked + .verse-checkbox-custom {
+  background: #8b5cf6 !important;
+  border-color: #8b5cf6 !important;
+}
+
+.verse-create-story-checkbox input:checked + .verse-checkbox-custom::after {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+}
+
+.verse-checkbox-label {
+  color: #e2e8f0 !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+}
+
+.verse-create-story-actions {
+  display: flex !important;
+  justify-content: flex-end !important;
+  gap: 1rem !important;
+  padding-top: 1rem !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* =================================================================== */
+/* MOBILE RESPONSIVE */
+/* =================================================================== */
+
+@media (max-width: 1024px) {
+  .verse-dashboard-content {
+    padding: 1.5rem 1rem !important;
+  }
+
+  .verse-dashboard-header-content {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1.5rem !important;
+  }
+
+  .verse-dashboard-stats {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+    gap: 1rem !important;
+  }
+
+  .verse-dashboard-story-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+    gap: 1rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .verse-dashboard-header {
+    padding: 1.5rem 1rem 1rem !important;
+  }
+
+  .verse-dashboard-content {
+    padding: 1rem 0.75rem !important;
+  }
+
+  .verse-dashboard-tabs {
+    overflow-x: auto !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+
+  .verse-dashboard-tabs::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  .verse-dashboard-tab {
+    padding: 0.75rem 1rem !important;
+    font-size: 0.8125rem !important;
+  }
+
+  .verse-dashboard-title {
+    font-size: 1.5rem !important;
+  }
+
+  .verse-dashboard-filters {
+    padding: 1rem !important;
+  }
+
+  .verse-dashboard-filter-group {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.75rem !important;
+  }
+
+  .verse-dashboard-search-sort {
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+  }
+
+  .verse-dashboard-stats {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1rem !important;
+  }
+
+  .verse-dashboard-stat-card {
+    padding: 1rem !important;
+  }
+
+  .verse-dashboard-stat-icon {
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+    font-size: 1.25rem !important;
+  }
+
+  .verse-dashboard-stat-number {
+    font-size: 1.5rem !important;
+  }
+
+  .verse-dashboard-recent-stories,
+  .verse-dashboard-favorite-stories {
+    grid-template-columns: 1fr !important;
+  }
+
+  .verse-dashboard-story-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  .verse-create-story-row {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .verse-dashboard-header {
+    padding: 1rem 0.75rem 0.75rem !important;
+  }
+
+  .verse-dashboard-content {
+    padding: 0.75rem 0.5rem !important;
+  }
+
+  .verse-dashboard-welcome {
+    gap: 1rem !important;
+  }
+
+  .verse-dashboard-title {
+    font-size: 1.25rem !important;
+  }
+}
+
+/* Add these additional styles to complete the Dashboard.css */
+
+/* =================================================================== */
+/* MYSTICAL AVATAR INTEGRATION */
+/* =================================================================== */
+
+.verse-dashboard-welcome .verse-user-avatar {
+  width: 4rem !important;
+  height: 4rem !important;
+  border: 3px solid rgba(139, 92, 246, 0.3) !important;
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.2) !important;
+}
+
+.verse-dashboard-welcome .verse-user-avatar.online::after {
+  width: 1rem !important;
+  height: 1rem !important;
+  border: 2px solid #0f172a !important;
+}
+
+/* =================================================================== */
+/* STORY CARD DASHBOARD VARIANT */
+/* =================================================================== */
+
+.verse-story-card.dashboard {
+  background: linear-gradient(
+    135deg,
+    rgba(30, 41, 59, 0.8) 0%,
+    rgba(51, 65, 85, 0.6) 100%
+  ) !important;
+  border: 1px solid rgba(139, 92, 246, 0.2) !important;
+  border-radius: 1rem !important;
+  overflow: hidden !important;
+  transition: all 0.4s ease !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  position: relative !important;
+}
+
+.verse-story-card.dashboard::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: linear-gradient(
+    45deg,
+    rgba(139, 92, 246, 0.02) 0%,
+    rgba(20, 184, 166, 0.02) 50%,
+    rgba(245, 158, 11, 0.02) 100%
+  ) !important;
+  opacity: 0 !important;
+  transition: opacity 0.3s ease !important;
+  pointer-events: none !important;
+}
+
+.verse-story-card.dashboard:hover::before {
+  opacity: 1 !important;
+}
+
+.verse-story-card.dashboard:hover {
+  transform: translateY(-4px) !important;
+  border-color: rgba(139, 92, 246, 0.4) !important;
+  box-shadow: 
+    0 12px 40px rgba(139, 92, 246, 0.15),
+    0 0 0 1px rgba(139, 92, 246, 0.1) !important;
+}
+
+.verse-story-card.compact {
+  background: rgba(30, 41, 59, 0.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 0.75rem !important;
+  padding: 1rem !important;
+  transition: all 0.3s ease !important;
+}
+
+.verse-story-card.compact:hover {
+  background: rgba(30, 41, 59, 0.6) !important;
+  border-color: rgba(139, 92, 246, 0.3) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* =================================================================== */
+/* MYSTICAL SEARCH INPUT ENHANCEMENT */
+/* =================================================================== */
+
+.verse-dashboard-search-sort .verse-input-mystical {
+  flex: 1 !important;
+  max-width: 24rem !important;
+}
+
+.verse-dashboard-search-sort .verse-input-mystical input {
+  background: rgba(51, 65, 85, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: #e2e8f0 !important;
+  padding: 0.75rem 1rem 0.75rem 2.5rem !important;
+}
+
+.verse-dashboard-search-sort .verse-input-mystical input:focus {
+  border-color: #8b5cf6 !important;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2) !important;
+  background: rgba(51, 65, 85, 0.9) !important;
+}
+
+.verse-dashboard-search-sort .verse-input-mystical .verse-input-icon {
+  color: #94a3b8 !important;
+}
+
+/* =================================================================== */
+/* ANIMATED LOADING STATES */
+/* =================================================================== */
+
+.verse-dashboard-loading .verse-loading-mystical {
+  animation: verseDashboardPulse 2s ease-in-out infinite !important;
+}
+
+@keyframes verseDashboardPulse {
+  0%, 100% {
+    transform: scale(1) !important;
+    opacity: 0.8 !important;
+  }
+  50% {
+    transform: scale(1.05) !important;
+    opacity: 1 !important;
+  }
+}
+
+.verse-dashboard-stat-card {
+  animation: verseDashboardSlideIn 0.6s ease-out forwards !important;
+  /* opacity: 0 !important; */
+  transform: translateY(20px) !important;
+}
+
+.verse-dashboard-stat-card:nth-child(1) { animation-delay: 0.1s !important; }
+.verse-dashboard-stat-card:nth-child(2) { animation-delay: 0.2s !important; }
+.verse-dashboard-stat-card:nth-child(3) { animation-delay: 0.3s !important; }
+.verse-dashboard-stat-card:nth-child(4) { animation-delay: 0.4s !important; }
+
+@keyframes verseDashboardSlideIn {
+  to {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+}
+
+/* =================================================================== */
+/* STORY GENRE SPECIFIC STYLING */
+/* =================================================================== */
+
+.verse-story-card[data-genre="fantasy"] {
+  border-left: 4px solid #8b5cf6 !important;
+}
+
+.verse-story-card[data-genre="scifi"] {
+  border-left: 4px solid #14b8a6 !important;
+}
+
+.verse-story-card[data-genre="mystery"] {
+  border-left: 4px solid #6366f1 !important;
+}
+
+.verse-story-card[data-genre="horror"] {
+  border-left: 4px solid #ef4444 !important;
+}
+
+.verse-story-card[data-genre="romance"] {
+  border-left: 4px solid #ec4899 !important;
+}
+
+.verse-story-card[data-genre="adventure"] {
+  border-left: 4px solid #f59e0b !important;
+}
+
+.verse-story-card[data-genre="drama"] {
+  border-left: 4px solid #84cc16 !important;
+}
+
+/* =================================================================== */
+/* PROGRESS INDICATOR ENHANCEMENTS */
+/* =================================================================== */
+
+.verse-story-progress-bar {
+  width: 100% !important;
+  height: 4px !important;
+  background: rgba(51, 65, 85, 0.6) !important;
+  border-radius: 2px !important;
+  overflow: hidden !important;
+  margin: 0.5rem 0 !important;
+}
+
+.verse-story-progress-fill {
+  height: 100% !important;
+  background: linear-gradient(90deg, #8b5cf6, #14b8a6) !important;
+  border-radius: 2px !important;
+  transition: width 0.8s ease !important;
+  position: relative !important;
+}
+
+.verse-story-progress-fill::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  ) !important;
+  animation: verseProgressShimmer 2s infinite !important;
+}
+
+@keyframes verseProgressShimmer {
+  0% { transform: translateX(-100%) !important; }
+  100% { transform: translateX(100%) !important; }
+}
+
+/* =================================================================== */
+/* FILTER BUTTON GLOW EFFECTS */
+/* =================================================================== */
+
+.verse-dashboard-filter-button.active {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.verse-dashboard-filter-button.active::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 100%
+  ) !important;
+  animation: verseFilterGlow 2s infinite !important;
+}
+
+@keyframes verseFilterGlow {
+  0% { left: -100% !important; }
+  100% { left: 100% !important; }
+}
+
+/* =================================================================== */
+/* TAB ACTIVE STATE ENHANCEMENTS */
+/* =================================================================== */
+
+.verse-dashboard-tab.active {
+  position: relative !important;
+}
+
+.verse-dashboard-tab.active::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -2px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 0 !important;
+  height: 2px !important;
+  background: #8b5cf6 !important;
+  animation: verseTabExpand 0.3s ease-out forwards !important;
+}
+
+@keyframes verseTabExpand {
+  to {
+    width: 80% !important;
+  }
+}
+
+/* =================================================================== */
+/* MYSTICAL MODAL DASHBOARD STYLING */
+/* =================================================================== */
+
+.verse-modal.mystical .verse-modal-content {
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.95) 0%,
+    rgba(30, 41, 59, 0.9) 100%
+  ) !important;
+  border: 1px solid rgba(139, 92, 246, 0.3) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+}
+
+.verse-modal.mystical .verse-modal-header {
+  border-bottom: 1px solid rgba(139, 92, 246, 0.2) !important;
+  background: rgba(139, 92, 246, 0.1) !important;
+}
+
+.verse-modal.mystical .verse-modal-title {
+  background: linear-gradient(135deg, #8b5cf6, #14b8a6) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* =================================================================== */
+/* UNAUTHORIZED STATE STYLING */
+/* =================================================================== */
+
+.verse-dashboard-unauthorized {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 100vh !important;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.95) 0%,
+    rgba(30, 41, 59, 0.9) 100%
+  ) !important;
+}
+
+/* =================================================================== */
+/* DASHBOARD COSMIC BACKGROUND EFFECTS */
+/* =================================================================== */
+
+.verse-dashboard-stats::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -50% !important;
+  left: -50% !important;
+  width: 200% !important;
+  height: 200% !important;
+  background: 
+    radial-gradient(circle at 25% 25%, rgba(139, 92, 246, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(20, 184, 166, 0.03) 0%, transparent 50%) !important;
+  animation: verseDashboardRotate 20s linear infinite !important;
+  pointer-events: none !important;
+  z-index: -1 !important;
+}
+
+@keyframes verseDashboardRotate {
+  from { transform: rotate(0deg) !important; }
+  to { transform: rotate(360deg) !important; }
+}
+
+/* =================================================================== */
+/* SCROLL ENHANCEMENTS */
+/* =================================================================== */
+
+.verse-dashboard-content::-webkit-scrollbar {
+  width: 6px !important;
+}
+
+.verse-dashboard-content::-webkit-scrollbar-track {
+  background: rgba(51, 65, 85, 0.3) !important;
+  border-radius: 3px !important;
+}
+
+.verse-dashboard-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #8b5cf6, #14b8a6) !important;
+  border-radius: 3px !important;
+}
+
+.verse-dashboard-content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #7c3aed, #0d9488) !important;
+}
+
+/* =================================================================== */
+/* HIGH CONTRAST MODE SUPPORT */
+/* =================================================================== */
+
+@media (prefers-contrast: high) {
+  .verse-dashboard-stat-card {
+    border: 2px solid #ffffff !important;
+    background: #000000 !important;
+  }
+
+  .verse-dashboard-tab.active {
+    background: #8b5cf6 !important;
+    color: #ffffff !important;
+  }
+
+  .verse-dashboard-filter-button.active {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+}
+
+/* =================================================================== */
+/* REDUCED MOTION SUPPORT */
+/* =================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .verse-dashboard-stat-card,
+  .verse-story-card,
+  .verse-dashboard-filter-button,
+  .verse-dashboard-tab {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .verse-loading-mystical,
+  .verse-progress-fill::after,
+  .verse-dashboard-stats::before {
+    animation: none !important;
+  }
+}
+
+/* =================================================================== */
+/* PRINT STYLES */
+/* =================================================================== */
+
+@media print {
+  .verse-dashboard-header-actions,
+  .verse-dashboard-navigation,
+  .verse-create-story-modal {
+    display: none !important;
+  }
+
+  .verse-dashboard {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .verse-dashboard-stat-card {
+    border: 1px solid #000000 !important;
+    break-inside: avoid !important;
+  }
+}
+
+/* Add these logo styles to Dashboard.css */
+
+/* =================================================================== */
+/* DASHBOARD LOGO ENCHANTMENTS */
+/* =================================================================== */
+
+.verse-dashboard .verse-header-logo {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  text-decoration: none !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 12px !important;
+  position: relative !important;
+  overflow: hidden !important;
+  background: rgba(139, 92, 246, 0.05) !important;
+  border: 1px solid rgba(139, 92, 246, 0.2) !important;
+}
+
+.verse-dashboard .verse-header-logo::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(139, 92, 246, 0.15) 50%,
+    transparent 100%
+  ) !important;
+  transition: left 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.verse-dashboard .verse-header-logo:hover::before {
+  left: 100% !important;
+}
+
+.verse-dashboard .verse-header-logo:hover {
+  transform: translateY(-2px) !important;
+  background: rgba(139, 92, 246, 0.1) !important;
+  border-color: rgba(139, 92, 246, 0.4) !important;
+  box-shadow: 
+    0 8px 25px rgba(139, 92, 246, 0.3),
+    0 0 0 1px rgba(139, 92, 246, 0.1) !important;
+}
+
+.verse-dashboard .verse-logo-icon {
+  font-size: 2.5rem !important;
+  color: #8b5cf6 !important;
+  text-shadow: 0 0 25px rgba(139, 92, 246, 0.6) !important;
+  animation: verseDashboardLogoIconGlow 4s ease-in-out infinite !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+@keyframes verseDashboardLogoIconGlow {
+  0%, 100% {
+    text-shadow: 0 0 25px rgba(139, 92, 246, 0.6) !important;
+    filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.4)) !important;
+  }
+  50% {
+    text-shadow: 0 0 35px rgba(139, 92, 246, 0.9) !important;
+    filter: drop-shadow(0 0 25px rgba(139, 92, 246, 0.7)) !important;
+  }
+}
+
+.verse-dashboard .verse-logo-text {
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+  font-size: 2rem !important;
+  font-weight: 900 !important;
+  color: #ffffff !important;
+  margin: 0 !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0.1em !important;
+  background: linear-gradient(135deg, #8b5cf6, #14b8a6, #f59e0b) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  text-shadow: 0 0 30px rgba(139, 92, 246, 0.5) !important;
+  position: relative !important;
+  z-index: 2 !important;
+  animation: verseDashboardLogoTextShimmer 6s ease-in-out infinite !important;
+}
+
+@keyframes verseDashboardLogoTextShimmer {
+  0%, 100% {
+    text-shadow: 0 0 30px rgba(139, 92, 246, 0.5) !important;
+  }
+  33% {
+    text-shadow: 0 0 35px rgba(20, 184, 166, 0.6) !important;
+  }
+  66% {
+    text-shadow: 0 0 35px rgba(245, 158, 11, 0.6) !important;
+  }
+}
+
+/* Mobile responsive for dashboard */
+@media (max-width: 768px) {
+  .verse-dashboard .verse-header-logo {
+    padding: 0.375rem 0.75rem !important;
+    gap: 0.5rem !important;
+  }
+
+  .verse-dashboard .verse-logo-text {
+    font-size: 1.75rem !important;
+  }
+
+  .verse-dashboard .verse-logo-icon {
+    font-size: 2rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .verse-dashboard .verse-header-logo {
+    padding: 0.25rem 0.5rem !important;
+    gap: 0.375rem !important;
+  }
+
+  .verse-dashboard .verse-logo-text {
+    font-size: 1.5rem !important;
+  }
+
+  .verse-dashboard .verse-logo-icon {
+    font-size: 1.75rem !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .verse-dashboard .verse-logo-text {
+    font-size: 1.25rem !important;
+  }
+
+  .verse-dashboard .verse-logo-icon {
+    font-size: 1.5rem !important;
+  }
+}
+
+/* High contrast mode for dashboard */
+@media (prefers-contrast: high) {
+  .verse-dashboard .verse-header-logo {
+    border-width: 2px !important;
+    border-color: #8b5cf6 !important;
+  }
+
+  .verse-dashboard .verse-logo-text {
+    -webkit-text-fill-color: #8b5cf6 !important;
+    color: #8b5cf6 !important;
+  }
+}
+
+/* Reduced motion for dashboard */
+@media (prefers-reduced-motion: reduce) {
+  .verse-dashboard .verse-logo-icon,
+  .verse-dashboard .verse-logo-text,
+  .verse-dashboard .verse-header-logo {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .verse-dashboard .verse-header-logo::before {
+    display: none !important;
+  }
+}
+
+/* Print styles for dashboard */
+@media print {
+  .verse-dashboard .verse-logo-icon {
+    animation: none !important;
+    text-shadow: none !important;
+    filter: none !important;
+    color: #000000 !important;
+  }
+
+  .verse-dashboard .verse-logo-text {
+    animation: none !important;
+    text-shadow: none !important;
+    -webkit-text-fill-color: #000000 !important;
+    color: #000000 !important;
+    background: none !important;
+  }
+
+  .verse-dashboard .verse-header-logo {
+    background: none !important;
+    border: 1px solid #000000 !important;
+    box-shadow: none !important;
+  }
+}
+
+.verse-recent-story-actions {
+  margin-top: 1em;
+}

@@ -1,0 +1,527 @@
+/**
+ * VERSE Mystical Button Component Styles
+ * Resolution independent with responsive breakpoints and magical effects
+ */
+
+/* =================================================================== */
+/* BASE BUTTON STYLES */
+/* =================================================================== */
+
+.verse-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: inherit;
+  font-weight: var(--verse-weight-medium);
+  text-decoration: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  outline: none;
+  overflow: hidden;
+  transition: all var(--verse-duration-normal) var(--verse-ease-in-out);
+  
+  /* Prevent text selection and touch highlighting */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  
+  /* Hardware acceleration for better performance */
+  transform: translateZ(0);
+  will-change: transform, box-shadow;
+}
+
+.verse-button:focus-visible {
+  outline: 2px solid var(--verse-purple-magic);
+  outline-offset: 2px;
+}
+
+/* =================================================================== */
+/* BUTTON SIZES - RESOLUTION INDEPENDENT */
+/* =================================================================== */
+
+.verse-button-xs {
+  padding: 0.375rem 0.75rem;
+  font-size: var(--verse-text-xs);
+  min-height: 2rem;
+  border-radius: var(--verse-radius-sm);
+}
+
+.verse-button-sm {
+  padding: 0.5rem 1rem;
+  font-size: var(--verse-text-sm);
+  min-height: 2.25rem;
+  border-radius: var(--verse-radius-md);
+}
+
+.verse-button-md {
+  padding: 0.75rem 1.5rem;
+  font-size: var(--verse-text-base);
+  min-height: var(--verse-button-height);
+  border-radius: var(--verse-radius-lg);
+}
+
+.verse-button-lg {
+  padding: 1rem 2rem;
+  font-size: var(--verse-text-lg);
+  min-height: 3.5rem;
+  border-radius: var(--verse-radius-xl);
+}
+
+.verse-button-xl {
+  padding: 1.25rem 2.5rem;
+  font-size: var(--verse-text-xl);
+  min-height: 4rem;
+  border-radius: var(--verse-radius-2xl);
+}
+
+/* Responsive size adjustments */
+@media (max-width: 480px) {
+  .verse-button-lg {
+    padding: 0.875rem 1.75rem;
+    font-size: var(--verse-text-base);
+    min-height: 3rem;
+  }
+  
+  .verse-button-xl {
+    padding: 1rem 2rem;
+    font-size: var(--verse-text-lg);
+    min-height: 3.5rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .verse-button-md {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.9375rem;
+    min-height: 2.5rem;
+  }
+  
+  .verse-button-lg {
+    padding: 0.75rem 1.5rem;
+    font-size: var(--verse-text-base);
+    min-height: 2.75rem;
+  }
+  
+  .verse-button-xl {
+    padding: 0.875rem 1.75rem;
+    font-size: var(--verse-text-lg);
+    min-height: 3rem;
+  }
+}
+
+/* =================================================================== */
+/* BUTTON SHAPES */
+/* =================================================================== */
+
+.verse-button-rounded {
+  /* Uses default border-radius from size variants */
+}
+
+.verse-button-pill {
+  border-radius: var(--verse-radius-full);
+}
+
+.verse-button-square {
+  border-radius: 0;
+}
+
+.verse-button-circle {
+  border-radius: 50%;
+  aspect-ratio: 1;
+  padding: 0;
+}
+
+.verse-button-circle .verse-button-text {
+  display: none;
+}
+
+/* =================================================================== */
+/* BUTTON VARIANTS */
+/* =================================================================== */
+
+/* Primary Button */
+.verse-button-primary {
+  background: var(--verse-gradient-button);
+  color: var(--verse-text-moonlight);
+  border-color: transparent;
+  box-shadow: 
+    var(--verse-shadow-soft),
+    0 0 0 1px rgba(124, 58, 237, 0.2);
+}
+
+.verse-button-primary:hover:not(.verse-button-disabled):not(.verse-button-loading) {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 
+    var(--verse-shadow-medium),
+    0 0 20px rgba(124, 58, 237, 0.4),
+    0 0 0 1px rgba(124, 58, 237, 0.3);
+}
+
+.verse-button-primary:active:not(.verse-button-disabled):not(.verse-button-loading) {
+  transform: translateY(0) scale(0.98);
+  box-shadow: var(--verse-shadow-subtle);
+}
+
+/* Secondary Button */
+.verse-button-secondary {
+  background: var(--verse-realm-shadow);
+  color: var(--verse-text-starlight);
+  border-color: var(--verse-border-spell);
+}
+
+.verse-button-secondary:hover:not(.verse-button-disabled):not(.verse-button-loading) {
+  background: var(--verse-realm-mist);
+  border-color: var(--verse-teal-mystic);
+  color: var(--verse-text-moonlight);
+  transform: translateY(-1px) scale(1.01);
+  box-shadow: 
+    var(--verse-shadow-soft),
+    0 0 15px rgba(20, 184, 166, 0.3);
+}
+
+/* Accent Button */
+.verse-button-accent {
+  background: linear-gradient(135deg, var(--verse-gold-flame) 0%, var(--verse-gold-ember) 100%);
+  color: var(--verse-realm-void);
+  border-color: transparent;
+  font-weight: var(--verse-weight-semibold);
+}
+
+.verse-button-accent:hover:not(.verse-button-disabled):not(.verse-button-loading) {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 
+    var(--verse-shadow-medium),
+    0 0 20px rgba(245, 158, 11, 0.5);
+}
+
+/* Ghost Button */
+.verse-button-ghost {
+  background: transparent;
+  color: var(--verse-text-starlight);
+  border-color: transparent;
+}
+
+.verse-button-ghost:hover:not(.verse-button-disabled):not(.verse-button-loading) {
+  background: rgba(124, 58, 237, 0.1);
+  color: var(--verse-text-moonlight);
+  transform: scale(1.02);
+}
+
+/* Outline Button */
+.verse-button-outline {
+  background: transparent;
+  color: var(--verse-purple-magic);
+  border-color: var(--verse-purple-magic);
+}
+
+.verse-button-outline:hover:not(.verse-button-disabled):not(.verse-button-loading) {
+  background: var(--verse-purple-magic);
+  color: var(--verse-text-moonlight);
+  transform: translateY(-1px) scale(1.01);
+  box-shadow: 
+    var(--verse-shadow-soft),
+    0 0 15px rgba(124, 58, 237, 0.3);
+}
+
+/* =================================================================== */
+/* BUTTON STATES */
+/* =================================================================== */
+
+/* Disabled State */
+.verse-button-disabled {
+  opacity: var(--verse-opacity-disabled);
+  cursor: not-allowed;
+  pointer-events: none;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Loading State */
+.verse-button-loading {
+  cursor: wait;
+  pointer-events: none;
+}
+
+.verse-button-text-loading {
+  opacity: 0.7;
+}
+
+/* Full Width */
+.verse-button-full-width {
+  width: 100%;
+}
+
+/* Glowing Effect */
+.verse-button-glowing {
+  animation: verseButtonGlow 2s ease-in-out infinite;
+}
+
+/* =================================================================== */
+/* BUTTON CONTENT ELEMENTS */
+/* =================================================================== */
+
+.verse-button-text {
+  position: relative;
+  z-index: 2;
+  white-space: nowrap;
+  transition: opacity var(--verse-duration-fast) var(--verse-ease-out);
+}
+
+.verse-button-icon {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.verse-button-icon-left {
+  margin-right: -0.25rem;
+}
+
+.verse-button-icon-right {
+  margin-left: -0.25rem;
+}
+
+/* =================================================================== */
+/* LOADING SPINNER */
+/* =================================================================== */
+
+.verse-button-spinner {
+  position: relative;
+  width: 1em;
+  height: 1em;
+  margin-right: 0.5rem;
+}
+
+.verse-button-spinner-orb {
+  width: 100%;
+  height: 100%;
+  background: currentColor;
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: verseButtonSpinnerPulse 1.5s ease-in-out infinite;
+}
+
+.verse-button-spinner-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid transparent;
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: verseButtonSpinnerRotate 1s linear infinite;
+}
+
+/* =================================================================== */
+/* MAGICAL EFFECTS */
+/* =================================================================== */
+
+/* Ripple Effect */
+.verse-button-ripple {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.verse-button:active .verse-button-ripple {
+  animation: verseButtonRipple 0.6s ease-out;
+}
+
+/* Glow Effect */
+.verse-button-glow-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  background: inherit;
+  opacity: 0;
+  filter: blur(8px);
+  z-index: 0;
+  transition: opacity var(--verse-duration-normal) var(--verse-ease-out);
+}
+
+.verse-button:hover .verse-button-glow-effect {
+  opacity: 0.3;
+}
+
+.verse-button-glowing .verse-button-glow-effect {
+  opacity: 0.5;
+  animation: verseButtonGlowEffect 2s ease-in-out infinite;
+}
+
+/* =================================================================== */
+/* KEYFRAME ANIMATIONS */
+/* =================================================================== */
+
+@keyframes verseButtonGlow {
+  0%, 100% {
+    box-shadow: 
+      var(--verse-shadow-soft),
+      0 0 15px rgba(124, 58, 237, 0.3);
+  }
+  50% {
+    box-shadow: 
+      var(--verse-shadow-medium),
+      0 0 25px rgba(124, 58, 237, 0.6),
+      0 0 35px rgba(20, 184, 166, 0.3);
+  }
+}
+
+@keyframes verseButtonSpinnerPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+@keyframes verseButtonSpinnerRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes verseButtonRipple {
+  to {
+    width: 200px;
+    height: 200px;
+    opacity: 0;
+  }
+}
+
+@keyframes verseButtonGlowEffect {
+  0%, 100% {
+    opacity: 0.3;
+    filter: blur(8px);
+  }
+  50% {
+    opacity: 0.6;
+    filter: blur(12px);
+  }
+}
+
+/* =================================================================== */
+/* TOUCH DEVICE OPTIMIZATIONS */
+/* =================================================================== */
+
+@media (hover: none) and (pointer: coarse) {
+  .verse-button {
+    /* Increase tap target size for touch devices */
+    min-height: 44px;
+  }
+  
+  .verse-button-xs {
+    min-height: 40px;
+    padding: 0.5rem 1rem;
+  }
+  
+  .verse-button-sm {
+    min-height: 44px;
+    padding: 0.625rem 1.25rem;
+  }
+  
+  /* Reduce hover effects on touch devices */
+  .verse-button:hover {
+    transform: none;
+    box-shadow: var(--verse-shadow-soft);
+  }
+  
+  /* Enhance active states for touch feedback */
+  .verse-button:active:not(.verse-button-disabled):not(.verse-button-loading) {
+    transform: scale(0.95);
+    transition-duration: var(--verse-duration-fast);
+  }
+}
+
+/* =================================================================== */
+/* HIGH CONTRAST MODE */
+/* =================================================================== */
+
+@media (prefers-contrast: high) {
+  .verse-button {
+    border-width: 3px;
+  }
+  
+  .verse-button-primary {
+    background: var(--verse-purple-magic);
+    border-color: var(--verse-text-moonlight);
+  }
+  
+  .verse-button-secondary {
+    border-color: var(--verse-text-starlight);
+  }
+  
+  .verse-button-ghost {
+    border-color: currentColor;
+  }
+}
+
+/* =================================================================== */
+/* REDUCED MOTION */
+/* =================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .verse-button {
+    transition-duration: var(--verse-duration-fast);
+  }
+  
+  .verse-button:hover,
+  .verse-button:active {
+    transform: none;
+  }
+  
+  .verse-button-glowing {
+    animation: none;
+  }
+  
+  .verse-button-spinner-orb,
+  .verse-button-spinner-ring {
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+  }
+  
+  .verse-button-ripple {
+    animation: none;
+  }
+}
+
+/* =================================================================== */
+/* PRINT STYLES */
+/* =================================================================== */
+
+@media print {
+  .verse-button {
+    background: white !important;
+    color: black !important;
+    border: 2px solid black !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+  
+  .verse-button-spinner,
+  .verse-button-glow-effect {
+    display: none !important;
+  }
+}

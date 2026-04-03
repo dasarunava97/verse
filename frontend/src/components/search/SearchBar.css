@@ -1,0 +1,1106 @@
+/**
+ * VERSE Mystical Search Bar Styles
+ * Enchanted search interface with mystical animations and theming
+ */
+
+/* =================================================================== */
+/* SEARCH BAR FOUNDATION */
+/* =================================================================== */
+
+.verse-search-bar {
+  position: relative;
+  width: 100%;
+}
+
+.verse-search-form {
+  position: relative;
+  width: 100%;
+}
+
+.verse-search-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: var(--verse-realm-mist);
+  border: 1px solid var(--verse-border-ward);
+  border-radius: var(--verse-radius-lg);
+  transition: all var(--verse-duration-normal) var(--verse-ease-out);
+  overflow: hidden;
+}
+
+.verse-search-input-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--verse-gradient-mystical);
+  opacity: 0;
+  transition: opacity var(--verse-duration-normal) var(--verse-ease-out);
+  border-radius: inherit;
+}
+
+.verse-search-input-container:focus-within {
+  border-color: var(--verse-purple-magic);
+  box-shadow: 
+    0 0 0 3px rgba(124, 58, 237, 0.1),
+    0 4px 15px rgba(124, 58, 237, 0.2);
+}
+
+.verse-search-input-container:focus-within::before {
+  opacity: 0.05;
+}
+
+.verse-search-bar.disabled .verse-search-input-container {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: var(--verse-realm-shadow);
+}
+
+/* =================================================================== */
+/* SEARCH BAR VARIANTS */
+/* =================================================================== */
+
+.verse-search-bar.variant-header .verse-search-input-container {
+  background: rgba(51, 65, 85, 0.5);
+  border-color: rgba(124, 58, 237, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.verse-search-bar.variant-header .verse-search-input-container:focus-within {
+  background: rgba(51, 65, 85, 0.8);
+  border-color: var(--verse-purple-magic);
+}
+
+.verse-search-bar.variant-minimal .verse-search-input-container {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid var(--verse-border-ward);
+  border-radius: 0;
+  padding: 0;
+}
+
+.verse-search-bar.variant-minimal .verse-search-input-container:focus-within {
+  border-bottom-color: var(--verse-purple-magic);
+  box-shadow: none;
+}
+
+.verse-search-bar.variant-elevated .verse-search-input-container {
+  background: var(--verse-realm-mist);
+  border-color: var(--verse-border-spell);
+  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.1);
+}
+
+.verse-search-bar.variant-mystical .verse-search-input-container {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.05) 0%, rgba(20, 184, 166, 0.05) 100%);
+  border-color: rgba(124, 58, 237, 0.3);
+}
+
+/* =================================================================== */
+/* SEARCH BAR SIZES */
+/* =================================================================== */
+
+.verse-search-bar.size-small .verse-search-input-container {
+  height: 2.25rem;
+  padding: 0 var(--verse-space-sm);
+}
+
+.verse-search-bar.size-small .verse-search-input {
+  font-size: var(--verse-text-sm);
+}
+
+.verse-search-bar.size-medium .verse-search-input-container {
+  height: 2.75rem;
+  padding: 0 var(--verse-space-md);
+}
+
+.verse-search-bar.size-medium .verse-search-input {
+  font-size: var(--verse-text-base);
+}
+
+.verse-search-bar.size-large .verse-search-input-container {
+  height: 3.25rem;
+  padding: 0 var(--verse-space-lg);
+}
+
+.verse-search-bar.size-large .verse-search-input {
+  font-size: var(--verse-text-lg);
+}
+
+/* =================================================================== */
+/* SEARCH INPUT */
+/* =================================================================== */
+
+.verse-search-input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--verse-text-moonlight);
+  font-weight: var(--verse-weight-medium);
+  padding: 0;
+  margin: 0 var(--verse-space-sm);
+  position: relative;
+  z-index: 1;
+}
+
+.verse-search-input::placeholder {
+  color: var(--verse-text-wisdom);
+  opacity: 0.7;
+}
+
+.verse-search-input:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* =================================================================== */
+/* SEARCH ICONS AND BUTTONS */
+/* =================================================================== */
+
+.verse-search-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--verse-text-starlight);
+  font-size: 1.125rem;
+  position: relative;
+  z-index: 1;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.verse-search-bar.open .verse-search-icon {
+  color: var(--verse-purple-magic);
+}
+
+.verse-search-clear {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  color: var(--verse-text-wisdom);
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: var(--verse-radius-sm);
+  transition: all var(--verse-duration-normal) var(--verse-ease-out);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.verse-search-clear:hover {
+  color: var(--verse-text-starlight);
+  background: rgba(124, 58, 237, 0.1);
+}
+
+.verse-search-clear:focus-visible {
+  outline: 2px solid var(--verse-purple-magic);
+  outline-offset: 2px;
+}
+
+.verse-search-submit {
+  margin-left: var(--verse-space-sm);
+  position: relative;
+  z-index: 1;
+}
+
+/* =================================================================== */
+/* SEARCH DROPDOWN */
+/* =================================================================== */
+
+.verse-search-dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  right: 0;
+  background: linear-gradient(145deg, var(--verse-realm-mist) 0%, var(--verse-realm-shadow) 100%);
+  border: 1px solid var(--verse-border-spell);
+  border-radius: var(--verse-radius-xl);
+  box-shadow: 
+    0 20px 40px rgba(15, 23, 42, 0.4),
+    0 0 0 1px rgba(124, 58, 237, 0.1),
+    inset 0 1px 0 rgba(248, 250, 252, 0.05);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  max-height: 24rem;
+  overflow: hidden;
+  animation: verseSearchDropdownAppear 0.2s var(--verse-ease-mystical);
+  z-index: 1000;
+}
+
+@keyframes verseSearchDropdownAppear {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.verse-search-dropdown::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--verse-gradient-mystical);
+  opacity: 0.02;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.verse-search-dropdown-content {
+  max-height: 24rem;
+  overflow-y: auto;
+  padding: var(--verse-space-sm) 0;
+  position: relative;
+  z-index: 1;
+}
+
+.verse-search-dropdown-content::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+.verse-search-dropdown-content::-webkit-scrollbar-track {
+  background: rgba(51, 65, 85, 0.1);
+  border-radius: var(--verse-radius-full);
+}
+
+.verse-search-dropdown-content::-webkit-scrollbar-thumb {
+  background: rgba(124, 58, 237, 0.3);
+  border-radius: var(--verse-radius-full);
+}
+
+.verse-search-dropdown-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(124, 58, 237, 0.5);
+}
+
+/* =================================================================== */
+/* SEARCH SECTIONS */
+/* =================================================================== */
+
+.verse-search-section {
+  margin-bottom: var(--verse-space-md);
+}
+
+.verse-search-section/**
+ * VERSE Mystical Search Bar Styles
+ * Enchanted search interface with mystical animations and theming
+ */
+
+/* =================================================================== */
+/* SEARCH BAR FOUNDATION */
+/* =================================================================== */
+
+.verse-search-bar {
+  position: relative;
+  width: 100%;
+}
+
+.verse-search-form {
+  position: relative;
+  width: 100%;
+}
+
+.verse-search-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: var(--verse-realm-mist);
+  border: 1px solid var(--verse-border-ward);
+  border-radius: var(--verse-radius-lg);
+  transition: all var(--verse-duration-normal) var(--verse-ease-out);
+  overflow: hidden;
+}
+
+.verse-search-input-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--verse-gradient-mystical);
+  opacity: 0;
+  transition: opacity var(--verse-duration-normal) var(--verse-ease-out);
+  border-radius: inherit;
+}
+
+.verse-search-input-container:focus-within {
+  border-color: var(--verse-purple-magic);
+  box-shadow: 
+    0 0 0 3px rgba(124, 58, 237, 0.1),
+    0 4px 15px rgba(124, 58, 237, 0.2);
+}
+
+.verse-search-input-container:focus-within::before {
+  opacity: 0.05;
+}
+
+.verse-search-bar.disabled .verse-search-input-container {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: var(--verse-realm-shadow);
+}
+
+/* =================================================================== */
+/* SEARCH BAR VARIANTS */
+/* =================================================================== */
+
+.verse-search-bar.variant-header .verse-search-input-container {
+  background: rgba(51, 65, 85, 0.5);
+  border-color: rgba(124, 58, 237, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.verse-search-bar.variant-header .verse-search-input-container:focus-within {
+  background: rgba(51, 65, 85, 0.8);
+  border-color: var(--verse-purple-magic);
+}
+
+.verse-search-bar.variant-minimal .verse-search-input-container {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid var(--verse-border-ward);
+  border-radius: 0;
+  padding: 0;
+}
+
+.verse-search-bar.variant-minimal .verse-search-input-container:focus-within {
+  border-bottom-color: var(--verse-purple-magic);
+  box-shadow: none;
+}
+
+.verse-search-bar.variant-elevated .verse-search-input-container {
+  background: var(--verse-realm-mist);
+  border-color: var(--verse-border-spell);
+  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.1);
+}
+
+.verse-search-bar.variant-mystical .verse-search-input-container {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.05) 0%, rgba(20, 184, 166, 0.05) 100%);
+  border-color: rgba(124, 58, 237, 0.3);
+}
+
+/* =================================================================== */
+/* SEARCH BAR SIZES */
+/* =================================================================== */
+
+.verse-search-bar.size-small .verse-search-input-container {
+  height: 2.25rem;
+  padding: 0 var(--verse-space-sm);
+}
+
+.verse-search-bar.size-small .verse-search-input {
+  font-size: var(--verse-text-sm);
+}
+
+.verse-search-bar.size-medium .verse-search-input-container {
+  height: 2.75rem;
+  padding: 0 var(--verse-space-md);
+}
+
+.verse-search-bar.size-medium .verse-search-input {
+  font-size: var(--verse-text-base);
+}
+
+.verse-search-bar.size-large .verse-search-input-container {
+  height: 3.25rem;
+  padding: 0 var(--verse-space-lg);
+}
+
+.verse-search-bar.size-large .verse-search-input {
+  font-size: var(--verse-text-lg);
+}
+
+/* =================================================================== */
+/* SEARCH INPUT */
+/* =================================================================== */
+
+.verse-search-input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--verse-text-moonlight);
+  font-weight: var(--verse-weight-medium);
+  padding: 0;
+  margin: 0 var(--verse-space-sm);
+  position: relative;
+  z-index: 1;
+}
+
+.verse-search-input::placeholder {
+  color: var(--verse-text-wisdom);
+  opacity: 0.7;
+}
+
+.verse-search-input:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* =================================================================== */
+/* SEARCH ICONS AND BUTTONS */
+/* =================================================================== */
+
+.verse-search-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--verse-text-starlight);
+  font-size: 1.125rem;
+  position: relative;
+  z-index: 1;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.verse-search-bar.open .verse-search-icon {
+  color: var(--verse-purple-magic);
+}
+
+.verse-search-clear {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  color: var(--verse-text-wisdom);
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: var(--verse-radius-sm);
+  transition: all var(--verse-duration-normal) var(--verse-ease-out);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.verse-search-clear:hover {
+  color: var(--verse-text-starlight);
+  background: rgba(124, 58, 237, 0.1);
+}
+
+.verse-search-clear:focus-visible {
+  outline: 2px solid var(--verse-purple-magic);
+  outline-offset: 2px;
+}
+
+.verse-search-submit {
+  margin-left: var(--verse-space-sm);
+  position: relative;
+  z-index: 1;
+}
+
+/* =================================================================== */
+/* SEARCH DROPDOWN */
+/* =================================================================== */
+
+.verse-search-dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  right: 0;
+  background: linear-gradient(145deg, var(--verse-realm-mist) 0%, var(--verse-realm-shadow) 100%);
+  border: 1px solid var(--verse-border-spell);
+  border-radius: var(--verse-radius-xl);
+  box-shadow: 
+    0 20px 40px rgba(15, 23, 42, 0.4),
+    0 0 0 1px rgba(124, 58, 237, 0.1),
+    inset 0 1px 0 rgba(248, 250, 252, 0.05);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  max-height: 24rem;
+  overflow: hidden;
+  animation: verseSearchDropdownAppear 0.2s var(--verse-ease-mystical);
+  z-index: 1000;
+}
+
+@keyframes verseSearchDropdownAppear {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.verse-search-dropdown::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--verse-gradient-mystical);
+  opacity: 0.02;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.verse-search-dropdown-content {
+  max-height: 24rem;
+  overflow-y: auto;
+  padding: var(--verse-space-sm) 0;
+  position: relative;
+  z-index: 1;
+}
+
+.verse-search-dropdown-content::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+.verse-search-dropdown-content::-webkit-scrollbar-track {
+  background: rgba(51, 65, 85, 0.1);
+  border-radius: var(--verse-radius-full);
+}
+
+.verse-search-dropdown-content::-webkit-scrollbar-thumb {
+  background: rgba(124, 58, 237, 0.3);
+  border-radius: var(--verse-radius-full);
+}
+
+.verse-search-dropdown-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(124, 58, 237, 0.5);
+}
+
+/* =================================================================== */
+/* SEARCH SECTIONS */
+/* =================================================================== */
+
+.verse-search-section {
+  margin-bottom: var(--verse-space-md);
+}
+
+/* =================================================================== */
+/* SEARCH SECTION HEADER */
+/* =================================================================== */
+
+.verse-search-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--verse-space-sm) var(--verse-space-md);
+  border-bottom: 1px solid var(--verse-border-ward);
+  margin-bottom: var(--verse-space-xs);
+}
+
+.verse-search-section-title {
+  color: var(--verse-text-starlight);
+  font-size: var(--verse-text-sm);
+  font-weight: var(--verse-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.verse-search-section-count {
+  color: var(--verse-text-wisdom);
+  font-size: var(--verse-text-xs);
+  font-weight: var(--verse-weight-medium);
+  background: rgba(124, 58, 237, 0.1);
+  padding: 0.125rem 0.5rem;
+  border-radius: var(--verse-radius-full);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+}
+
+.verse-search-section-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  padding: 0 var(--verse-space-xs);
+}
+
+/* =================================================================== */
+/* RECENT SEARCH ITEMS */
+/* =================================================================== */
+
+.verse-search-recent-item {
+  display: flex;
+  align-items: center;
+  gap: var(--verse-space-sm);
+  padding: var(--verse-space-sm) var(--verse-space-md);
+  border: none;
+  background: none;
+  border-radius: var(--verse-radius-lg);
+  cursor: pointer;
+  text-align: left;
+  color: var(--verse-text-starlight);
+  font-size: var(--verse-text-sm);
+  font-weight: var(--verse-weight-medium);
+  transition: all var(--verse-duration-fast) var(--verse-ease-out);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  min-height: 2.25rem;
+}
+
+.verse-search-recent-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(124, 58, 237, 0.1) 50%,
+    transparent 100%
+  );
+  transition: left var(--verse-duration-normal) var(--verse-ease-out);
+}
+
+.verse-search-recent-item:hover,
+.verse-search-recent-item.focused {
+  color: var(--verse-text-moonlight);
+  background: rgba(124, 58, 237, 0.1);
+  transform: translateX(2px);
+}
+
+.verse-search-recent-item:hover::before,
+.verse-search-recent-item.focused::before {
+  left: 100%;
+}
+
+.verse-search-recent-item:focus-visible {
+  outline: 2px solid var(--verse-purple-magic);
+  outline-offset: -2px;
+}
+
+.verse-search-recent-icon {
+  flex-shrink: 0;
+  font-size: 0.875rem;
+  color: var(--verse-text-wisdom);
+  width: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.verse-search-recent-text {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+  z-index: 1;
+}
+
+.verse-search-recent-action {
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  color: var(--verse-text-wisdom);
+  opacity: 0;
+  transition: opacity var(--verse-duration-normal) var(--verse-ease-out);
+  position: relative;
+  z-index: 1;
+}
+
+.verse-search-recent-item:hover .verse-search-recent-action,
+.verse-search-recent-item.focused .verse-search-recent-action {
+  opacity: 1;
+}
+
+/* =================================================================== */
+/* SEARCH RESULT ITEMS */
+/* =================================================================== */
+
+.verse-search-result-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--verse-space-sm);
+  padding: var(--verse-space-md);
+  border-radius: var(--verse-radius-lg);
+  cursor: pointer;
+  color: var(--verse-text-starlight);
+  font-size: var(--verse-text-sm);
+  transition: all var(--verse-duration-fast) var(--verse-ease-out);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 0.125rem;
+}
+
+.verse-search-result-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--verse-gradient-mystical);
+  opacity: 0.1;
+  transition: left var(--verse-duration-normal) var(--verse-ease-out);
+}
+
+.verse-search-result-item:hover,
+.verse-search-result-item.focused {
+  background: rgba(124, 58, 237, 0.08);
+  transform: translateX(3px);
+}
+
+.verse-search-result-item:hover::before,
+.verse-search-result-item.focused::before {
+  left: 0;
+}
+
+.verse-search-result-item:focus-visible {
+  outline: 2px solid var(--verse-purple-magic);
+  outline-offset: -2px;
+}
+
+.verse-search-result-icon {
+  flex-shrink: 0;
+  font-size: 1rem;
+  color: var(--verse-purple-magic);
+  width: 1.25rem;
+  height: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.125rem;
+  position: relative;
+  z-index: 1;
+}
+
+.verse-search-result-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.verse-search-result-title {
+  font-weight: var(--verse-weight-semibold);
+  color: var(--verse-text-moonlight);
+  line-height: var(--verse-leading-snug);
+  word-break: break-word;
+}
+
+.verse-search-result-title mark {
+  background: rgba(124, 58, 237, 0.3);
+  color: var(--verse-text-moonlight);
+  padding: 0.125rem 0.25rem;
+  border-radius: var(--verse-radius-sm);
+  font-weight: var(--verse-weight-bold);
+}
+
+.verse-search-result-description {
+  font-size: var(--verse-text-xs);
+  color: var(--verse-text-wisdom);
+  line-height: var(--verse-leading-relaxed);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.verse-search-result-description mark {
+  background: rgba(20, 184, 166, 0.2);
+  color: var(--verse-teal-magic);
+  padding: 0.0625rem 0.125rem;
+  border-radius: var(--verse-radius-xs);
+}
+
+.verse-search-result-metadata {
+  display: flex;
+  align-items: center;
+  gap: var(--verse-space-sm);
+  margin-top: 0.125rem;
+}
+
+.verse-search-result-type {
+  font-size: var(--verse-text-xs);
+  color: var(--verse-purple-magic);
+  font-weight: var(--verse-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.verse-search-result-author {
+  font-size: var(--verse-text-xs);
+  color: var(--verse-text-wisdom);
+  opacity: 0.8;
+}
+
+.verse-search-result-action {
+  flex-shrink: 0;
+  font-size: 0.875rem;
+  color: var(--verse-text-wisdom);
+  opacity: 0;
+  transition: all var(--verse-duration-normal) var(--verse-ease-out);
+  margin-top: 0.125rem;
+  position: relative;
+  z-index: 1;
+}
+
+.verse-search-result-item:hover .verse-search-result-action,
+.verse-search-result-item.focused .verse-search-result-action {
+  opacity: 1;
+  transform: translateX(2px);
+}
+
+/* =================================================================== */
+/* SEARCH LOADING STATE */
+/* =================================================================== */
+
+.verse-search-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--verse-space-sm);
+  padding: var(--verse-space-lg);
+  color: var(--verse-text-starlight);
+  font-size: var(--verse-text-sm);
+  font-weight: var(--verse-weight-medium);
+}
+
+/* =================================================================== */
+/* SEARCH EMPTY STATE */
+/* =================================================================== */
+
+.verse-search-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--verse-space-xl) var(--verse-space-lg);
+  text-align: center;
+}
+
+.verse-search-empty-icon {
+  font-size: 2rem;
+  color: var(--verse-text-wisdom);
+  margin-bottom: var(--verse-space-md);
+  opacity: 0.6;
+}
+
+.verse-search-empty-title {
+  font-size: var(--verse-text-base);
+  font-weight: var(--verse-weight-semibold);
+  color: var(--verse-text-starlight);
+  margin-bottom: var(--verse-space-sm);
+}
+
+.verse-search-empty-message {
+  font-size: var(--verse-text-sm);
+  color: var(--verse-text-wisdom);
+  opacity: 0.8;
+  line-height: var(--verse-leading-relaxed);
+  max-width: 20rem;
+}
+
+/* =================================================================== */
+/* MOBILE VARIANT ADJUSTMENTS */
+/* =================================================================== */
+
+.verse-search-bar.variant-mobile .verse-search-input-container {
+  height: 3rem;
+  padding: 0 var(--verse-space-md);
+  background: var(--verse-realm-mist);
+  border: 1px solid var(--verse-border-spell);
+}
+
+.verse-search-bar.variant-mobile .verse-search-input {
+  font-size: var(--verse-text-base);
+}
+
+.verse-search-bar.variant-mobile .verse-search-dropdown {
+  top: calc(100% + 0.25rem);
+  border-radius: var(--verse-radius-lg);
+  max-height: 20rem;
+}
+
+.verse-search-bar.variant-mobile .verse-search-recent-item,
+.verse-search-bar.variant-mobile .verse-search-result-item {
+  padding: var(--verse-space-md) var(--verse-space-lg);
+  min-height: 3rem;
+}
+
+.verse-search-bar.variant-mobile .verse-search-result-icon {
+  font-size: 1.125rem;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* =================================================================== */
+/* RESPONSIVE DESIGN */
+/* =================================================================== */
+
+@media (max-width: 768px) {
+  .verse-search-dropdown {
+    left: -1rem;
+    right: -1rem;
+    max-height: 18rem;
+  }
+
+  .verse-search-result-item {
+    padding: var(--verse-space-sm) var(--verse-space-md);
+  }
+
+  .verse-search-recent-item {
+    padding: var(--verse-space-sm) var(--verse-space-md);
+    min-height: 2.5rem;
+  }
+
+  .verse-search-section-header {
+    padding: var(--verse-space-sm);
+  }
+
+  .verse-search-empty {
+    padding: var(--verse-space-lg) var(--verse-space-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .verse-search-dropdown {
+    left: -0.5rem;
+    right: -0.5rem;
+    max-height: 16rem;
+    border-radius: var(--verse-radius-lg);
+  }
+
+  .verse-search-result-description {
+    -webkit-line-clamp: 1;
+  }
+
+  .verse-search-result-metadata {
+    display: none; /* Hide metadata on very small screens */
+  }
+
+  .verse-search-section-count {
+    font-size: 0.625rem;
+    padding: 0.0625rem 0.375rem;
+  }
+}
+
+/* =================================================================== */
+/* ACCESSIBILITY ENHANCEMENTS */
+/* =================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .verse-search-dropdown,
+  .verse-search-recent-item,
+  .verse-search-result-item,
+  .verse-search-result-action,
+  .verse-search-recent-action {
+    animation: none;
+    transition: none;
+  }
+
+  .verse-search-recent-item::before,
+  .verse-search-result-item::before {
+    transition: none;
+  }
+
+  .verse-search-recent-item:hover,
+  .verse-search-result-item:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .verse-search-dropdown {
+    background: var(--verse-realm-void);
+    border-width: 2px;
+  }
+
+  .verse-search-recent-item,
+  .verse-search-result-item {
+    border: 1px solid transparent;
+  }
+
+  .verse-search-recent-item:hover,
+  .verse-search-recent-item.focused,
+  .verse-search-result-item:hover,
+  .verse-search-result-item.focused {
+    border-color: var(--verse-purple-magic);
+  }
+
+  .verse-search-result-title mark {
+    background: var(--verse-purple-magic);
+    color: var(--verse-text-moonlight);
+    outline: 1px solid var(--verse-text-moonlight);
+  }
+
+  .verse-search-section-header {
+    border-bottom-width: 2px;
+  }
+}
+
+/* =================================================================== */
+/* PRINT STYLES */
+/* =================================================================== */
+
+@media print {
+  .verse-search-dropdown,
+  .verse-search-clear,
+  .verse-search-submit {
+    display: none;
+  }
+
+  .verse-search-input-container {
+    background: white;
+    border-color: black;
+  }
+
+  .verse-search-input {
+    color: black;
+  }
+}
+
+/* =================================================================== */
+/* DARK MODE SPECIFIC ADJUSTMENTS */
+/* =================================================================== */
+
+.verse-search-bar.variant-header.dark-mode .verse-search-input-container {
+  background: rgba(2, 6, 23, 0.7);
+  border-color: rgba(124, 58, 237, 0.3);
+}
+
+.verse-search-bar.variant-header.dark-mode .verse-search-input-container:focus-within {
+  background: rgba(2, 6, 23, 0.9);
+}
+
+/* =================================================================== */
+/* PERFORMANCE OPTIMIZATIONS */
+/* =================================================================== */
+
+.verse-search-dropdown,
+.verse-search-dropdown-content {
+  contain: layout style paint;
+  will-change: transform, opacity;
+}
+
+.verse-search-recent-item,
+.verse-search-result-item {
+  contain: layout style;
+}
+
+/* Force GPU acceleration for smooth animations */
+.verse-search-recent-item,
+.verse-search-result-item,
+.verse-search-result-action,
+.verse-search-recent-action {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}

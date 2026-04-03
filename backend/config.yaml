@@ -1,0 +1,50 @@
+# Application settings
+app:
+  name: "VERSE - Virtual Experience Reactive Story Engine"
+  version: "1.0.0"
+  debug: true
+  host: "127.0.0.1"
+  port: 8000
+
+# Database settings
+database:
+  url: "sqlite:///./verse.db"
+  echo_sql: false
+
+# Security settings
+security:
+  secret_key: "abcd1234"
+  algorithm: "HS256"
+  access_token_expire_minutes: 3600
+
+# AI API settings
+ai:
+  api_key: "sk-bAZPJ7FlhB1b0HVO8wZNTA"
+  model: "azure_ai/genailab-maas-DeepSeek-V3-0324"
+  max_tokens: 1000
+  temperature: 0.1
+  base_url: "https://genailab.tcs.in"
+
+# Story generation settings
+story:
+  max_story_length: 5000
+  max_choices_per_node: 4
+  default_genre: "fantasy"
+  supported_genres:
+    - "fantasy"
+    - "sci-fi"
+    - "mystery"
+    - "romance"
+    - "adventure"
+    - "horror"
+
+# Rate limiting
+rate_limiting:
+  ai_requests_per_minute: 10
+  api_requests_per_minute: 100
+
+# Logging
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "app.log"

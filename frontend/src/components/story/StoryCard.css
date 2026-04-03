@@ -1,0 +1,895 @@
+/**
+ * VERSE Mystical Story Card Styles
+ * Interactive story display with enchanted animations and adaptive layouts
+ */
+
+/* =================================================================== */
+/* STORY CARD FOUNDATION */
+/* =================================================================== */
+
+.verse-story-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(
+    135deg,
+    rgba(30, 41, 59, 0.9) 0%,
+    rgba(51, 65, 85, 0.8) 100%
+  );
+  border: 1px solid var(--verse-border-ward);
+  border-radius: 1em !important;
+  overflow: hidden;
+  transition: all var(--verse-duration-normal) var(--verse-ease-mystical);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 
+    0 4px 20px rgba(15, 23, 42, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.verse-story-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    var(--genre-color, var(--verse-purple-magic)) 0%,
+    transparent 30%
+  );
+  opacity: 0.03;
+  pointer-events: none;
+  transition: opacity var(--verse-duration-normal) var(--verse-ease-out);
+}
+
+.verse-story-card:hover::before {
+  opacity: 0.08;
+}
+
+.verse-story-card.clickable {
+  cursor: pointer;
+}
+
+.verse-story-card.clickable:hover {
+  transform: translateY(-4px);
+  border-color: rgba(var(--genre-color-rgb, 124, 58, 237), 0.4);
+  box-shadow: 
+    0 8px 30px rgba(15, 23, 42, 0.4),
+    0 0 20px rgba(var(--genre-color-rgb, 124, 58, 237), 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.verse-story-card.featured {
+  border-color: var(--verse-gold-magic);
+  background: linear-gradient(
+    135deg,
+    rgba(30, 41, 59, 0.95) 0%,
+    rgba(245, 158, 11, 0.1) 50%,
+    rgba(51, 65, 85, 0.9) 100%
+  );
+}
+
+.verse-story-card.featured::before {
+  background: linear-gradient(
+    135deg,
+    var(--verse-gold-magic) 0%,
+    transparent 50%
+  );
+  opacity: 0.05;
+}
+
+/* =================================================================== */
+/* STORY CARD VARIANTS */
+/* =================================================================== */
+
+.verse-story-card.variant-compact {
+  flex-direction: row;
+  min-height: 120px;
+}
+
+.verse-story-card.variant-compact .verse-story-card-thumbnail {
+  width: 120px;
+  flex-shrink: 0;
+}
+
+.verse-story-card.variant-compact .verse-story-card-body {
+  flex: 1;
+  padding: 1em;
+}
+
+.verse-story-card.variant-detailed {
+  min-height: 400px;
+}
+
+.verse-story-card.variant-library .verse-story-card-thumbnail {
+  height: 180px;
+}
+
+/* =================================================================== */
+/* STORY THUMBNAIL */
+/* =================================================================== */
+
+.verse-story-card-thumbnail {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    rgba(var(--genre-color-rgb, 124, 58, 237), 0.2) 0%,
+    rgba(15, 23, 42, 0.8) 100%
+  );
+}
+
+.verse-story-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--verse-duration-slow) var(--verse-ease-out);
+}
+
+.verse-story-card:hover .verse-story-card-image {
+  transform: scale(1.05);
+}
+
+.verse-story-card-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(var(--genre-color-rgb, 124, 58, 237), 0.3) 0%,
+    rgba(15, 23, 42, 0.9) 100%
+  );
+}
+
+.verse-story-card-placeholder-icon {
+  font-size: 3rem;
+  opacity: 0.7;
+  filter: drop-shadow(0 0 10px rgba(var(--genre-color-rgb, 124, 58, 237), 0.5));
+}
+
+/* =================================================================== */
+/* GENRE BADGE */
+/* =================================================================== */
+
+.verse-story-card-genre-badge {
+  position: absolute;
+  top: var(--verse-space-sm);
+  left: var(--verse-space-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--verse-space-xs);
+  padding: var(--verse-space-xs) var(--verse-space-sm);
+  background: rgba(var(--genre-color-rgb, 124, 58, 237), 0.9);
+  color: var(--verse-text-moonlight);
+  font-size: var(--verse-text-xs);
+  font-weight: var(--verse-weight-semibold);
+  border-radius: var(--verse-radius-lg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.verse-story-card-genre-icon {
+  font-size: 0.875rem;
+}
+
+.verse-story-card-genre-text {
+  line-height: 1;
+}
+
+/* =================================================================== */
+/* STATUS INDICATORS */
+/* =================================================================== */
+
+.verse-story-card-status-indicators {
+  position: absolute;
+  top: var(--verse-space-sm);
+  right: var(--verse-space-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--verse-space-xs);
+  align-items: flex-end;
+}
+
+.verse-story-card-status-badge {
+  display: flex;
+  align-items: center;
+  gap: var(--verse-space-xs);
+  padding: var(--verse-space-xs) var(--verse-space-sm);
+  font-size: var(--verse-text-xs);
+  font-weight: var(--verse-weight-semibold);
+  border-radius: var(--verse-radius-md);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.verse-story-card-status-badge.featured {
+  background: rgba(245, 158, 11, 0.9);
+  color: var(--verse-text-moonlight);
+}
+
+.verse-story-card-status-badge.draft {
+  background: rgba(107, 114, 128, 0.9);
+  color: var(--verse-text-moonlight);
+}
+
+.verse-story-card-status-badge.progress {
+  background: rgba(20, 184, 166, 0.9);
+  color: var(--verse-text-moonlight);
+}
+
+/* =================================================================== */
+/* PLAY OVERLAY */
+/* =================================================================== */
+
+.verse-story-card-play-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.7);
+  opacity: 0;
+  transition: all var(--verse-duration-normal) var(--verse-ease-out);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.verse-story-card:hover .verse-story-card-play-overlay {
+  opacity: 1;
+}
+
+.verse-story-card-play-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  background: rgba(var(--genre-color-rgb, 124, 58, 237), 0.9);
+  color: var(--verse-text-moonlight);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all var(--verse-duration-normal) var(--verse-ease-out);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.verse-story-card-play-button:hover {
+  transform: scale(1.1);
+  background: var(--genre-color, var(--verse-purple-magic));
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 
+    0 12px 35px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(var(--genre-color-rgb, 124, 58, 237), 0.6);
+}
+
+.verse-story-card-play-icon {
+  font-size: 1.5rem;
+  margin-left: 2px; /* Optical centering for play icon */
+}
+
+/* =================================================================== */
+/* STORY CARD BODY */
+/* =================================================================== */
+
+.verse-story-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--verse-space-md);
+  padding: var(--verse-space-lg);
+  flex: 1;
+}
+
+/* =================================================================== */
+/* STORY HEADER */
+/* =================================================================== */
+
+.verse-story-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--verse-space-md);
+}
+
+.verse-story-card-title {
+  font-size: var(--verse-text-lg);
+  font-weight: var(--verse-weight-bold);
+  color: var(--verse-text-moonlight);
+  margin: 0;
+  line-height: var(--verse-leading-tight);
+  flex: 1;
+  min-width: 0;
+  
+  /* Multi-line ellipsis */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.verse-story-card-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--verse-space-sm);
+  flex-shrink: 0;
+}
+
+.verse-story-card-favorite-button,
+.verse-story-card-menu-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--verse-border-ward);
+  border-radius: var(--verse-radius-lg);
+  background: rgba(51, 65, 85, 0.5);
+  color: var(--verse-text-starlight);
+  cursor: pointer;
+  transition: all var(--verse-duration-fast) var(--verse-ease-out);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.verse-story-card-favorite-button:hover,
+.verse-story-card-menu-button:hover {
+  border-color: var(--genre-color, var(--verse-purple-magic));
+  background: rgba(var(--genre-color-rgb, 124, 58, 237), 0.2);
+  color: var(--verse-text-moonlight);
+  transform: scale(1.05);
+}
+
+.verse-story-card-favorite-icon.favorited {
+  color: var(--verse-error-crimson);
+  animation: verseFavoriteHeartbeat 0.6s var(--verse-ease-out);
+}
+
+@keyframes verseFavoriteHeartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+/* =================================================================== */
+/* STORY META */
+/* =================================================================== */
+
+.verse-story-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--verse-space-md);
+  flex-wrap: wrap;
+}
+
+.verse-story-card-author {
+  display: flex;
+  align-items: center;
+  gap: var(--verse-space-sm);
+  padding: var(--verse-space-xs) var(--verse-space-sm);
+  border: none;
+  border-radius: var(--verse-radius-lg);
+  background: rgba(51, 65, 85, 0.3);
+  color: var(--verse-text-starlight);
+  font-size: var(--verse-text-sm);
+  cursor: pointer;
+  transition: all var(--verse-duration-fast) var(--verse-ease-out);
+}
+
+.verse-story-card-author:hover {
+  background: rgba(var(--genre-color-rgb, 124, 58, 237), 0.2);
+  color: var(--verse-text-moonlight);
+  transform: translateX(2px);
+}
+
+.verse-story-card-author-name {
+  font-weight: var(--verse-weight-medium);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120px;
+}
+
+.verse-story-card-verified-badge {
+  color: var(--verse-teal-magic);
+  font-size: 0.875rem;
+  filter: drop-shadow(0 0 4px rgba(20, 184, 166, 0.6));
+}
+
+.verse-story-card-meta-info {
+  display: flex;
+  align-items: center;
+  gap: var(--verse-space-md);
+  font-size: var(--verse-text-xs);
+  color: var(--verse-text-wisdom);
+  flex-wrap: wrap;
+}
+
+.verse-story-card-duration,
+.verse-story-card-difficulty,
+.verse-story-card-updated {
+  display: flex;
+  align-items: center;
+  gap: var(--verse-space-xs);
+  white-space: nowrap;
+}
+
+.verse-story-card-difficulty {
+  color: var(--difficulty-color, var(--verse-text-wisdom));
+}
+
+/* =================================================================== */
+/* STORY CONTENT */
+/* =================================================================== */
+
+.verse-story-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--verse-space-sm);
+  flex: 1;
+}
+
+.verse-story-card-description {
+  font-size: var(--verse-text-sm);
+  color: var(--verse-text-starlight);
+  margin: 0;
+  line-height: var(--verse-leading-relaxed);
+  opacity: 0.9;
+}
+
+.verse-story-card-tags {
+  display: flex;
+  gap: var(--verse-space-xs);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.verse-story-card-tag {
+  padding: var(--verse-space-xs) var(--verse-space-sm);
+  background: rgba(var(--genre-color-rgb, 124, 58, 237), 0.2);
+  color: var(--genre-color, var(--verse-purple-magic));
+  font-size: var(--verse-text-xs);
+  font-weight: var(--verse-weight-medium);
+  border-radius: var(--verse-radius-md);
+  border: 1px solid rgba(var(--genre-color-rgb, 124, 58, 237), 0.3);
+  transition: all var(--verse-duration-fast) var(--verse-ease-out);
+}
+
+.verse-story-card-tag:hover {
+  background: rgba(var(--genre-color-rgb, 124, 58, 237), 0.3);
+  transform: translateY(-1px);
+}
+
+.verse-story-card-tag-more {
+  padding: var(--verse-space-xs) var(--verse-space-sm);
+  background: rgba(107, 114, 128, 0.2);
+  color: var(--verse-text-wisdom);
+  font-size: var(--verse-text-xs);
+  font-weight: var(--verse-weight-medium);
+  border-radius: var(--verse-radius-md);
+  border: 1px solid rgba(107, 114, 128, 0.3);
+}
+
+/* =================================================================== */
+/* PROGRESS TRACKING */
+/* =================================================================== */
+
+.verse-story-card-progress {
+  padding: var(--verse-space-sm);
+  background: rgba(20, 184, 166, 0.1);
+  border: 1px solid rgba(20, 184, 166, 0.3);
+  border-radius: var(--verse-radius-lg);
+}
+
+.verse-story-card-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--verse-space-xs);
+}
+
+.verse-story-card-progress-label {
+  font-size: var(--verse-text-xs);
+  font-weight: var(--verse-weight-medium);
+  color: var(--verse-teal-magic);
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.verse-story-card-progress-percentage {
+  font-size: var(--verse-text-xs);
+  font-weight: var(--verse-weight-bold);
+  color: var(--verse-text-moonlight);
+}
+
+.verse-story-card-progress-bar {
+  height: 4px;
+  background: rgba(20, 184, 166, 0.2);
+  border-radius: var(--verse-radius-full);
+  overflow: hidden;
+}
+
+.verse-story-card-progress-fill {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--verse-teal-magic) 0%,
+    rgba(20, 184, 166, 0.8) 100%
+  );
+  border-radius: var(--verse-radius-full);
+  transition: width var(--verse-duration-slow) var(--verse-ease-out);
+  box-shadow: 0 0 8px rgba(20, 184, 166, 0.6);
+}
+
+.verse-story-card-last-played {
+  font-size: var(--verse-text-xs);
+  color: var(--verse-text-wisdom);
+  opacity: 0.8;
+}
+
+.verse-story-card-last-played-label {
+  font-weight: var(--verse-weight-medium);
+}
+
+.verse-story-card-last-played-time {
+  color: var(--verse-teal-magic);
+}
+
+/* =================================================================== */
+/* STORY STATS */
+/* =================================================================== */
+
+.verse-story-card-stats {
+  display: flex;
+  gap: var(--verse-space-lg);
+  padding: var(--verse-space-sm) 0;
+  border-top: 1px solid var(--verse-border-ward);
+}
+
+.verse-story-card-stat {
+  display: flex;
+  align-items: center;
+  gap: var(--verse-space-xs);
+  font-size: var(--verse-text-sm);
+  color: var(--verse-text-wisdom);
+}
+
+.verse-story-card-stat-icon {
+  font-size: 0.875rem;
+  opacity: 0.8;
+}
+
+.verse-story-card-stat-value {
+  font-weight: var(--verse-weight-medium);
+  color: var(--verse-text-starlight);
+}
+
+/* =================================================================== */
+/* STORY FOOTER */
+/* =================================================================== */
+
+.verse-story-card-footer {
+  display: flex;
+  gap: var(--verse-space-sm);
+  align-items: center;
+  margin-top: auto;
+  padding-top: var(--verse-space-sm);
+}
+
+.verse-story-card-play-action {
+  flex: 1;
+}
+
+.verse-story-card-edit-action {
+  flex-shrink: 0;
+}
+
+/* =================================================================== */
+/* MYSTICAL EFFECTS */
+/* =================================================================== */
+
+.verse-story-card-mystical-glow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  background: radial-gradient(
+    circle,
+    rgba(var(--genre-color-rgb, 124, 58, 237), 0.1) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity var(--verse-duration-slow) var(--verse-ease-out);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.verse-story-card:hover .verse-story-card-mystical-glow {
+  opacity: 1;
+  animation: verseMysticalPulse 3s ease-in-out infinite;
+}
+
+@keyframes verseMysticalPulse {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.1) rotate(180deg);
+    opacity: 0.6;
+  }
+}
+
+/* =================================================================== */
+/* LOADING STATE */
+/* =================================================================== */
+
+.verse-story-card.loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.verse-story-card.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+  animation: verseCardLoading 1.5s linear infinite;
+}
+
+@keyframes verseCardLoading {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+/* =================================================================== */
+/* SKELETON STATE */
+/* =================================================================== */
+
+.verse-story-card-skeleton {
+  display: flex;
+  flex-direction: column;
+  background: rgba(51, 65, 85, 0.3);
+  border: 1px solid var(--verse-border-ward);
+  border-radius: var(--verse-radius-xl);
+  overflow: hidden;
+  animation: verseSkeleton 1.5s ease-in-out infinite;
+}
+
+@keyframes verseSkeleton {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.verse-story-card-skeleton-thumbnail {
+  height: 200px;
+  background: linear-gradient(
+    90deg,
+    rgba(124, 58, 237, 0.1) 0%,
+    rgba(124, 58, 237, 0.2) 50%,
+    rgba(124, 58, 237, 0.1) 100%
+  );
+  background-size: 200% 100%;
+  animation: verseSkeletonShimmer 2s linear infinite;
+}
+
+.verse-story-card-skeleton-content {
+  padding: var(--verse-space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--verse-space-md);
+}
+
+.verse-story-card-skeleton-title,
+.verse-story-card-skeleton-meta,
+.verse-story-card-skeleton-description {
+  background: linear-gradient(
+    90deg,
+    rgba(107, 114, 128, 0.2) 0%,
+    rgba(107, 114, 128, 0.4) 50%,
+    rgba(107, 114, 128, 0.2) 100%
+  );
+  background-size: 200% 100%;
+  animation: verseSkeletonShimmer 2s linear infinite;
+  border-radius: var(--verse-radius-md);
+}
+
+.verse-story-card-skeleton-title {
+  height: 1.5rem;
+  width: 80%;
+}
+
+.verse-story-card-skeleton-meta {
+  height: 1rem;
+  width: 60%;
+}
+
+.verse-story-card-skeleton-description {
+  height: 3rem;
+  width: 100%;
+}
+
+@keyframes verseSkeletonShimmer {
+  from {
+    background-position: -200% 0;
+  }
+  to {
+    background-position: 200% 0;
+  }
+}
+
+/* =================================================================== */
+/* RESPONSIVE DESIGN */
+/* =================================================================== */
+
+@media (max-width: 768px) {
+  .verse-story-card-body {
+    padding: var(--verse-space-md);
+  }
+
+  .verse-story-card-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--verse-space-sm);
+  }
+
+  .verse-story-card-meta-info {
+    flex-wrap: wrap;
+    gap: var(--verse-space-sm);
+  }
+
+  .verse-story-card-stats {
+    gap: var(--verse-space-md);
+  }
+
+  .verse-story-card-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .verse-story-card.variant-compact {
+    flex-direction: column;
+  }
+
+  .verse-story-card.variant-compact .verse-story-card-thumbnail {
+    width: 100%;
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .verse-story-card-thumbnail {
+    height: 150px;
+  }
+
+  .verse-story-card-body {
+    padding: var(--verse-space-sm);
+    gap: var(--verse-space-sm);
+  }
+
+  .verse-story-card-title {
+    font-size: var(--verse-text-base);
+  }
+
+  .verse-story-card-play-button {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .verse-story-card-play-icon {
+    font-size: 1.25rem;
+  }
+
+  .verse-story-card-tags {
+    gap: var(--verse-space-xs);
+  }
+
+  .verse-story-card-tag {
+    font-size: var(--verse-text-xs);
+    padding: var(--verse-space-xs);
+  }
+}
+
+/* =================================================================== */
+/* ACCESSIBILITY */
+/* =================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .verse-story-card,
+  .verse-story-card-image,
+  .verse-story-card-play-button,
+  .verse-story-card-favorite-button,
+  .verse-story-card-menu-button,
+  .verse-story-card-author,
+  .verse-story-card-tag,
+  .verse-story-card-progress-fill,
+  .verse-story-card-mystical-glow {
+    animation: none;
+    transition: none;
+  }
+
+  .verse-story-card:hover,
+  .verse-story-card-play-button:hover,
+  .verse-story-card-favorite-button:hover,
+  .verse-story-card-menu-button:hover,
+  .verse-story-card-author:hover,
+  .verse-story-card-tag:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .verse-story-card {
+    border-width: 2px;
+    border-color: var(--verse-text-moonlight);
+  }
+
+  .verse-story-card-genre-badge,
+  .verse-story-card-status-badge,
+  .verse-story-card-tag {
+    border-width: 2px;
+  }
+
+  .verse-story-card-progress-bar {
+    border: 1px solid var(--verse-text-moonlight);
+  }
+}
+
+/* =================================================================== */
+/* PRINT STYLES */
+/* =================================================================== */
+
+@media print {
+  .verse-story-card {
+    break-inside: avoid;
+    background: white;
+    color: black;
+    border: 1px solid black;
+  }
+
+  .verse-story-card-play-overlay,
+  .verse-story-card-actions,
+  .verse-story-card-footer,
+  .verse-story-card-mystical-glow {
+    display: none;
+  }
+
+  .verse-story-card-thumbnail {
+    height: 150px;
+  }
+}

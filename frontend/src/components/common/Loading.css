@@ -1,0 +1,599 @@
+/**
+ * VERSE Mystical Loading Component Styles
+ * Resolution independent with responsive breakpoints
+ */
+
+/* =================================================================== */
+/* BASE LOADING COMPONENT */
+/* =================================================================== */
+
+.verse-loading-spinner {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* =================================================================== */
+/* SIZE VARIATIONS - RESOLUTION INDEPENDENT */
+/* =================================================================== */
+
+.verse-loading-xs {
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 0.75rem;
+}
+
+.verse-loading-sm {
+  width: 2rem;
+  height: 2rem;
+  font-size: 0.875rem;
+}
+
+.verse-loading-md {
+  width: 3rem;
+  height: 3rem;
+  font-size: 1rem;
+}
+
+.verse-loading-lg {
+  width: 4rem;
+  height: 4rem;
+  font-size: 1.125rem;
+}
+
+.verse-loading-xl {
+  width: 6rem;
+  height: 6rem;
+  font-size: 1.25rem;
+}
+
+/* Responsive size adjustments */
+@media (max-width: 480px) {
+  .verse-loading-lg {
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 1rem;
+  }
+  
+  .verse-loading-xl {
+    width: 5rem;
+    height: 5rem;
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .verse-loading-md {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 0.875rem;
+  }
+  
+  .verse-loading-lg {
+    width: 3rem;
+    height: 3rem;
+    font-size: 0.9375rem;
+  }
+  
+  .verse-loading-xl {
+    width: 4rem;
+    height: 4rem;
+    font-size: 1rem;
+  }
+}
+
+/* =================================================================== */
+/* COLOR THEMES */
+/* =================================================================== */
+
+.verse-loading-primary {
+  --verse-spinner-primary: var(--verse-purple-magic);
+  --verse-spinner-secondary: var(--verse-purple-deep);
+  --verse-spinner-accent: var(--verse-purple-spell);
+  --verse-spinner-glow: var(--verse-glow-purple);
+}
+
+.verse-loading-secondary {
+  --verse-spinner-primary: var(--verse-teal-mystic);
+  --verse-spinner-secondary: var(--verse-teal-depths);
+  --verse-spinner-accent: var(--verse-teal-flow);
+  --verse-spinner-glow: var(--verse-glow-teal);
+}
+
+.verse-loading-accent {
+  --verse-spinner-primary: var(--verse-gold-flame);
+  --verse-spinner-secondary: var(--verse-gold-ember);
+  --verse-spinner-accent: var(--verse-gold-bright);
+  --verse-spinner-glow: var(--verse-glow-gold);
+}
+
+/* =================================================================== */
+/* MYSTICAL ORB SPINNER */
+/* =================================================================== */
+
+.verse-orb-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.verse-orb-core {
+  width: 30%;
+  height: 30%;
+  background: var(--verse-gradient-mystical);
+  border-radius: 50%;
+  box-shadow: var(--verse-spinner-glow);
+  animation: verseOrbPulse 2s ease-in-out infinite;
+}
+
+.verse-orb-ring {
+  position: absolute;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  animation: verseOrbRotate 3s linear infinite;
+}
+
+.verse-orb-ring-1 {
+  width: 60%;
+  height: 60%;
+  border-top-color: var(--verse-spinner-primary);
+  border-right-color: var(--verse-spinner-primary);
+  opacity: 0.8;
+}
+
+.verse-orb-ring-2 {
+  width: 80%;
+  height: 80%;
+  border-bottom-color: var(--verse-spinner-secondary);
+  border-left-color: var(--verse-spinner-secondary);
+  animation-duration: 4s;
+  animation-direction: reverse;
+  opacity: 0.6;
+}
+
+.verse-orb-ring-3 {
+  width: 100%;
+  height: 100%;
+  border-top-color: var(--verse-spinner-accent);
+  border-bottom-color: var(--verse-spinner-accent);
+  animation-duration: 5s;
+  opacity: 0.4;
+}
+
+.verse-orb-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.verse-orb-particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: var(--verse-spinner-primary);
+  border-radius: 50%;
+  opacity: 0;
+  animation: verseOrbParticle 2s ease-in-out infinite;
+}
+
+.verse-orb-particle-1 { top: 10%; left: 50%; animation-delay: 0s; }
+.verse-orb-particle-2 { top: 30%; right: 15%; animation-delay: 0.3s; }
+.verse-orb-particle-3 { bottom: 30%; right: 15%; animation-delay: 0.6s; }
+.verse-orb-particle-4 { bottom: 10%; left: 50%; animation-delay: 0.9s; }
+.verse-orb-particle-5 { bottom: 30%; left: 15%; animation-delay: 1.2s; }
+.verse-orb-particle-6 { top: 30%; left: 15%; animation-delay: 1.5s; }
+
+/* =================================================================== */
+/* SPELL CIRCLE SPINNER */
+/* =================================================================== */
+
+.verse-spell-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.verse-spell-circle {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--verse-spinner-primary);
+  border-radius: 50%;
+  animation: verseSpellRotate 4s linear infinite;
+}
+
+.verse-spell-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 60%;
+  background: var(--verse-gradient-spell);
+  border-radius: 50%;
+  animation: verseSpellPulse 2s ease-in-out infinite;
+}
+
+.verse-spell-symbols {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.verse-spell-symbol {
+  position: absolute;
+  color: var(--verse-spinner-accent);
+  font-size: 1.2em;
+  font-weight: bold;
+  animation: verseSpellSymbol 3s ease-in-out infinite;
+}
+
+.verse-spell-symbol-1 { top: -0.5em; left: 50%; transform: translateX(-50%); animation-delay: 0s; }
+.verse-spell-symbol-2 { top: 15%; right: -0.3em; animation-delay: 0.5s; }
+.verse-spell-symbol-3 { bottom: 15%; right: -0.3em; animation-delay: 1s; }
+.verse-spell-symbol-4 { bottom: -0.5em; left: 50%; transform: translateX(-50%); animation-delay: 1.5s; }
+.verse-spell-symbol-5 { bottom: 15%; left: -0.3em; animation-delay: 2s; }
+.verse-spell-symbol-6 { top: 15%; left: -0.3em; animation-delay: 2.5s; }
+
+/* =================================================================== */
+/* RUNES SPINNER */
+/* =================================================================== */
+
+.verse-runes-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2em;
+  width: 100%;
+  height: 100%;
+}
+
+.verse-rune {
+  color: var(--verse-spinner-primary);
+  font-size: 1.5em;
+  font-weight: bold;
+  animation: verseRuneGlow 1.5s ease-in-out infinite;
+}
+
+.verse-rune-1 { animation-delay: 0s; }
+.verse-rune-2 { animation-delay: 0.3s; }
+.verse-rune-3 { animation-delay: 0.6s; }
+.verse-rune-4 { animation-delay: 0.9s; }
+.verse-rune-5 { animation-delay: 1.2s; }
+
+/* =================================================================== */
+/* PORTAL SPINNER */
+/* =================================================================== */
+
+.verse-portal-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.verse-portal-outer,
+.verse-portal-middle,
+.verse-portal-inner,
+.verse-portal-core {
+  position: absolute;
+  border-radius: 50%;
+  animation: versePortalSpin 6s linear infinite;
+}
+
+.verse-portal-outer {
+  width: 100%;
+  height: 100%;
+  border: 3px solid transparent;
+  border-top-color: var(--verse-spinner-primary);
+  border-bottom-color: var(--verse-spinner-primary);
+  opacity: 0.6;
+}
+
+.verse-portal-middle {
+  width: 75%;
+  height: 75%;
+  border: 2px solid transparent;
+  border-left-color: var(--verse-spinner-secondary);
+  border-right-color: var(--verse-spinner-secondary);
+  animation-duration: 4s;
+  animation-direction: reverse;
+  opacity: 0.7;
+}
+
+.verse-portal-inner {
+  width: 50%;
+  height: 50%;
+  border: 2px solid transparent;
+  border-top-color: var(--verse-spinner-accent);
+  border-bottom-color: var(--verse-spinner-accent);
+  animation-duration: 3s;
+  opacity: 0.8;
+}
+
+.verse-portal-core {
+  width: 25%;
+  height: 25%;
+  background: var(--verse-gradient-mystical);
+  animation: versePortalCore 2s ease-in-out infinite;
+  box-shadow: var(--verse-spinner-glow);
+}
+
+.verse-portal-energy {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.verse-portal-spark {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: var(--verse-spinner-accent);
+  border-radius: 50%;
+  animation: versePortalSpark 3s linear infinite;
+}
+
+.verse-portal-spark-1 { top: 0; left: 50%; animation-delay: 0s; }
+.verse-portal-spark-2 { top: 15%; right: 0; animation-delay: 0.375s; }
+.verse-portal-spark-3 { top: 50%; right: 0; animation-delay: 0.75s; }
+.verse-portal-spark-4 { bottom: 15%; right: 0; animation-delay: 1.125s; }
+.verse-portal-spark-5 { bottom: 0; left: 50%; animation-delay: 1.5s; }
+.verse-portal-spark-6 { bottom: 15%; left: 0; animation-delay: 1.875s; }
+.verse-portal-spark-7 { top: 50%; left: 0; animation-delay: 2.25s; }
+.verse-portal-spark-8 { top: 15%; left: 0; animation-delay: 2.625s; }
+
+/* =================================================================== */
+/* LOADING MESSAGE */
+/* =================================================================== */
+
+.verse-loading-message {
+  margin-top: 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.verse-loading-text {
+  color: var(--verse-text-starlight);
+  font-size: 0.875rem;
+  font-weight: var(--verse-weight-medium);
+  letter-spacing: 0.025em;
+}
+
+.verse-loading-dots {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.verse-dot {
+  color: var(--verse-spinner-primary);
+  font-size: 1.2em;
+  animation: verseDotBounce 1.4s ease-in-out infinite;
+}
+
+.verse-dot-1 { animation-delay: 0s; }
+.verse-dot-2 { animation-delay: 0.2s; }
+.verse-dot-3 { animation-delay: 0.4s; }
+
+/* =================================================================== */
+/* OVERLAY STYLES */
+/* =================================================================== */
+
+.verse-loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: var(--verse-z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: verseFadeIn var(--verse-duration-normal) var(--verse-ease-out);
+}
+
+.verse-loading-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* =================================================================== */
+/* PULSING EFFECT */
+/* =================================================================== */
+
+.verse-loading-pulsing {
+  animation: verseLoadingPulse 2s ease-in-out infinite;
+}
+
+/* =================================================================== */
+/* KEYFRAME ANIMATIONS */
+/* =================================================================== */
+
+@keyframes verseOrbPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes verseOrbRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes verseOrbParticle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes verseSpellRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes verseSpellPulse {
+  0%, 100% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+@keyframes verseSpellSymbol {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes verseRuneGlow {
+  0%, 100% {
+    opacity: 0.4;
+    text-shadow: none;
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 10px var(--verse-spinner-primary);
+  }
+}
+
+@keyframes versePortalSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes versePortalCore {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+@keyframes versePortalSpark {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  25% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  75% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+@keyframes verseDotBounce {
+  0%, 80%, 100% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  40% {
+    transform: scale(1.3);
+    opacity: 1;
+  }
+}
+
+@keyframes verseLoadingPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* =================================================================== */
+/* ACCESSIBILITY & REDUCED MOTION */
+/* =================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .verse-loading-spinner * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+  
+  .verse-loading-pulsing {
+    animation: none;
+    opacity: 0.8;
+  }
+}
+
+/* =================================================================== */
+/* HIGH DPI DISPLAY OPTIMIZATIONS */
+/* =================================================================== */
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .verse-orb-particle,
+  .verse-portal-spark {
+    width: 4px;
+    height: 4px;
+  }
+}
+
+/* =================================================================== */
+/* PRINT STYLES */
+/* =================================================================== */
+
+@media print {
+  .verse-loading-spinner,
+  .verse-loading-overlay {
+    display: none !important;
+  }
+}

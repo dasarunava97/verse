@@ -1,0 +1,666 @@
+/**
+ * VERSE Mystical Notification Panel Styles
+ * Enchanted notification center with mystical animations and theming
+ */
+
+/* =================================================================== */
+/* NOTIFICATION PANEL FOUNDATION */
+/* =================================================================== */
+
+.verse-notification-panel {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  width: 24rem;
+  max-width: calc(100vw - 2rem);
+  background: linear-gradient(145deg, var(--verse-realm-mist) 0%, var(--verse-realm-shadow) 100%);
+  border: 1px solid var(--verse-border-spell);
+  border-radius: var(--verse-radius-xl);
+  box-shadow: 
+    0 20px 40px rgba(15, 23, 42, 0.4),
+    0 0 0 1px rgba(124, 58, 237, 0.1),
+    inset 0 1px 0 rgba(248, 250, 252, 0.05);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  overflow: hidden;
+  animation: verseNotificationPanelAppear 0.3s var(--verse-ease-mystical);
+  z-index: 1000;
+}
+
+@keyframes verseNotificationPanelAppear {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.verse-notification-panel.expanded {
+  max-height: 80vh !important;
+}
+
+.verse-notification-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--verse-gradient-mystical);
+  opacity: 0.02;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* =================================================================== */
+/* NOTIFICATION HEADER */
+/* =================================================================== */
+
+.verse-notification-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--verse-space-lg) var(--verse-space-lg) var(--verse-space-md);
+  border-bottom: 1px solid var(--verse-border-ward);
+  position: relative;
+  z-index: 1;
+}
+
+.verse-notification-header-left {
+  display: flex;
+  align-items: center;
+  gap: var(--verse-space-sm);
+}
+
+.verse-notification-title {
+  color: var(--verse-text-moonlight);
+  font-size: var(--verse-text-lg);
+  font-weight: var(--verse-weight-bold);
+  margin: 0;
+}
+
+.verse-notification-badge {
+  background: var(--verse-error-crimson);
+  color: var(--verse-text-moonlight);
+  font-size: var(--verse-text-xs);
+  font-weight: var(--verse-weight-bold);
+  padding: 0.125rem 0.375rem;
+  border-radius: var(--verse-radius-full);
+  min-width: 1.125rem;
+  height: 1.125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.4);
+}
+
+.verse-notification-header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--verse-space-xs);
+}
+
+.verse-notification-expand,
+.verse-notification-close {
+  background: none;
+  border: none;
+  color: var(--verse-text-starlight);
+  cursor: pointer;
+  padding: var(--verse-space-xs);
+  border-radius: var(--verse-radius-md);
+  transition: all var(--verse-duration-normal) var(--verse-ease-out);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.verse-notification-expand:hover,
+.verse-notification-close:hover {
+  color: var(--verse-purple-magic);
+  background: rgba(124, 58, 237, 0.1);
+}
+
+.verse-notification-expand:focus-visible,
+.verse-notification-close:focus-visible {
+  outline: 2px solid var(--verse-purple-magic);
+  outline-offset: 2px;
+}
+
+/* =================================================================== */
+/* NOTIFICATION FILTERS */
+/* =================================================================== */
+
+.verse-notification-filters {
+  display: flex;
+  gap: 0.125rem;
+  padding: 0 var(--verse-space-lg) var(--verse-space-md);
+  border-bottom: 1px solid var(--verse-border-ward);
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  position: relative;
+  z-index: 1;
+}
+
+.verse-notification-filters::-webkit-scrollbar {
+  display: none;
+}
+
+.verse-notification-filter {
+  display: flex;
+  align-items: center;
+  gap: var(--verse-space-xs);
+  padding: var(--verse-space-xs) var(--verse-space-sm);
+  background: none;
+  border: none;
+  border-radius: var(--verse-radius-lg);
+  cursor: pointer;
+  color: var(--verse-text-starlight);
+  font-size: var(--verse-text-sm);
+  font-weight: var(--verse-weight-medium);
+  transition: all var(--verse-duration-normal) var(--verse-ease-out);
+  white-space: nowrap;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.verse-notification-filter::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--verse-gradient-mystical);
+  opacity: 0;
+  border-radius: inherit;
+  transition: opacity var(--verse-duration-normal) var(--verse-ease-out);
+}
+
+.verse-notification-filter:hover {
+  color: var(--verse-text-moonlight);
+  background: rgba(124, 58, 237, 0.1);
+}
+
+.verse-notification-filter:hover::before {
+  opacity: 0.1;
+}
+
+.verse-notification-filter.active {
+  color: var(--verse-text-moonlight);
+  background: var(--verse-purple-magic);
+  font-weight: var(--verse-weight-bold);
+}
+
+.verse-notification-filter.active::before {
+  opacity: 0.2;
+}
+
+.verse-filter-label {
+  position: relative;
+  z-index: 1;
+}
+
+.verse-filter-count {
+  background: rgba(0, 0, 0, 0.2);
+  color: inherit;
+  font-size: var(--verse-text-xs);
+  font-weight: var(--verse-weight-bold);
+  padding: 0.125rem 0.375rem;
+  border-radius: var(--verse-radius-full);
+  min-width: 1rem;
+  height: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.verse-notification-filter.active .verse-filter-count {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* =================================================================== */
+/* NOTIFICATION CONTENT */
+/* =================================================================== */
+
+.verse-notification-content {
+  max-height: 20rem;
+  overflow-y: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.verse-notification-content::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+.verse-notification-content::-webkit-scrollbar-track {
+  background: rgba(51, 65, 85, 0.1);
+  border-radius: var(--verse-radius-full);
+}
+
+.verse-notification-content::-webkit-scrollbar-thumb {
+  background: rgba(124, 58, 237, 0.3);
+  border-radius: var(--verse-radius-full);
+}
+
+.verse-notification-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(124, 58, 237, 0.5);
+}
+
+.verse-notification-list {
+  padding: var(--verse-space-sm) 0;
+}
+
+/* =================================================================== */
+/* NOTIFICATION GROUPS */
+/* =================================================================== */
+
+.verse-notification-group {
+  margin-bottom: var(--verse-space-md);
+}
+
+.verse-notification-group:last-child {
+  margin-bottom: 0;
+}
+
+.verse-notification-group-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--verse-space-sm) var(--verse-space-lg);
+  border-bottom: 1px solid rgba(124, 58, 237, 0.1);
+  margin-bottom: var(--verse-space-xs);
+}
+
+.verse-notification-group-title {
+  color: var(--verse-text-starlight);
+  font-size: var(--verse-text-sm);
+  font-weight: var(--verse-weight-bold);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.verse-notification-group-count {
+  color: var(--verse-text-wisdom);
+  font-size: var(--verse-text-xs);
+  font-weight: var(--verse-weight-medium);
+  background: rgba(124, 58, 237, 0.1);
+  padding: 0.125rem 0.375rem;
+  border-radius: var(--verse-radius-full);
+}
+
+.verse-notification-group-items {
+  display: flex;
+  flex-direction: column;
+}
+
+/* =================================================================== */
+/* NOTIFICATION ITEMS */
+/* =================================================================== */
+
+.verse-notification-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--verse-space-sm);
+  padding: var(--verse-space-md) var(--verse-space-lg);
+  cursor: pointer;
+  transition: all var(--verse-duration-normal) var(--verse-ease-out);
+  position: relative;
+  overflow: hidden;
+  border-left: 3px solid transparent;
+}
+
+.verse-notification-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--verse-gradient-mystical);
+  opacity: 0;
+  transition: opacity var(--verse-duration-normal) var(--verse-ease-out);
+}
+
+.verse-notification-item:hover {
+  background: rgba(124, 58, 237, 0.05);
+}
+
+.verse-notification-item:hover::before {
+  opacity: 0.05;
+}
+
+.verse-notification-item:focus-visible {
+  outline: 2px solid var(--verse-purple-magic);
+  outline-offset: -2px;
+}
+
+.verse-notification-item.unread {
+  border-left-color: var(--verse-purple-magic);
+  background: rgba(124, 58, 237, 0.03);
+}
+
+.verse-notification-item.unread::before {
+  opacity: 0.03;
+}
+
+/* Notification type colors */
+.verse-notification-item.type-success {
+  border-left-color: var(--verse-teal-magic);
+}
+
+.verse-notification-item.type-error {
+  border-left-color: var(--verse-error-crimson);
+}
+
+.verse-notification-item.type-warning {
+  border-left-color: var(--verse-amber-magic);
+}
+
+.verse-notification-item.type-achievement {
+  border-left-color: #ffd700;
+}
+
+/* Priority styling */
+.verse-notification-item.priority-urgent {
+  border-left-width: 4px;
+  animation: verseNotificationUrgentPulse 2s ease-in-out infinite;
+}
+
+@keyframes verseNotificationUrgentPulse {
+  0%, 100% {
+    border-left-color: var(--verse-error-crimson);
+  }
+  50% {
+    border-left-color: rgba(239, 68, 68, 0.5);
+  }
+}
+
+.verse-notification-item.priority-high {
+  border-left-width: 4px;
+}
+
+/* =================================================================== */
+/* NOTIFICATION ITEM ELEMENTS */
+/* =================================================================== */
+
+.verse-notification-icon {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(124, 58, 237, 0.1);
+  border-radius: var(--verse-radius-lg);
+  color: var(--verse-purple-magic);
+  font-size: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.verse-notification-item.type-success .verse-notification-icon {
+  background: rgba(20, 184, 166, 0.1);
+  color: var(--verse-teal-magic);
+}
+
+.verse-notification-item.type-error .verse-notification-icon {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--verse-error-crimson);
+}
+
+.verse-notification-item.type-warning .verse-notification-icon {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--verse-amber-magic);
+}
+
+.verse-notification-item.type-achievement .verse-notification-icon {
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4a 100%);
+  color: #1a202c;
+  animation: verseAchievementGlow 3s ease-in-out infinite;
+}
+
+@keyframes verseAchievementGlow {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+  }
+}
+
+.verse-notification-content {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.verse-notification-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--verse-space-xs);
+  gap: var(--verse-space-sm);
+}
+
+.verse-notification-title {
+  color: var(--verse-text-moonlight);
+  font-size: var(--verse-text-sm);
+  font-weight: var(--verse-weight-bold);
+  line-height: var(--verse-leading-snug);
+  margin: 0;
+}
+
+.verse-notification-item.unread .verse-notification-title {
+  font-weight: var(--verse-weight-extrabold);
+}
+
+.verse-notification-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--verse-space-xs);
+  flex-shrink: 0;
+}
+
+.verse-notification-time {
+  color: var(--verse-text-wisdom);
+  font-size: var(--verse-text-xs);
+  font-weight: var(--verse-weight-medium);
+  white-space: nowrap;
+}
+
+.verse-notification-mark-read {
+  background: none;
+  border: none;
+  color: var(--verse-text-wisdom);
+  cursor: pointer;
+  padding: 0.125rem;
+  border-radius: var(--verse-radius-sm);
+  transition: all var(--verse-duration-normal) var(--verse-ease-out);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+}
+
+.verse-notification-mark-read:hover {
+  color: var(--verse-purple-magic);
+  background: rgba(124, 58, 237, 0.1);
+}
+
+.verse-notification-message {
+  color: var(--verse-text-starlight);
+  font-size: var(--verse-text-sm);
+  line-height: var(--verse-leading-relaxed);
+  margin: 0 0 var(--verse-space-xs);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.verse-notification-action {
+  margin-top: var(--verse-space-sm);
+}
+
+.verse-notification-unread-indicator {
+  position: absolute;
+  top: 50%;
+  right: var(--verse-space-md);
+  transform: translateY(-50%);
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--verse-purple-magic);
+  border-radius: var(--verse-radius-full);
+  box-shadow: 0 0 8px rgba(124, 58, 237, 0.5);
+  animation: verseUnreadPulse 2s ease-in-out infinite;
+}
+
+@keyframes verseUnreadPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateY(-50%) scale(1.2);
+  }
+}
+
+/* =================================================================== */
+/* EMPTY STATE */
+/* =================================================================== */
+
+.verse-notification-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--verse-space-2xl);
+  text-align: center;
+}
+
+.verse-notification-empty-icon {
+  font-size: 3rem;
+  color: var(--verse-text-wisdom);
+  opacity: 0.5;
+  margin-bottom: var(--verse-space-lg);
+}
+
+.verse-notification-empty-title {
+  color: var(--verse-text-starlight);
+  font-size: var(--verse-text-lg);
+  font-weight: var(--verse-weight-bold);
+  margin: 0 0 var(--verse-space-sm);
+}
+
+.verse-notification-empty-message {
+  color: var(--verse-text-wisdom);
+  font-size: var(--verse-text-sm);
+  line-height: var(--verse-leading-relaxed);
+  margin: 0;
+  max-width: 16rem;
+}
+
+/* =================================================================== */
+/* RESPONSIVE DESIGN */
+/* =================================================================== */
+
+@media (max-width: 768px) {
+  .verse-notification-panel {
+    width: calc(100vw - 1rem);
+    right: 0.5rem;
+    left: 0.5rem;
+    max-height: 70vh;
+  }
+
+  .verse-notification-filters {
+    padding: 0 var(--verse-space-md) var(--verse-space-sm);
+  }
+
+  .verse-notification-item {
+    padding: var(--verse-space-sm) var(--verse-space-md);
+  }
+
+  .verse-notification-header {
+    padding: var(--verse-space-md) var(--verse-space-md) var(--verse-space-sm);
+  }
+
+  .verse-notification-title {
+    font-size: var(--verse-text-base);
+  }
+
+  .verse-notification-icon {
+    width: 1.75rem;
+    height: 1.75rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .verse-notification-panel {
+    width: calc(100vw - 0.5rem);
+    right: 0.25rem;
+    left: 0.25rem;
+  }
+
+  .verse-notification-empty {
+    padding: var(--verse-space-xl);
+  }
+
+  .verse-notification-empty-icon {
+    font-size: 2.5rem;
+  }
+}
+
+/* =================================================================== */
+/* ACCESSIBILITY ENHANCEMENTS */
+/* =================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .verse-notification-panel,
+  .verse-notification-item,
+  .verse-notification-filter,
+  .verse-notification-unread-indicator {
+    animation: none;
+    transition: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .verse-notification-panel {
+    background: var(--verse-realm-void);
+    border-width: 2px;
+  }
+
+  .verse-notification-item {
+    border-left-width: 4px;
+  }
+
+  .verse-notification-item.unread {
+    background: rgba(124, 58, 237, 0.1);
+  }
+
+  .verse-notification-filter.active {
+    border: 2px solid var(--verse-purple-magic);
+  }
+}
+
+/* =================================================================== */
+/* PRINT STYLES */
+/* =================================================================== */
+
+@media print {
+  .verse-notification-panel {
+    display: none;
+  }
+}

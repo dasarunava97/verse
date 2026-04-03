@@ -1,0 +1,1774 @@
+/**
+ * VERSE Mystical Registration Page Styles
+ * Enchanted multi-step registration portal with ethereal animations
+ */
+
+/* =================================================================== */
+/* MYSTICAL REGISTRATION PAGE FOUNDATION */
+/* =================================================================== */
+
+.verse-register-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--verse-realm-void);
+  background-image: 
+    radial-gradient(circle at 25% 20%, rgba(124, 58, 237, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 75% 80%, rgba(20, 184, 166, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 60%, rgba(245, 158, 11, 0.06) 0%, transparent 60%),
+    linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 41, 59, 0.9) 100%);
+  position: relative;
+  overflow: hidden;
+  padding: var(--verse-space-lg);
+}
+
+.verse-register-container {
+  width: 100%;
+  max-width: 42rem;
+  position: relative;
+  z-index: 10;
+}
+
+/* =================================================================== */
+/* MYSTICAL BACKDROP EFFECTS */
+/* =================================================================== */
+
+.verse-register-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.verse-register-orb {
+  position: absolute;
+  border-radius: var(--verse-radius-full);
+  background: var(--verse-gradient-mystical);
+  opacity: 0.08;
+  animation: verseRegistrationFloat 12s ease-in-out infinite;
+  filter: blur(80px);
+}
+
+.verse-register-orb-1 {
+  width: 300px;
+  height: 300px;
+  top: 5%;
+  left: -100px;
+  animation-delay: 0s;
+}
+
+.verse-register-orb-2 {
+  width: 200px;
+  height: 200px;
+  top: 40%;
+  right: -100px;
+  animation-delay: -4s;
+}
+
+.verse-register-orb-3 {
+  width: 150px;
+  height: 150px;
+  bottom: 10%;
+  left: 15%;
+  animation-delay: -8s;
+}
+
+@keyframes verseRegistrationFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+    opacity: 0.08;
+  }
+  25% {
+    transform: translateY(-30px) rotate(90deg) scale(1.1);
+    opacity: 0.12;
+  }
+  50% {
+    transform: translateY(-10px) rotate(180deg) scale(0.9);
+    opacity: 0.06;
+  }
+  75% {
+    transform: translateY(20px) rotate(270deg) scale(1.05);
+    opacity: 0.1;
+  }
+}
+
+/* =================================================================== */
+/* MYSTICAL REGISTRATION CARD */
+/* =================================================================== */
+
+.verse-register-card {
+  background: linear-gradient(145deg, var(--verse-realm-shadow) 0%, var(--verse-realm-mist) 100%);
+  border: 1px solid var(--verse-border-spell);
+  border-radius: var(--verse-radius-3xl);
+  padding: var(--verse-space-2xl);
+  box-shadow: 
+    0 25px 50px rgba(15, 23, 42, 0.6),
+    0 0 0 1px rgba(124, 58, 237, 0.1),
+    inset 0 1px 0 rgba(248, 250, 252, 0.05);
+  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+  position: relative;
+  overflow: hidden;
+  animation: verseRegisterCardAppear 1s var(--verse-ease-mystical);
+}
+
+.verse-register-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--verse-gradient-mystical);
+  opacity: 0.02;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.verse-register-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(124, 58, 237, 0.1) 45deg,
+    transparent 90deg,
+    rgba(20, 184, 166, 0.1) 135deg,
+    transparent 180deg,
+    rgba(245, 158, 11, 0.1) 225deg,
+    transparent 270deg,
+    rgba(124, 58, 237, 0.1) 315deg,
+    transparent 360deg
+  );
+  animation: verseRegisterAura 20s linear infinite;
+  opacity: 0;
+  transition: opacity var(--verse-duration-slow) var(--verse-ease-out);
+  pointer-events: none;
+}
+
+.verse-register-card:hover::after {
+  opacity: 1;
+}
+
+@keyframes verseRegisterCardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes verseRegisterAura {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =================================================================== */
+/* REGISTRATION HEADER ENCHANTMENTS */
+/* =================================================================== */
+
+.verse-register-header {
+  text-align: center;
+  margin-bottom: var(--verse-space-2xl);
+}
+
+.verse-register-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--verse-space-sm);
+  margin-bottom: var(--verse-space-xl);
+  animation: verseRegisterLogoGlow 4s ease-in-out infinite;
+}
+
+.verse-logo-icon {
+  font-size: 2.75rem;
+  color: var(--verse-purple-magic);
+  text-shadow: 0 0 25px rgba(124, 58, 237, 0.6);
+  animation: verseRegisterIconPulse 6s ease-in-out infinite;
+}
+
+.verse-logo-text {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: var(--verse-text-3xl);
+  font-weight: var(--verse-weight-bold);
+  color: var(--verse-text-moonlight);
+  margin: 0;
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 15px rgba(124, 58, 237, 0.4);
+}
+
+@keyframes verseRegisterLogoGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 15px rgba(124, 58, 237, 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 30px rgba(124, 58, 237, 0.8));
+  }
+}
+
+@keyframes verseRegisterIconPulse {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    text-shadow: 0 0 25px rgba(124, 58, 237, 0.6);
+  }
+  25% {
+    transform: scale(1.05) rotate(5deg);
+    text-shadow: 0 0 35px rgba(124, 58, 237, 0.8);
+  }
+  50% {
+    transform: scale(1.1) rotate(0deg);
+    text-shadow: 0 0 40px rgba(124, 58, 237, 1);
+  }
+  75% {
+    transform: scale(1.05) rotate(-5deg);
+    text-shadow: 0 0 35px rgba(124, 58, 237, 0.8);
+  }
+}
+
+.verse-register-title h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: var(--verse-text-2xl);
+  font-weight: var(--verse-weight-bold);
+  color: var(--verse-text-moonlight);
+  margin: 0 0 var(--verse-space-sm);
+  line-height: var(--verse-leading-tight);
+}
+
+.verse-register-title p {
+  color: var(--verse-text-starlight);
+  font-size: var(--verse-text-sm);
+  line-height: var(--verse-leading-relaxed);
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* =================================================================== */
+/* STEP PROGRESS INDICATOR */
+/* =================================================================== */
+
+.verse-register-progress {
+  margin-bottom: var(--verse-space-2xl);
+}
+
+.verse-progress-bar {
+  width: 100%;
+  height: 4px;
+  background: rgba(51, 65, 85, 0.5);
+  border-radius: var(--verse-radius-full);
+  overflow: hidden;
+  margin-bottom: var(--verse-space-lg);
+  position: relative;
+}
+
+.verse-progress-bar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(124, 58, 237, 0.2) 0%,
+    rgba(20, 184, 166, 0.2) 50%,
+    rgba(245, 158, 11, 0.2) 100%
+  );
+  animation: verseProgressShimmer 2s ease-in-out infinite;
+}
+
+.verse-progress-fill {
+  height: 100%;
+  background: var(--verse-gradient-mystical);
+  border-radius: inherit;
+  transition: width var(--verse-duration-slow) var(--verse-ease-out);
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 8px rgba(124, 58, 237, 0.5);
+}
+
+@keyframes verseProgressShimmer {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.verse-progress-steps {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.verse-progress-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--verse-space-xs);
+  flex: 1;
+  position: relative;
+}
+
+.verse-step-number {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--verse-radius-full);
+  background: var(--verse-realm-shadow);
+  border: 2px solid var(--verse-border-ward);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--verse-text-sm);
+  font-weight: var(--verse-weight-bold);
+  color: var(--verse-text-silver);
+  transition: all var(--verse-duration-normal) var(--verse-ease-out);
+  position: relative;
+  z-index: 2;
+}
+
+.verse-progress-step.active .verse-step-number {
+  background: var(--verse-purple-magic);
+  border-color: var(--verse-purple-magic);
+  color: var(--verse-text-moonlight);
+  box-shadow: 0 0 15px rgba(124, 58, 237, 0.5);
+  animation: verseStepActivate 0.5s var(--verse-ease-mystical);
+}
+
+.verse-progress-step.completed .verse-step-number {
+  background: var(--verse-teal-magic);
+  border-color: var(--verse-teal-magic);
+  color: var(--verse-text-moonlight);
+  box-shadow: 0 0 10px rgba(20, 184, 166, 0.4);
+}
+
+@keyframes verseStepActivate {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.5);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px 5px rgba(124, 58, 237, 0.3);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 15px rgba(124, 58, 237, 0.5);
+  }
+}
+
+.verse-step-label {
+  font-size: var(--verse-text-xs);
+  font-weight: var(--verse-weight-medium);
+  color: var(--verse-text-wisdom);
+  text-align: center;
+  transition: color var(--verse-duration-normal) var(--verse-ease-out);
+}
+
+.verse-progress-step.active .verse-step-label {
+  color: var(--verse-purple-magic);
+  font-weight: var(--verse-weight-bold);
+}
+
+.verse-progress-step.completed .verse-step-label {
+  color: var(--verse-teal-magic);
+}
+
+/* =================================================================== */
+/* FORM STEP STYLING */
+/* =================================================================== */
+
+.verse-register-form {
+  position: relative;
+  z-index: 1;
+}
+
+.verse-register-step {
+  animation: verseStepSlide 0.6s var(--verse-ease-mystical);
+}
+
+@keyframes verseStepSlide {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.verse-step-header {
+  text-align: center;
+  margin-bottom: var(--verse-space-xl);
+}
+
+.verse-step-header h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: var(--verse-text-xl);
+  font-weight: var(--verse-weight-bold);
+  color: var(--verse-text-moonlight);
+  margin: 0 0 var(--verse-space-sm);
+  line-height: var(--verse-leading-tight);
+}
+
+.verse-step-header p {
+  color: var(--verse-text-starlight);
+  font-size: var(--verse-text-sm);
+  line-height: var(--verse-leading-relaxed);
+  margin: 0;
+  opacity: 0.9;
+}
+
+.verse-register-fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--verse-space-xl);
+  margin-bottom: var(--verse-space-2xl);
+}
+
+/* =================================================================== */
+/* NAME FIELDS LAYOUT */
+/* =================================================================== */
+
+.verse-name-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--verse-space-md);
+}
+
+/* =================================================================== */
+/* PROFILE TYPE SELECTION */
+/* =================================================================== */
+
+.verse-profile-types {
+  text-align: center;
+}
+
+.verse-profile-types h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: var(--verse-text-lg);
+  font-weight: var(--verse-weight-bold);
+  color: var(--verse-text-moonlight);
+  margin: 0 0 var(--verse-space-xs);
+}
+
+.verse-profile-types p {
+  color: var(--verse-text-starlight);
+  font-size: var(--verse-text-sm);
+  margin: 0 0 var(--verse-space-lg);
+  opacity: 0.9;
+}
+
+.verse-profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--verse-space-md);
+  margin-bottom: var(--verse-space-md);
+}
+
+.verse-profile-card {
+  background: linear-gradient(135deg, var(--verse-realm-mist) 0%, var(--verse-realm-shadow) 100%);
+  border: 2px solid var(--verse-border-ward);
+  border-radius: var(--verse-radius-xl);
+  padding: var(--verse-space-lg);
+  cursor: pointer;
+  transition: all var(--verse-duration-normal) var(--verse-ease-out);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  animation: verseProfileCardAppear 0.8s var(--verse-ease-mystical);
+}
+
+.verse-profile-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--verse-gradient-mystical);
+  opacity: 0;
+  transition: opacity var(--verse-duration-normal) var(--verse-ease-out);
+  border-radius: inherit;
+}
+
+.verse-profile-card:hover {
+  border-color: var(--verse-purple-magic);
+  transform: translateY(-4px);
+  box-shadow: 
+    0 10px 25px rgba(15, 23, 42, 0.3),
+    0 0 20px rgba(124, 58, 237, 0.2);
+}
+
+.verse-profile-card:hover::before {
+  opacity: 0.05;
+}
+
+.verse-profile-card.selected {
+  border: 1px solid white !important;
+  border-radius: 1em !important;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.1) 0%, var(--verse-realm-mist) 100%);
+  box-shadow: 
+    0 8px 20px rgba(15, 23, 42, 0.3),
+    0 0 25px rgba(124, 58, 237, 0.3),
+    inset 0 1px 0 rgba(124, 58, 237, 0.2);
+  transform: translateY(-2px);
+}
+
+.verse-profile-card.selected::before {
+  opacity: 0.1;
+}
+
+@keyframes verseProfileCardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.verse-profile-icon {
+  font-size: 2.5rem;
+  color: var(--verse-purple-magic);
+  margin-bottom: var(--verse-space-md);
+  transition: all var(--verse-duration-normal) var(--verse-ease-out);
+  position: relative;
+  z-index: 1;
+}
+
+.verse-profile-card:hover .verse-profile-icon {
+  transform: scale(1.1);
+  text-shadow: 0 0 15px rgba(124, 58, 237, 0.5);
+}
+
+.verse-profile-card.selected .verse-profile-icon {
+  color: var(--verse-purple-bright);
+  text-shadow: 0 0 20px rgba(124, 58, 237, 0.7);
+  animation: verseProfileIconGlow 2s ease-in-out infinite;
+}
+
+@keyframes verseProfileIconGlow {
+  0%, 100% {
+    text-shadow: 0 0 20px rgba(124, 58, 237, 0.7);
+  }
+  50% {
+    text-shadow: 0 0 30px rgba(124, 58, 237, 1);
+  }
+}
+
+.verse-profile-card h4 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: var(--verse-text-lg);
+  font-weight: var(--verse-weight-bold);
+  color: var(--verse-text-moonlight);
+  margin: 0 0 var(--verse-space-xs);
+  position: relative;
+  z-index: 1;
+}
+
+.verse-profile-card p {
+  color: var(--verse-text-starlight);
+  font-size: var(--verse-text-sm);
+  line-height: var(--verse-leading-relaxed);
+  margin: 0 0 var(--verse-space-md);
+  position: relative;
+  z-index: 1;
+}
+
+.verse-profile-features {
+  list-style: none;
+  margin: 0 0 var(--verse-space-md);
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.verse-profile-features li {
+  display: flex;
+  align-items: center;
+  gap: var(--verse-space-xs);
+  margin-bottom: var(--verse-space-xs);
+  font-size: var(--verse-text-xs);
+  color: var(--verse-text-starlight);
+}
+
+.verse-feature-icon {
+  color: var(--verse-teal-magic);
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+.verse-profile-selector {
+  position: absolute;
+  top: var(--verse-space-md);
+  right: var(--verse-space-md);
+  z-index: 2;
+}
+
+.verse-radio-custom {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid var(--verse-border-spell);
+  border-radius: var(--verse-radius-full);
+  background: var(--verse-realm-shadow);
+  position: relative;
+  transition: all var(--verse-duration-normal) var(--verse-ease-out);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.verse-profile-card:hover .verse-radio-custom {
+  border-color: var(--verse-purple-magic);
+}
+
+.verse-profile-card.selected .verse-radio-custom {
+  border-color: var(--verse-purple-magic);
+  background: var(--verse-purple-magic);
+  box-shadow: 0 0 10px rgba(124, 58, 237, 0.4);
+}
+
+.verse-radio-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: var(--verse-radius-full);
+  background: var(--verse-text-moonlight);
+  animation: verseRadioDotAppear 0.3s var(--verse-ease-mystical);
+}
+
+@keyframes verseRadioDotAppear {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* =================================================================== */
+/* PASSWORD FIELD ENHANCEMENTS */
+/* =================================================================== */
+
+.verse-password-field {
+  position: relative;
+}
+
+.verse-password-toggle {
+  background: none;
+  border: none;
+  color: var(--verse-text-silver);
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: var(--verse-radius-sm);
+  transition: all var(--verse-duration-fast) var(--verse-ease-out);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.verse-password-toggle:hover {
+  color: var(--verse-purple-magic);
+  background: rgba(124, 58, 237, 0.1);
+  transform: scale(1.1);
+}
+
+.verse-password-toggle:focus-visible {
+  outline: 2px solid var(--verse-purple-magic);
+  outline-offset: 2px;
+}
+
+.verse-password-strength {
+  margin-top: var(--verse-space-sm);
+}
+
+/* =================================================================== */
+/* AGREEMENT CHECKBOXES */
+/* =================================================================== */
+
+.verse-register-agreements {
+  display: flex;
+  flex-direction: column;
+  gap: var(--verse-space-md);
+}
+
+.verse-agreement {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--verse-space-sm);
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+
+.verse-agreement input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.verse-checkbox-custom {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  border-radius: 0.2em !important;
+  background: var(--verse-realm-shadow);
+  position: relative;
+  transition: all var(--verse-duration-normal) var(--verse-ease-out);
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+.verse-checkbox-custom::after {
+  content: '';
+  position: absolute;
+  left: 0.25rem;
+  top: 0.125rem;
+  width: 0.375rem;
+  height: 0.625rem;
+  border: solid var(--verse-text-moonlight) !important;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg) scale(0);
+  transition: transform var(--verse-duration-fast) var(--verse-ease-out);
+}
+
+.verse-agreement input:checked + .verse-checkbox-custom {
+  background: var(--verse-purple-magic) !important;
+  border-color: var(--verse-purple-magic) !important;
+  box-shadow: 0 0 10px rgba(124, 58, 237, 0.4);
+}
+
+.verse-agreement input:checked + .verse-checkbox-custom::after {
+  transform: rotate(45deg) scale(1) !important;
+}
+
+.verse-agreement:hover .verse-checkbox-custom {
+  border-color: var(--verse-purple-magic) !important;
+  box-shadow: 0 0 5px rgba(124, 58, 237, 0.2) !important;
+}
+
+.verse-agreement-text {
+  color: var(--verse-text-starlight);
+  font-size: var(--verse-text-sm);
+  line-height: var(--verse-leading-relaxed);
+  flex: 1;
+}
+
+.verse-link-button {
+  background: none;
+  border: none;
+  color: var(--verse-purple-magic);
+  cursor: pointer;
+  text-decoration: underline;
+  font: inherit;
+  padding: 0;
+  transition: color var(--verse-duration-normal) var(--verse-ease-out);
+}
+
+.verse-link-button:hover {
+  color: var(--verse-purple-bright);
+  text-shadow: 0 0 5px rgba(124, 58, 237, 0.4);
+}
+
+/* =================================================================== */
+/* NAVIGATION CONTROLS */
+/* =================================================================== */
+
+.verse-register-navigation {
+  display: flex;
+  align-items: center;
+  gap: var(--verse-space-md);
+  margin-bottom: var(--verse-space-xl);
+}
+
+.verse-nav-spacer {
+  flex: 1;
+}
+
+/* =================================================================== */
+/* ERROR MESSAGING */
+/* =================================================================== */
+
+.verse-register-error {
+  display: flex;
+  align-items: center;
+  gap: var(--verse-space-sm);
+  padding: var(--verse-space-md);
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(239, 68, 68, 0.05) 100%);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: var(--verse-radius-lg);
+  margin-bottom: var(--verse-space-lg);
+  animation: verseRegisterErrorShake 0.4s ease-in-out;
+}
+
+.verse-error-icon {
+  color: var(--verse-error-crimson);
+  font-size: 1.125rem;
+  flex-shrink: 0;
+}
+
+.verse-error-message {
+  color: var(--verse-error-crimson);
+  font-size: var(--verse-text-sm);
+  font-weight: var(--verse-weight-medium);
+  line-height: var(--verse-leading-snug);
+}
+
+.verse-field-error {
+  display: flex;
+  align-items: center;
+  gap: var(--verse-space-xs);
+  margin-top: var(--verse-space-sm);
+  color: var(--verse-error-crimson);
+  font-size: var(--verse-text-xs);
+  font-weight: var(--verse-weight-medium);
+}
+
+.verse-field-error .verse-error-icon {
+  font-size: 0.875rem;
+}
+
+@keyframes verseRegisterErrorShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+/* =================================================================== */
+/* SUCCESS STATE */
+/* =================================================================== */
+
+.verse-register-success {
+  text-align: center;
+  padding: var(--verse-space-2xl) 0;
+  animation: verseSuccessAppear 1s var(--verse-ease-mystical);
+}
+
+.verse-success-animation {
+  margin-bottom: var(--verse-space-xl);
+}
+
+.verse-success-icon {
+  font-size: 4rem;
+  color: var(--verse-purple-magic);
+  animation: verseSuccessIconCelebrate 2s ease-in-out infinite;
+  text-shadow: 0 0 30px rgba(124, 58, 237, 0.8);
+}
+
+@keyframes verseSuccessAppear {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes verseSuccessIconCelebrate {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    text-shadow: 0 0 30px rgba(124, 58, 237, 0.8);
+  }
+  25% {
+    transform: scale(1.1) rotate(5deg);
+    text-shadow: 0 0 40px rgba(124, 58, 237, 1);
+  }
+  50% {
+    transform: scale(1.2) rotate(0deg);
+    text-shadow: 0 0 50px rgba(124, 58, 237, 1.2);
+  }
+  75% {
+    transform: scale(1.1) rotate(-5deg);
+    text-shadow: 0 0 40px rgba(124, 58, 237, 1);
+  }
+}
+
+.verse-register-success h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: var(--verse-text-2xl);
+  font-weight: var(--verse-weight-bold);
+  color: var(--verse-text-moonlight);
+  margin: 0 0 var(--verse-space-md);
+  line-height: var(--verse-leading-tight);
+}
+
+.verse-register-success > p {
+  color: var(--verse-text-starlight);
+  font-size: var(--verse-text-base);
+  line-height: var(--verse-leading-relaxed);
+  margin: 0 0 var(--verse-space-xl);
+}
+
+.verse-verification-notice,
+.verse-auto-login-notice {
+  background: linear-gradient(135deg, rgba(20, 184, 166, 0.1) 0%, rgba(20, 184, 166, 0.05) 100%);
+  border: 1px solid rgba(20, 184, 166, 0.2);
+  border-radius: var(--verse-radius-lg);
+  padding: var(--verse-space-lg);
+  margin-bottom: var(--verse-space-xl);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--verse-space-md);
+  text-align: left;
+}
+
+.verse-notice-icon {
+  color: var(--verse-teal-magic);
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+.verse-verification-notice h4 {
+  color: var(--verse-teal-magic);
+  font-size: var(--verse-text-base);
+  font-weight: var(--verse-weight-bold);
+  margin: 0 0 var(--verse-space-xs);
+}
+
+.verse-verification-notice p,
+.verse-auto-login-notice p {
+  color: var(--verse-text-starlight);
+  font-size: var(--verse-text-sm);
+  line-height: var(--verse-leading-relaxed);
+  margin: 0;
+}
+
+.verse-auto-login-notice {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.1) 0%, rgba(124, 58, 237, 0.05) 100%);
+  border-color: rgba(124, 58, 237, 0.2);
+}
+
+.verse-auto-login-notice .verse-notice-icon {
+  color: var(--verse-purple-magic);
+  animation: spin 1s linear infinite;
+}
+
+.verse-success-actions {
+  margin-top: var(--verse-space-xl);
+}
+
+/* =================================================================== */
+/* LOGIN LINK SECTION */
+/* =================================================================== */
+
+.verse-register-login {
+  text-align: center;
+  margin-top: var(--verse-space-xl);
+  padding-top: var(--verse-space-lg);
+  border-top: 1px solid var(--verse-border-ward);
+}
+
+.verse-register-login p {
+  color: var(--verse-text-starlight);
+  font-size: var(--verse-text-sm);
+  margin: 0 0 var(--verse-space-sm);
+}
+
+.verse-login-link {
+  display: inline-block;
+  color: var(--verse-purple-magic);
+  font-size: var(--verse-text-sm);
+  font-weight: var(--verse-weight-bold);
+  text-decoration: none;
+  padding: var(--verse-space-sm) var(--verse-space-lg);
+  border: 1px solid !important;
+  border-radius: var(--verse-radius-lg);
+  background: rgba(124, 58, 237, 0.1);
+  transition: all var(--verse-duration-normal) var(--verse-ease-out);
+  position: relative;
+  overflow: hidden;
+}
+
+.verse-login-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(124, 58, 237, 0.2) 50%,
+    transparent 100%
+  );
+  transition: left var(--verse-duration-normal) var(--verse-ease-out);
+}
+
+.verse-login-link:hover {
+  color: var(--verse-text-moonlight);
+  background: var(--verse-purple-magic);
+  box-shadow: 0 0 15px rgba(124, 58, 237, 0.4);
+  transform: translateY(-2px);
+}
+
+.verse-login-link:hover::before {
+  left: 100%;
+}
+
+/* =================================================================== */
+/* FOOTER STYLING */
+/* =================================================================== */
+
+.verse-register-footer {
+  margin-top: var(--verse-space-2xl);
+  text-align: center;
+  padding-top: var(--verse-space-xl);
+  border-top: 1px solid var(--verse-border-ward);
+}
+
+.verse-footer-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--verse-space-lg);
+  margin-bottom: var(--verse-space-md);
+  flex-wrap: wrap;
+}
+
+.verse-footer-link {
+  color: var(--verse-text-silver);
+  font-size: var(--verse-text-xs);
+  text-decoration: none;
+  transition: color var(--verse-duration-normal) var(--verse-ease-out);
+}
+
+.verse-footer-link:hover {
+  color: var(--verse-purple-magic);
+}
+
+.verse-footer-copyright {
+  color: var(--verse-text-wisdom);
+  font-size: var(--verse-text-xs);
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* =================================================================== */
+/* RESPONSIVE DESIGN */
+/* =================================================================== */
+
+@media (max-width: 768px) {
+  .verse-register-page {
+    padding: var(--verse-space-md);
+  }
+
+  .verse-register-card {
+    padding: var(--verse-space-xl);
+  }
+
+  .verse-name-fields {
+    grid-template-columns: 1fr;
+    gap: var(--verse-space-md);
+  }
+
+  .verse-profile-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .verse-register-navigation {
+    flex-direction: column;
+    gap: var(--verse-space-sm);
+  }
+
+  .verse-nav-spacer {
+    display: none;
+  }
+
+  .verse-footer-links {
+    flex-direction: column;
+    gap: var(--verse-space-sm);
+  }
+
+  .verse-verification-notice,
+  .verse-auto-login-notice {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .verse-register-container {
+    max-width: 100%;
+  }
+
+  .verse-register-card {
+    padding: var(--verse-space-lg);
+    border-radius: var(--verse-radius-2xl);
+  }
+
+  .verse-logo-text {
+    font-size: var(--verse-text-2xl);
+  }
+
+  .verse-register-title h2 {
+    font-size: var(--verse-text-xl);
+  }
+
+  .verse-step-header h2 {
+    font-size: var(--verse-text-lg);
+  }
+
+  .verse-progress-steps {
+    gap: var(--verse-space-xs);
+  }
+
+  .verse-step-number {
+    width: 2rem;
+    height: 2rem;
+    font-size: var(--verse-text-xs);
+  }
+
+  .verse-step-label {
+    font-size: 0.625rem;
+  }
+
+  .verse-profile-card {
+    padding: var(--verse-space-md);
+  }
+
+  .verse-profile-icon {
+    font-size: 2rem;
+  }
+
+  .verse-register-orb {
+    display: none; /* Hide decorative orbs on very small screens */
+  }
+}
+
+@media (max-width: 360px) {
+  .verse-register-page {
+    padding: var(--verse-space-sm);
+  }
+
+  .verse-register-card {
+    padding: var(--verse-space-md);
+  }
+
+  .verse-register-header {
+    margin-bottom: var(--verse-space-xl);
+  }
+
+  .verse-register-fields {
+    gap: var(--verse-space-lg);
+  }
+}
+
+/* =================================================================== */
+/* ACCESSIBILITY ENHANCEMENTS */
+/* =================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .verse-register-card,
+  .verse-register-orb,
+  .verse-logo-icon,
+  .verse-password-toggle,
+  .verse-checkbox-custom,
+  .verse-login-link,
+  .verse-profile-card,
+  .verse-success-icon,
+  .verse-step-number {
+    animation: none;
+    transition: none;
+  }
+
+  .verse-register-card {
+    opacity: 1;
+    transform: none;
+  }
+
+  .verse-register-card::after {
+    display: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .verse-register-card {
+    background: var(--verse-realm-void);
+    border-width: 2px;
+  }
+
+  .verse-checkbox-custom,
+  .verse-radio-custom {
+    border-width: 3px;
+  }
+
+  .verse-link-button,
+  .verse-login-link {
+    text-decoration: underline;
+  }
+
+  .verse-profile-card {
+    border-width: 3px;
+  }
+}
+
+/* =================================================================== */
+/* PRINT STYLES */
+/* =================================================================== */
+
+@media print {
+  .verse-register-page {
+    background: white;
+    color: black;
+  }
+
+  .verse-register-orb,
+  .verse-register-backdrop {
+    display: none;
+  }
+
+  .verse-register-card {
+    background: white;
+    border: 1px solid black;
+    box-shadow: none;
+  }
+
+  .verse-register-card::before,
+  .verse-register-card::after {
+    display: none;
+  }
+}
+
+/* =================================================================== */
+/* MODAL CONTENT STYLES */
+/* =================================================================== */
+
+.verse-terms-content,
+.verse-privacy-content {
+  max-height: 60vh;
+  overflow-y: auto;
+  padding: var(--verse-space-md);
+  color: var(--verse-text-starlight);
+  line-height: var(--verse-leading-relaxed);
+}
+
+.verse-terms-content p,
+.verse-privacy-content p {
+  margin-bottom: var(--verse-space-md);
+}
+
+.verse-terms-content h3,
+.verse-privacy-content h3 {
+  color: var(--verse-text-moonlight);
+  font-weight: var(--verse-weight-bold);
+  margin: var(--verse-space-lg) 0 var(--verse-space-sm);
+}
+
+.verse-terms-content h3:first-child,
+.verse-privacy-content h3:first-child {
+  margin-top: 0;
+}
+
+/* Add these overrides at the very top of your Register.css file */
+
+/* =================================================================== */
+/* COMPACT SPACING OVERRIDES - REGISTER PAGE */
+/* =================================================================== */
+
+.verse-register-card {
+  padding: 1.5rem !important; /* Reduced from 2xl */
+}
+
+.verse-register-header {
+  margin-bottom: 1.5rem !important; /* Reduced from 2xl */
+}
+
+.verse-register-logo {
+  margin-bottom: 1rem !important; /* Reduced from xl */
+}
+
+.verse-register-progress {
+  margin-bottom: 1.5rem !important; /* Reduced from 2xl */
+}
+
+.verse-progress-bar {
+  margin-bottom: 0.75rem !important; /* Reduced from lg */
+}
+
+.verse-step-header {
+  margin-bottom: 1rem !important; /* Reduced from xl */
+}
+
+.verse-register-fields {
+  gap: 0.75rem !important; /* Reduced from xl */
+  margin-bottom: 1.5rem !important; /* Reduced from 2xl */
+}
+
+.verse-name-fields {
+  gap: 0.5rem !important; /* Reduced from md */
+}
+
+.verse-profile-grid {
+  gap: 0.5rem !important; /* Reduced from md */
+  margin-bottom: 0.5rem !important; /* Reduced from md */
+}
+
+.verse-profile-card {
+  padding: 0.75rem !important; /* Reduced from lg */
+}
+
+.verse-profile-icon {
+  margin-bottom: 0.5rem !important; /* Reduced from md */
+}
+
+.verse-profile-features {
+  margin: 0 0 0.5rem !important; /* Reduced from md */
+}
+
+.verse-profile-features li {
+  margin-bottom: 0.25rem !important; /* Reduced from xs */
+}
+
+.verse-register-agreements {
+  gap: 0.5rem !important; /* Reduced from md */
+}
+
+.verse-agreement {
+  gap: 0.375rem !important; /* Reduced from sm */
+}
+
+.verse-register-navigation {
+  gap: 0.5rem !important; /* Reduced from md */
+  margin-bottom: 1rem !important; /* Reduced from xl */
+}
+
+.verse-register-error {
+  padding: 0.5rem !important; /* Reduced from md */
+  margin-bottom: 0.75rem !important; /* Reduced from lg */
+}
+
+.verse-field-error {
+  gap: 0.25rem !important; /* Reduced from xs */
+  margin-top: 0.375rem !important; /* Reduced from sm */
+}
+
+.verse-register-success {
+  padding: 1.5rem 0 !important; /* Reduced from 2xl */
+}
+
+.verse-success-animation {
+  margin-bottom: 1rem !important; /* Reduced from xl */
+}
+
+.verse-verification-notice,
+.verse-auto-login-notice {
+  padding: 0.75rem !important; /* Reduced from lg */
+  margin-bottom: 1rem !important; /* Reduced from xl */
+  gap: 0.5rem !important; /* Reduced from md */
+}
+
+.verse-success-actions {
+  margin-top: 1rem !important; /* Reduced from xl */
+}
+
+.verse-register-login {
+  margin-top: 1rem !important; /* Reduced from xl */
+  padding-top: 0.75rem !important; /* Reduced from lg */
+}
+
+.verse-register-login p {
+  margin: 0 0 0.375rem !important; /* Reduced from sm */
+}
+
+.verse-login-link {
+  padding: 0.375rem 0.75rem !important; /* Reduced from sm lg */
+}
+
+.verse-register-footer {
+  margin-top: 1.5rem !important; /* Reduced from 2xl */
+  padding-top: 1rem !important; /* Reduced from xl */
+}
+
+.verse-footer-links {
+  gap: 0.75rem !important; /* Reduced from lg */
+  margin-bottom: 0.5rem !important; /* Reduced from md */
+}
+
+/* Form inputs and buttons height reduction */
+.verse-input-mystical input,
+.verse-input-mystical textarea,
+.verse-input-mystical select {
+  padding: 0.75rem 1rem !important;
+  min-height: 2.5rem !important;
+}
+
+.verse-button-mystical {
+  padding: 0.75rem 1.5rem !important;
+  min-height: 2.5rem !important;
+}
+
+/* Step progress adjustments */
+.verse-step-number {
+  width: 2rem !important;
+  height: 2rem !important;
+}
+
+.verse-progress-step {
+  gap: 0.25rem !important;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .verse-register-card {
+    padding: 1rem !important;
+  }
+
+  .verse-register-header {
+    margin-bottom: 1rem !important;
+  }
+
+  .verse-register-navigation {
+    gap: 0.375rem !important;
+  }
+
+  .verse-footer-links {
+    gap: 0.5rem !important;
+  }
+
+  .verse-verification-notice,
+  .verse-auto-login-notice {
+    padding: 0.5rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .verse-register-card {
+    padding: 0.75rem !important;
+  }
+
+  .verse-profile-card {
+    padding: 0.5rem !important;
+  }
+
+  .verse-register-fields {
+    gap: 0.5rem !important;
+  }
+
+  .verse-step-number {
+    width: 1.75rem !important;
+    height: 1.75rem !important;
+  }
+
+  .verse-input-mystical input,
+  .verse-input-mystical textarea,
+  .verse-input-mystical select {
+    padding: 0.5rem 0.75rem !important;
+    min-height: 2.25rem !important;
+  }
+
+  .verse-button-mystical {
+    padding: 0.5rem 1rem !important;
+    min-height: 2.25rem !important;
+  }
+}
+
+/* Add these fixes at the very top of your Register.css file */
+
+/* =================================================================== */
+/* CHECKBOX ALIGNMENT AND FUNCTIONALITY FIXES */
+/* =================================================================== */
+
+.verse-agreement {
+  display: flex !important;
+  align-items: center !important; /* Changed from flex-start to center */
+  gap: 0.75rem !important;
+  cursor: pointer !important;
+  user-select: none !important;
+  position: relative !important;
+  padding: 0.5rem 0 !important; /* Added padding for better click area */
+}
+
+.verse-agreement input[type="checkbox"] {
+  position: absolute !important;
+  opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+  pointer-events: none !important; /* Ensure it doesn't interfere */
+}
+
+.verse-checkbox-custom {
+  width: 1.25rem !important;
+  height: 1.25rem !important;
+  border: 2px solid rgba(255, 255, 255, 0.5) !important;
+  border-radius: 0.25rem !important;
+  background: #1e293b !important; /* Dark background */
+  position: relative !important;
+  transition: all 0.3s ease !important;
+  flex-shrink: 0 !important;
+  margin-top: 0 !important; /* Remove margin-top to center align */
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.verse-checkbox-custom::after {
+  content: '✓' !important; /* Use actual checkmark character */
+  position: absolute !important;
+  color: #ffffff !important;
+  font-size: 0.875rem !important;
+  font-weight: bold !important;
+  opacity: 0 !important;
+  transform: scale(0) !important;
+  transition: all 0.2s ease !important;
+  line-height: 1 !important;
+}
+
+.verse-agreement input:checked + .verse-checkbox-custom {
+  background: #8b5cf6 !important; /* Purple background when checked */
+  border-color: #8b5cf6 !important;
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.4) !important;
+}
+
+.verse-agreement input:checked + .verse-checkbox-custom::after {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+}
+
+.verse-agreement:hover .verse-checkbox-custom {
+  border-color: #8b5cf6 !important;
+  box-shadow: 0 0 5px rgba(139, 92, 246, 0.2) !important;
+}
+
+.verse-agreement-text {
+  color: #e2e8f0 !important;
+  font-size: 0.875rem !important;
+  line-height: 1.5 !important;
+  flex: 1 !important;
+  margin: 0 !important; /* Remove any margin */
+  padding: 0 !important; /* Remove any padding */
+}
+
+.verse-link-button {
+  background: none !important;
+  border: none !important;
+  color: #8b5cf6 !important;
+  cursor: pointer !important;
+  text-decoration: underline !important;
+  font: inherit !important;
+  padding: 0 !important;
+  transition: color 0.3s ease !important;
+  display: inline !important;
+}
+
+.verse-link-button:hover {
+  color: #a78bfa !important;
+  text-shadow: 0 0 5px rgba(139, 92, 246, 0.4) !important;
+}
+
+.verse-link-button:focus {
+  outline: 2px solid #8b5cf6 !important;
+  outline-offset: 2px !important;
+  border-radius: 0.25rem !important;
+}
+
+/* Fix the register agreements container */
+.verse-register-agreements {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1rem !important;
+  margin-top: 1rem !important;
+}
+
+/* Ensure proper spacing for error messages */
+.verse-field-error {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  margin-top: 0.5rem !important;
+  color: #ef4444 !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+}
+
+.verse-field-error .verse-error-icon {
+  font-size: 0.875rem !important;
+  flex-shrink: 0 !important;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .verse-agreement {
+    gap: 0.5rem !important;
+    padding: 0.75rem 0 !important;
+  }
+
+  .verse-checkbox-custom {
+    width: 1.125rem !important;
+    height: 1.125rem !important;
+  }
+
+  .verse-checkbox-custom::after {
+    font-size: 0.75rem !important;
+  }
+
+  .verse-agreement-text {
+    font-size: 0.8125rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .verse-agreement {
+    gap: 0.375rem !important;
+    padding: 0.5rem 0 !important;
+  }
+
+  .verse-checkbox-custom {
+    width: 1rem !important;
+    height: 1rem !important;
+  }
+
+  .verse-checkbox-custom::after {
+    font-size: 0.6875rem !important;
+  }
+
+  .verse-agreement-text {
+    font-size: 0.75rem !important;
+    line-height: 1.4 !important;
+  }
+}
+
+/* Replace the register logo styles in Register.css with this: */
+
+/* =================================================================== */
+/* REGISTER LOGO ENCHANTMENTS */
+/* =================================================================== */
+
+.verse-register-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem !important;
+  margin-bottom: 2rem !important;
+  padding: 1.5rem 0 !important;
+  animation: verseRegisterLogoGlow 4s ease-in-out infinite;
+}
+
+@keyframes verseRegisterLogoGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 35px rgba(139, 92, 246, 0.7));
+  }
+}
+
+.verse-register-logo .verse-logo-icon {
+  font-size: 3rem !important;
+  color: #8b5cf6 !important;
+  text-shadow: 0 0 25px rgba(139, 92, 246, 0.6) !important;
+  animation: verseRegisterIconPulse 6s ease-in-out infinite !important;
+}
+
+@keyframes verseRegisterIconPulse {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    text-shadow: 0 0 25px rgba(139, 92, 246, 0.6);
+  }
+  25% {
+    transform: scale(1.05) rotate(5deg);
+    text-shadow: 0 0 35px rgba(139, 92, 246, 0.8);
+  }
+  50% {
+    transform: scale(1.1) rotate(0deg);
+    text-shadow: 0 0 40px rgba(139, 92, 246, 1);
+  }
+  75% {
+    transform: scale(1.05) rotate(-5deg);
+    text-shadow: 0 0 35px rgba(139, 92, 246, 0.8);
+  }
+}
+
+.verse-register-logo .verse-logo-text {
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+  font-size: 2.5rem !important;
+  font-weight: 900 !important;
+  color: #ffffff !important;
+  margin: 0 !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0.1em !important;
+  background: linear-gradient(135deg, #8b5cf6, #14b8a6, #f59e0b) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  text-shadow: 0 0 30px rgba(139, 92, 246, 0.5) !important;
+  animation: verseRegisterTextShimmer 8s ease-in-out infinite !important;
+}
+
+@keyframes verseRegisterTextShimmer {
+  0%, 100% {
+    text-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
+  }
+  25% {
+    text-shadow: 0 0 35px rgba(20, 184, 166, 0.6);
+  }
+  50% {
+    text-shadow: 0 0 40px rgba(245, 158, 11, 0.7);
+  }
+  75% {
+    text-shadow: 0 0 35px rgba(139, 92, 246, 0.8);
+  }
+}
+
+/* Mobile responsive for register */
+@media (max-width: 768px) {
+  .verse-register-logo {
+    gap: 0.5rem !important;
+    padding: 1rem 0 !important;
+  }
+
+  .verse-register-logo .verse-logo-text {
+    font-size: 2rem !important;
+  }
+
+  .verse-register-logo .verse-logo-icon {
+    font-size: 2.5rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .verse-register-logo .verse-logo-text {
+    font-size: 1.75rem !important;
+  }
+
+  .verse-register-logo .verse-logo-icon {
+    font-size: 2rem !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .verse-register-logo .verse-logo-text {
+    font-size: 1.5rem !important;
+  }
+
+  .verse-register-logo .verse-logo-icon {
+    font-size: 1.75rem !important;
+  }
+}

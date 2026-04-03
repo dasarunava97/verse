@@ -1,0 +1,504 @@
+/**
+ * VERSE Mystical User Avatar Styles
+ * Enchanted user avatar with status indicators and mystical effects
+ */
+
+/* =================================================================== */
+/* AVATAR FOUNDATION */
+/* =================================================================== */
+
+.verse-avatar {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: var(--verse-radius-full);
+  background: var(--verse-realm-shadow);
+  border: 2px solid var(--verse-border-ward);
+  transition: all var(--verse-duration-normal) var(--verse-ease-out);
+  overflow: hidden;
+}
+
+.verse-avatar-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =================================================================== */
+/* AVATAR VARIANTS */
+/* =================================================================== */
+
+.verse-avatar.variant-default {
+  border-color: var(--verse-border-ward);
+}
+
+.verse-avatar.variant-mystical {
+  border-color: var(--verse-purple-magic);
+  box-shadow: 0 0 15px rgba(124, 58, 237, 0.3);
+}
+
+.verse-avatar.variant-glowing {
+  border-color: var(--verse-teal-magic);
+  box-shadow: 
+    0 0 20px rgba(20, 184, 166, 0.4),
+    inset 0 1px 0 rgba(20, 184, 166, 0.2);
+}
+
+.verse-avatar.variant-ethereal {
+  border: 2px solid transparent;
+  background: linear-gradient(var(--verse-realm-shadow), var(--verse-realm-shadow)) padding-box,
+              var(--verse-gradient-mystical) border-box;
+  box-shadow: 0 0 25px rgba(124, 58, 237, 0.5);
+}
+
+/* =================================================================== */
+/* CLICKABLE AVATAR */
+/* =================================================================== */
+
+.verse-avatar.clickable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.verse-avatar.clickable:hover {
+  transform: scale(1.05);
+  border-color: var(--verse-purple-magic);
+  box-shadow: 
+    0 8px 25px rgba(15, 23, 42, 0.3),
+    0 0 20px rgba(124, 58, 237, 0.4);
+}
+
+.verse-avatar.clickable:focus-visible {
+  outline: 2px solid var(--verse-purple-magic);
+  outline-offset: 2px;
+}
+
+.verse-avatar.clickable:active {
+  transform: scale(0.98);
+}
+
+/* =================================================================== */
+/* AVATAR SIZES */
+/* =================================================================== */
+
+.verse-avatar.size-xs {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-width: 1px;
+}
+
+.verse-avatar.size-sm {
+  width: 2rem;
+  height: 2rem;
+  border-width: 1.5px;
+}
+
+.verse-avatar.size-md {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-width: 2px;
+}
+
+.verse-avatar.size-lg {
+  width: 3rem;
+  height: 3rem;
+  border-width: 2px;
+}
+
+.verse-avatar.size-xl {
+  width: 4rem;
+  height: 4rem;
+  border-width: 3px;
+}
+
+.verse-avatar.size-2xl {
+  width: 5rem;
+  height: 5rem;
+  border-width: 3px;
+}
+
+/* =================================================================== */
+/* AVATAR IMAGE */
+/* =================================================================== */
+
+.verse-avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  transition: all var(--verse-duration-normal) var(--verse-ease-out);
+}
+
+.verse-avatar.clickable:hover .verse-avatar-image {
+  filter: brightness(1.1) saturate(1.2);
+}
+
+/* =================================================================== */
+/* AVATAR INITIALS */
+/* =================================================================== */
+
+.verse-avatar-initials {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: inherit;
+  position: relative;
+}
+
+.verse-avatar-initials::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.verse-avatar-text {
+  color: var(--verse-text-moonlight);
+  font-weight: var(--verse-weight-bold);
+  font-family: 'Inter', sans-serif;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+/* =================================================================== */
+/* LOADING STATE */
+/* =================================================================== */
+
+.verse-avatar.loading .verse-avatar-container {
+  opacity: 0.7;
+}
+
+.verse-avatar-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.8);
+  border-radius: inherit;
+  z-index: 2;
+}
+
+.verse-avatar-spinner {
+  width: 40%;
+  height: 40%;
+  border: 2px solid rgba(124, 58, 237, 0.3);
+  border-top: 2px solid var(--verse-purple-magic);
+  border-radius: var(--verse-radius-full);
+  animation: verseAvatarSpin 1s linear infinite;
+}
+
+@keyframes verseAvatarSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =================================================================== */
+/* STATUS INDICATOR */
+/* =================================================================== */
+
+.verse-avatar-status {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: var(--verse-radius-full);
+  border: 2px solid var(--verse-realm-shadow);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  z-index: 3;
+  animation: verseStatusPulse 2s ease-in-out infinite;
+}
+
+@keyframes verseStatusPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.verse-avatar-status.online {
+  background-color: #10b981;
+  box-shadow: 
+    0 0 8px rgba(0, 0, 0, 0.3),
+    0 0 12px rgba(16, 185, 129, 0.4);
+}
+
+.verse-avatar-status.away {
+  background-color: #f59e0b;
+  box-shadow: 
+    0 0 8px rgba(0, 0, 0, 0.3),
+    0 0 12px rgba(245, 158, 11, 0.4);
+}
+
+.verse-avatar-status.busy {
+  background-color: #ef4444;
+  box-shadow: 
+    0 0 8px rgba(0, 0, 0, 0.3),
+    0 0 12px rgba(239, 68, 68, 0.4);
+}
+
+.verse-avatar-status.offline {
+  background-color: #6b7280;
+  animation: none;
+}
+
+/* =================================================================== */
+/* PROFILE TYPE BADGE */
+/* =================================================================== */
+
+.verse-avatar-badge {
+  position: absolute;
+  top: -0.25rem;
+  right: -0.25rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: var(--verse-radius-full);
+  background: var(--verse-purple-magic);
+  border: 2px solid var(--verse-realm-shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.4);
+}
+
+.verse-avatar-badge-icon {
+  color: var(--verse-text-moonlight);
+  font-size: 0.5rem;
+  line-height: 1;
+}
+
+.verse-avatar-badge.author {
+  background: var(--verse-purple-magic);
+}
+
+.verse-avatar-badge.reader {
+  background: var(--verse-teal-magic);
+}
+
+.verse-avatar-badge.editor {
+  background: var(--verse-amber-magic);
+}
+
+.verse-avatar-badge.moderator {
+  background: linear-gradient(135deg, var(--verse-purple-magic) 0%, var(--verse-teal-magic) 100%);
+  animation: verseBadgeShimmer 3s ease-in-out infinite;
+}
+
+.verse-avatar-badge.admin {
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4a 50%, #ffd700 100%);
+  color: #1a202c;
+  animation: verseBadgeGlow 2s ease-in-out infinite;
+}
+
+@keyframes verseBadgeShimmer {
+  0%, 100% {
+    background: linear-gradient(135deg, var(--verse-purple-magic) 0%, var(--verse-teal-magic) 100%);
+  }
+  50% {
+    background: linear-gradient(135deg, var(--verse-teal-magic) 0%, var(--verse-purple-magic) 100%);
+  }
+}
+
+@keyframes verseBadgeGlow {
+  0%, 100% {
+    box-shadow: 0 2px 8px rgba(255, 215, 0, 0.4);
+  }
+  50% {
+    box-shadow: 
+      0 2px 8px rgba(255, 215, 0, 0.6),
+      0 0 15px rgba(255, 215, 0, 0.3);
+  }
+}
+
+/* =================================================================== */
+/* MYSTICAL AURA EFFECT */
+/* =================================================================== */
+
+.verse-avatar-aura {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: var(--verse-radius-full);
+  background: conic-gradient(
+    from 0deg,
+    var(--verse-purple-magic) 0deg,
+    var(--verse-teal-magic) 120deg,
+    var(--verse-amber-magic) 240deg,
+    var(--verse-purple-magic) 360deg
+  );
+  opacity: 0.3;
+  animation: verseAuraRotate 4s linear infinite;
+  z-index: -1;
+  filter: blur(2px);
+}
+
+@keyframes verseAuraRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.verse-avatar.variant-mystical .verse-avatar-aura,
+.verse-avatar.variant-glowing .verse-avatar-aura,
+.verse-avatar.variant-ethereal .verse-avatar-aura {
+  opacity: 0.5;
+}
+
+/* =================================================================== */
+/* STATUS-BASED AVATAR STYLING */
+/* =================================================================== */
+
+.verse-avatar.status-online {
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.verse-avatar.status-away {
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+.verse-avatar.status-busy {
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.verse-avatar.status-offline {
+  opacity: 0.8;
+  filter: grayscale(0.2);
+}
+
+/* =================================================================== */
+/* RESPONSIVE DESIGN */
+/* =================================================================== */
+
+@media (max-width: 768px) {
+  .verse-avatar.clickable:hover {
+    transform: none; /* Disable hover transform on mobile */
+  }
+
+  .verse-avatar-badge {
+    width: 0.875rem;
+    height: 0.875rem;
+  }
+
+  .verse-avatar-badge-icon {
+    font-size: 0.4375rem;
+  }
+
+  .verse-avatar-status {
+    border-width: 1.5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .verse-avatar.size-xs {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .verse-avatar.size-sm {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+
+  .verse-avatar.size-md {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+
+  .verse-avatar-aura {
+    display: none; /* Hide aura on small screens for performance */
+  }
+}
+
+/* =================================================================== */
+/* ACCESSIBILITY ENHANCEMENTS */
+/* =================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .verse-avatar,
+  .verse-avatar-status,
+  .verse-avatar-badge,
+  .verse-avatar-aura,
+  .verse-avatar-spinner {
+    animation: none;
+    transition: none;
+  }
+
+  .verse-avatar.clickable:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .verse-avatar {
+    border-width: 3px;
+    border-color: var(--verse-text-moonlight);
+  }
+
+  .verse-avatar-status {
+    border-width: 3px;
+    border-color: var(--verse-realm-void);
+  }
+
+  .verse-avatar-badge {
+    border-width: 3px;
+    border-color: var(--verse-realm-void);
+  }
+
+  .verse-avatar-initials::before {
+    background: rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* =================================================================== */
+/* PRINT STYLES */
+/* =================================================================== */
+
+@media print {
+  .verse-avatar {
+    border-color: black;
+    box-shadow: none;
+  }
+
+  .verse-avatar-aura,
+  .verse-avatar-status {
+    display: none;
+  }
+
+  .verse-avatar-badge {
+    background: black;
+    color: white;
+  }
+}
